@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-magic: hsl(var(--magic));
+  --color-magic-foreground: hsl(var(--magic-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-border: hsl(var(--border));
+  --color-ring: hsl(var(--ring));
+  --color-cream: hsl(var(--cream));
+  --color-deep: hsl(var(--deep));
+  --radius: var(--radius);
+
+  --font-sans: var(--font-open-sans), "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-khand), "Khand", "Oswald", "Bebas Neue", system-ui, sans-serif;
+  --font-script: var(--font-cinzel), "Cinzel", "Trajan Pro", serif;
+
+  --animate-fade-up: fade-up 0.7s ease-out both;
+  --animate-fade-up-delay-1: fade-up 0.7s ease-out 0.15s both;
+  --animate-fade-up-delay-2: fade-up 0.7s ease-out 0.3s both;
+  --animate-fade-up-delay-3: fade-up 0.7s ease-out 0.45s both;
+  --animate-fade-up-delay-4: fade-up 0.7s ease-out 0.6s both;
+  --animate-fade-in: fade-in 0.7s ease-out both;
+  --animate-scale-in: scale-in 0.6s ease-out both;
+  --animate-slide-right: slide-right 0.7s ease-out both;
+  --animate-marquee: marquee 28s linear infinite;
+  --animate-float: float 4s ease-in-out infinite;
+  --animate-float-slow: float-slow 6s ease-in-out infinite;
+  --animate-sparkle: sparkle 2.4s ease-in-out infinite;
+  --animate-twinkle: twinkle 3.2s ease-in-out infinite;
+  --animate-spin-slow: spin 12s linear infinite;
+}
+
+:root {
+  --primary: 218 100% 25%;             /* Royal navy #002F82 */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 196 100% 47%;           /* Sky blue #00AEEF */
+  --secondary-foreground: 0 0% 100%;
+  --accent: 45 100% 50%;               /* Gold #FFB800 — wizard gold for CTAs */
+  --accent-foreground: 225 100% 16%;
+  --magic: 263 50% 32%;                /* Royal purple — wizard sparkle bands */
+  --magic-foreground: 0 0% 100%;
+  --deep: 225 100% 16%;                /* Even deeper navy for footer / dark sections */
+  --cream: 45 100% 97%;                /* Warm parchment cream */
+  --muted: 210 40% 96%;
+  --muted-foreground: 218 35% 35%;
+  --background: 0 0% 100%;
+  --foreground: 225 100% 16%;
+  --card: 0 0% 100%;
+  --card-foreground: 225 100% 16%;
+  --border: 218 30% 88%;
+  --ring: 196 100% 47%;
+  --radius: 0.75rem;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes slide-right {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33%      { transform: translateY(-10px) rotate(2deg); }
+  66%      { transform: translateY(6px) rotate(-1.5deg); }
+}
+@keyframes sparkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50%      { opacity: 1; transform: scale(1.1); }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.35; }
+  50%      { opacity: 1; }
+}
+
+html, body {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.005em;
+}
+
+.font-heading { font-family: var(--font-heading); }
+.font-script  { font-family: var(--font-script); font-weight: 600; letter-spacing: 0.04em; }
+
+/* Star sparkle pattern background — wizard motif. Layered: outer brand-dark gradient + faint twinkling stars */
+.bg-wizard-night {
+  background-color: hsl(var(--primary));
+  background-image:
+    radial-gradient(circle at 20% 18%, hsla(196 100% 65% / 0.18) 0 1.5px, transparent 2px),
+    radial-gradient(circle at 78% 32%, hsla(45 100% 65% / 0.22) 0 1.5px, transparent 2px),
+    radial-gradient(circle at 50% 70%, hsla(0 0% 100% / 0.14) 0 1.2px, transparent 1.8px),
+    radial-gradient(circle at 12% 85%, hsla(45 100% 70% / 0.18) 0 1.2px, transparent 1.8px),
+    radial-gradient(circle at 88% 88%, hsla(196 100% 70% / 0.18) 0 1.2px, transparent 1.8px),
+    radial-gradient(ellipse 80% 60% at 50% 0%, hsla(263 60% 45% / 0.55), transparent 70%),
+    radial-gradient(ellipse 100% 80% at 50% 100%, hsla(225 100% 12% / 0.7), transparent 70%);
+  background-size: 200px 200px, 240px 240px, 180px 180px, 220px 220px, 260px 260px, 100% 100%, 100% 100%;
+}
+
+.bg-wizard-cream {
+  background-color: hsl(var(--cream));
+  background-image:
+    radial-gradient(circle at 20% 30%, hsla(45 100% 60% / 0.08) 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 70%, hsla(196 100% 50% / 0.05) 0 2px, transparent 3px);
+  background-size: 320px 320px, 380px 380px;
+}
+
+/* Magic underline for headings */
+.magic-underline {
+  position: relative;
+  display: inline-block;
+}
+.magic-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.4rem;
+  height: 0.35rem;
+  background: linear-gradient(90deg, transparent, hsl(var(--accent)) 20%, hsl(var(--accent)) 80%, transparent);
+  border-radius: 999px;
+}

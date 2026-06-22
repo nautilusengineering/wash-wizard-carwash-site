@@ -1,0 +1,21 @@
+# deps
+node_modules/
+
+# next
+.next/
+out/
+
+# misc
+.DS_Store
+*.log
+
+# env
+.env*.local
+.env
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# bun
+bun.lockb
