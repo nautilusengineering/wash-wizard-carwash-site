@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import OrnamentalEyebrow from "./OrnamentalEyebrow";
 
 interface FAQ {
   q: string;
@@ -40,13 +41,15 @@ const faqs: FAQ[] = [
 export default function HomeFAQ() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section className="relative bg-background py-16 lg:py-24">
+    <section className="relative bg-parchment py-16 lg:py-24">
       <div className="mx-auto max-w-3xl px-4 lg:px-6">
         <div className="text-center mb-10 lg:mb-12">
-          <p className="font-script text-magic text-sm uppercase tracking-[0.3em] mb-3">
-            Wizardly Wisdom
-          </p>
-          <h2 className="font-heading font-bold uppercase text-4xl lg:text-5xl text-primary leading-[0.95]">
+          <div className="mb-4">
+            <OrnamentalEyebrow align="center">
+              Wizardly Wisdom
+            </OrnamentalEyebrow>
+          </div>
+          <h2 className="font-heading uppercase text-4xl lg:text-5xl text-primary leading-[0.95]">
             Frequently asked <br />
             <span className="text-accent">questions</span>
           </h2>

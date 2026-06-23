@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Open_Sans, Khand, Cinzel } from "next/font/google";
+import { Open_Sans, Titan_One, MedievalSharp } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
@@ -11,17 +11,17 @@ const openSans = Open_Sans({
   display: "swap",
 });
 
-const khand = Khand({
-  variable: "--font-khand",
+const titanOne = Titan_One({
+  variable: "--font-titan",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400"],
   display: "swap",
 });
 
-const cinzel = Cinzel({
-  variable: "--font-cinzel",
+const medievalSharp = MedievalSharp({
+  variable: "--font-medieval",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400"],
   display: "swap",
 });
 
@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${openSans.variable} ${khand.variable} ${cinzel.variable} h-full antialiased`}
+      className={`${openSans.variable} ${titanOne.variable} ${medievalSharp.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background">
         <Header />

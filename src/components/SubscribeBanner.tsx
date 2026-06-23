@@ -1,18 +1,43 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Wand } from "lucide-react";
+import { Wand, Crown } from "lucide-react";
 import { BUY_ONLINE_URL } from "@/lib/utils";
+import OrnamentalEyebrow from "./OrnamentalEyebrow";
 
 export default function SubscribeBanner() {
   return (
-    <section className="relative bg-background pt-0 pb-16 lg:pb-24">
+    <section className="relative bg-parchment pt-0 pb-16 lg:pb-24">
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
-        <div className="relative rounded-[2rem] overflow-hidden bg-gradient-to-br from-accent via-accent to-[hsl(40_100%_45%)] text-accent-foreground shadow-2xl">
-          {/* Decorative sparkles */}
-          <Wand className="absolute top-6 left-8 w-7 h-7 text-deep/30 animate-sparkle" />
-          <Wand className="absolute bottom-10 right-1/2 w-5 h-5 text-deep/30 animate-sparkle" style={{ animationDelay: "0.6s" }}/>
-          <Wand className="absolute top-12 right-1/3 w-4 h-4 text-deep/30 animate-sparkle" style={{ animationDelay: "1.2s" }}/>
+        <div className="relative rounded-[2rem] overflow-hidden bg-gradient-to-br from-accent via-accent to-[hsl(40_100%_45%)] text-accent-foreground shadow-2xl gold-leaf-border">
+          {/* Royal proclamation ornaments */}
+          <Crown className="absolute top-6 left-8 w-7 h-7 text-deep/40 animate-sparkle" />
+          <Wand
+            className="absolute bottom-10 right-1/2 w-5 h-5 text-deep/40 animate-sparkle"
+            style={{ animationDelay: "0.6s" }}
+          />
+          <Crown
+            className="absolute top-12 right-1/3 w-4 h-4 text-deep/40 animate-sparkle"
+            style={{ animationDelay: "1.2s" }}
+          />
+
+          {/* Gold-leaf corner ornaments */}
+          <div
+            aria-hidden="true"
+            className="absolute top-3 left-3 w-10 h-10 border-l-2 border-t-2 border-deep/40 rounded-tl-xl pointer-events-none"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute top-3 right-3 w-10 h-10 border-r-2 border-t-2 border-deep/40 rounded-tr-xl pointer-events-none"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute bottom-3 left-3 w-10 h-10 border-l-2 border-b-2 border-deep/40 rounded-bl-xl pointer-events-none"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute bottom-3 right-3 w-10 h-10 border-r-2 border-b-2 border-deep/40 rounded-br-xl pointer-events-none"
+          />
 
           <div className="absolute -bottom-10 -right-6 w-72 lg:w-96 opacity-90 pointer-events-none">
             <Image
@@ -25,10 +50,12 @@ export default function SubscribeBanner() {
           </div>
 
           <div className="relative z-10 px-6 sm:px-10 lg:px-16 py-12 lg:py-16 max-w-2xl">
-            <p className="font-script text-deep/80 text-xs sm:text-sm uppercase tracking-[0.3em] mb-3">
-              Ride into Sparkle City
-            </p>
-            <h2 className="font-heading font-bold uppercase leading-[0.9] text-4xl sm:text-5xl lg:text-6xl mb-5">
+            <div className="mb-4">
+              <OrnamentalEyebrow align="left" tone="purple">
+                Ride into Sparkle City
+              </OrnamentalEyebrow>
+            </div>
+            <h2 className="font-heading uppercase leading-[0.9] text-4xl sm:text-5xl lg:text-6xl mb-5">
               Grab your wand.
               <br />
               Make the magic happen.

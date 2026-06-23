@@ -26,9 +26,9 @@ const supportLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative bg-deep text-white pt-16 pb-8 overflow-hidden">
-      {/* Star sparkle pattern */}
-      <div className="absolute inset-0 opacity-30 bg-wizard-night" aria-hidden="true" />
+    <footer className="relative bg-spellbook-night text-white pt-16 pb-8 overflow-hidden">
+      {/* Decorative gilded specks layer for depth */}
+      <div className="absolute inset-0 opacity-25 bg-wizard-night" aria-hidden="true" />
       <div className="relative mx-auto max-w-7xl px-4 lg:px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 lg:gap-12 mb-12">
           <div className="col-span-2 md:col-span-1">

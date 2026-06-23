@@ -2,7 +2,7 @@ import PageHero from "@/components/PageHero";
 import Pricing from "@/components/Pricing";
 import SubscribeBanner from "@/components/SubscribeBanner";
 import Image from "next/image";
-import { Check } from "lucide-react";
+import WizardHat from "@/components/WizardHat";
 
 export const metadata = {
   title: "Wash Packages | Wash Wizard Car Wash",
@@ -55,7 +55,7 @@ export default function PackagesPage() {
                   key={item}
                   className="flex items-center gap-3 px-5 py-4 rounded-xl bg-white border border-border shadow-sm"
                 >
-                  <Check className="w-5 h-5 text-accent flex-shrink-0" />
+                  <WizardHat className="w-5 h-5 text-magic flex-shrink-0" />
                   <span className="font-heading font-bold uppercase text-sm tracking-wider text-primary">
                     {item}
                   </span>

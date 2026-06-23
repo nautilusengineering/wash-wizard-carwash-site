@@ -22,8 +22,8 @@
   --radius: var(--radius);
 
   --font-sans: var(--font-open-sans), "Open Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-heading: var(--font-khand), "Khand", "Oswald", "Bebas Neue", system-ui, sans-serif;
-  --font-script: var(--font-cinzel), "Cinzel", "Trajan Pro", serif;
+  --font-heading: var(--font-titan), "Titan One", "Lilita One", "Bowlby One", system-ui, sans-serif;
+  --font-script: var(--font-medieval), "MedievalSharp", "UnifrakturCook", "Pirata One", serif;
 
   --animate-fade-up: fade-up 0.7s ease-out both;
   --animate-fade-up-delay-1: fade-up 0.7s ease-out 0.15s both;
@@ -44,7 +44,7 @@
 :root {
   --primary: 218 100% 25%;             /* Royal navy #002F82 */
   --primary-foreground: 0 0% 100%;
-  --secondary: 196 100% 47%;           /* Sky blue #00AEEF */
+  --secondary: 215 75% 52%;            /* Royal Sapphire #2A74DD */
   --secondary-foreground: 0 0% 100%;
   --accent: 45 100% 50%;               /* Gold #FFB800 — wizard gold for CTAs */
   --accent-foreground: 225 100% 16%;
@@ -59,7 +59,7 @@
   --card: 0 0% 100%;
   --card-foreground: 225 100% 16%;
   --border: 218 30% 88%;
-  --ring: 196 100% 47%;
+  --ring: 215 75% 52%;
   --radius: 0.75rem;
 }
 
@@ -121,15 +121,22 @@ h1, h2, h3, h4, h5, h6 {
 .font-heading { font-family: var(--font-heading); }
 .font-script  { font-family: var(--font-script); font-weight: 600; letter-spacing: 0.04em; }
 
+/* Disable font-synthesis on heading/script fonts — Titan One and MedievalSharp
+   only ship at weight 400. Without this, the browser tries to fake-bold them
+   and falls back to system-ui, losing the chunky balloon/gothic shape. */
+.font-heading, .font-script {
+  font-synthesis: none;
+}
+
 /* Star sparkle pattern background — wizard motif. Layered: outer brand-dark gradient + faint twinkling stars */
 .bg-wizard-night {
   background-color: hsl(var(--primary));
   background-image:
-    radial-gradient(circle at 20% 18%, hsla(196 100% 65% / 0.18) 0 1.5px, transparent 2px),
+    radial-gradient(circle at 20% 18%, hsla(215 80% 70% / 0.20) 0 1.5px, transparent 2px),
     radial-gradient(circle at 78% 32%, hsla(45 100% 65% / 0.22) 0 1.5px, transparent 2px),
     radial-gradient(circle at 50% 70%, hsla(0 0% 100% / 0.14) 0 1.2px, transparent 1.8px),
     radial-gradient(circle at 12% 85%, hsla(45 100% 70% / 0.18) 0 1.2px, transparent 1.8px),
-    radial-gradient(circle at 88% 88%, hsla(196 100% 70% / 0.18) 0 1.2px, transparent 1.8px),
+    radial-gradient(circle at 88% 88%, hsla(215 80% 72% / 0.20) 0 1.2px, transparent 1.8px),
     radial-gradient(ellipse 80% 60% at 50% 0%, hsla(263 60% 45% / 0.55), transparent 70%),
     radial-gradient(ellipse 100% 80% at 50% 100%, hsla(225 100% 12% / 0.7), transparent 70%);
   background-size: 200px 200px, 240px 240px, 180px 180px, 220px 220px, 260px 260px, 100% 100%, 100% 100%;
@@ -139,8 +146,70 @@ h1, h2, h3, h4, h5, h6 {
   background-color: hsl(var(--cream));
   background-image:
     radial-gradient(circle at 20% 30%, hsla(45 100% 60% / 0.08) 0 2px, transparent 3px),
-    radial-gradient(circle at 70% 70%, hsla(196 100% 50% / 0.05) 0 2px, transparent 3px);
+    radial-gradient(circle at 70% 70%, hsla(215 80% 55% / 0.06) 0 2px, transparent 3px);
   background-size: 320px 320px, 380px 380px;
+}
+
+/* Spellbook parchment — warm cream with faint manuscript-grid texture and tiny gilded sparks */
+.bg-parchment {
+  background-color: hsl(var(--cream));
+  background-image:
+    radial-gradient(circle at 18% 28%, hsla(45 100% 55% / 0.10) 0 1.5px, transparent 2.2px),
+    radial-gradient(circle at 72% 22%, hsla(263 50% 40% / 0.06) 0 1.5px, transparent 2.2px),
+    radial-gradient(circle at 32% 78%, hsla(215 75% 45% / 0.05) 0 1.5px, transparent 2.2px),
+    radial-gradient(circle at 86% 72%, hsla(45 100% 60% / 0.08) 0 1.5px, transparent 2.2px),
+    radial-gradient(ellipse 80% 60% at 50% 0%, hsla(38 50% 55% / 0.08), transparent 70%),
+    radial-gradient(ellipse 80% 60% at 50% 100%, hsla(38 50% 55% / 0.08), transparent 70%);
+  background-size: 340px 340px, 280px 280px, 380px 380px, 320px 320px, 100% 100%, 100% 100%;
+}
+
+/* Spellbook tome dark — deeper navy with gilded specks for a "midnight grimoire" feel */
+.bg-spellbook-night {
+  background-color: hsl(var(--deep));
+  background-image:
+    radial-gradient(circle at 18% 22%, hsla(45 100% 65% / 0.30) 0 1.6px, transparent 2.4px),
+    radial-gradient(circle at 75% 28%, hsla(45 100% 70% / 0.22) 0 1.4px, transparent 2.2px),
+    radial-gradient(circle at 28% 76%, hsla(215 80% 70% / 0.20) 0 1.4px, transparent 2.2px),
+    radial-gradient(circle at 82% 80%, hsla(263 65% 55% / 0.22) 0 1.4px, transparent 2.2px),
+    radial-gradient(ellipse 90% 60% at 50% 0%, hsla(263 70% 40% / 0.55), transparent 75%),
+    radial-gradient(ellipse 100% 80% at 50% 100%, hsla(225 100% 8% / 0.85), transparent 75%),
+    linear-gradient(180deg, hsla(225 100% 12% / 0.6), hsla(225 100% 10% / 0.9));
+  background-size: 240px 240px, 280px 280px, 220px 220px, 260px 260px, 100% 100%, 100% 100%, 100% 100%;
+}
+
+/* Gold-leaf border — gilded outline with a subtle inner halo */
+.gold-leaf-border {
+  box-shadow:
+    inset 0 0 0 1px hsla(45 80% 55% / 0.65),
+    inset 0 0 0 3px hsla(45 100% 95% / 0.18),
+    0 14px 30px -16px hsla(225 100% 16% / 0.45);
+}
+
+/* Moon halo — soft circular gold glow you place behind imagery */
+.moon-halo {
+  background:
+    radial-gradient(circle at center,
+      hsla(45 100% 75% / 0.45) 0%,
+      hsla(45 100% 60% / 0.28) 28%,
+      hsla(45 100% 55% / 0.12) 48%,
+      transparent 72%);
+}
+
+/* Illuminated drop cap — first-letter treatment used in pricing card names */
+.drop-cap::first-letter {
+  font-family: var(--font-script);
+  color: hsl(var(--accent));
+  font-size: 1.5em;
+  line-height: 0.8;
+  padding-right: 0.06em;
+}
+
+/* Gold-line wisp — used in ornamental eyebrow flourishes */
+.gold-wisp-left {
+  background: linear-gradient(90deg, transparent 0%, hsla(45 90% 55% / 0.6) 100%);
+}
+.gold-wisp-right {
+  background: linear-gradient(90deg, hsla(45 90% 55% / 0.6) 0%, transparent 100%);
 }
 
 /* Magic underline for headings */

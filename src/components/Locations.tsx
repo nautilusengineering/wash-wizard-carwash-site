@@ -2,6 +2,7 @@ import Image from "next/image";
 import { MapPin, Clock, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PHONE, PHONE_HREF } from "@/lib/utils";
+import OrnamentalEyebrow from "./OrnamentalEyebrow";
 
 interface Location {
   name: string;
@@ -43,14 +44,16 @@ export default function Locations() {
   return (
     <section
       id="locations"
-      className="relative bg-wizard-cream py-16 lg:py-24 overflow-hidden"
+      className="relative bg-parchment py-16 lg:py-24 overflow-hidden"
     >
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
         <div className="text-center mb-10 lg:mb-14">
-          <p className="font-script text-magic text-sm uppercase tracking-[0.3em] mb-3">
-            Three Lowcountry Locations
-          </p>
-          <h2 className="font-heading font-bold uppercase text-4xl lg:text-5xl text-primary leading-[0.95]">
+          <div className="mb-4">
+            <OrnamentalEyebrow align="center">
+              Three Lowcountry Locations
+            </OrnamentalEyebrow>
+          </div>
+          <h2 className="font-heading uppercase text-4xl lg:text-5xl text-primary leading-[0.95]">
             Find your
             <br />
             <span className="text-accent">Wash Wizard.</span>

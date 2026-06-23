@@ -1,4 +1,5 @@
-import { Wand } from "lucide-react";
+import { Wand, Quote } from "lucide-react";
+import OrnamentalEyebrow from "./OrnamentalEyebrow";
 
 interface Review {
   text: string;
@@ -48,7 +49,11 @@ const reviews: Review[] = [
 function ReviewCard({ r }: { r: Review }) {
   return (
     <div className="flex-shrink-0 w-[320px] sm:w-[380px] mr-5">
-      <div className="bg-white rounded-2xl border border-border p-6 shadow-md h-full flex flex-col">
+      <div className="relative bg-white rounded-2xl gold-leaf-border p-6 shadow-md h-full flex flex-col">
+        <Quote
+          aria-hidden="true"
+          className="absolute top-4 right-4 w-8 h-8 text-accent/35"
+        />
         <div className="flex items-center gap-1 text-accent mb-3">
           {Array.from({ length: 5 }).map((_, i) => (
             <Wand key={i} className="w-4 h-4" />
@@ -58,11 +63,11 @@ function ReviewCard({ r }: { r: Review }) {
           &ldquo;{r.text}&rdquo;
         </p>
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-primary text-white grid place-items-center font-heading font-bold">
+          <div className="w-10 h-10 rounded-full bg-deep text-accent grid place-items-center font-heading gold-leaf-border">
             {r.name.slice(0, 1)}
           </div>
           <div>
-            <p className="font-heading font-bold uppercase text-sm text-primary">
+            <p className="font-heading uppercase text-sm text-primary">
               {r.name}
             </p>
             <p className="text-xs text-muted-foreground">{r.location}</p>
@@ -76,13 +81,15 @@ function ReviewCard({ r }: { r: Review }) {
 export default function Testimonials() {
   const doubled = [...reviews, ...reviews];
   return (
-    <section className="relative bg-muted py-16 lg:py-20 overflow-hidden">
+    <section className="relative bg-parchment py-16 lg:py-20 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 lg:px-6 mb-10">
         <div className="text-center">
-          <p className="font-script text-magic text-sm uppercase tracking-[0.3em] mb-3">
-            What the Lowcountry Says
-          </p>
-          <h2 className="font-heading font-bold uppercase text-4xl lg:text-5xl text-primary leading-[0.95]">
+          <div className="mb-4">
+            <OrnamentalEyebrow align="center">
+              What the Lowcountry Says
+            </OrnamentalEyebrow>
+          </div>
+          <h2 className="font-heading uppercase text-4xl lg:text-5xl text-primary leading-[0.95]">
             Smiles all <span className="text-accent">around.</span>
           </h2>
         </div>

@@ -1,112 +1,151 @@
 import Image from "next/image";
-import { Wand } from "lucide-react";
+import { Flame, Wand, Crown, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 interface Step {
   num: string;
+  chapter: string;
   title: string;
   body: string;
-  icon: string;
 }
 
 const steps: Step[] = [
   {
     num: "01",
+    chapter: "Chapter I",
     title: "Pull Up & Pay",
     body:
-      "Three paystation lanes mean almost no wait. License plate recognition checks you in automatically if you're an Unlimited Club member — no app, no scan, no friction.",
-    icon: "M5 13l4 4L19 7",
+      "Three paystation lanes mean almost no wait. License plate recognition checks Unlimited Club members in automatically — no app, no scan, no friction.",
   },
   {
     num: "02",
+    chapter: "Chapter II",
     title: "Roll Into the Tunnel",
     body:
-      "180 feet of wash wizardry. Dedicated bug-removal lane, 26-foot-wide bay, and an LED light show that turns the wash into an event your kids will beg for.",
-    icon: "M3 12h18M12 3v18",
+      "180 feet of wash wizardry. Dedicated bug-removal lane, 26-foot-wide bay, and an LED light show that turns the wash into an event.",
   },
   {
     num: "03",
+    chapter: "Chapter III",
     title: "Soft-Touch Sorcery",
     body:
-      "Triple-foam soft polish, ceramic graphene seal, and rain repellent. Our chemistry is gentle on paint and ruthless on grime — a glossy shine that lasts for weeks.",
-    icon: "M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z",
+      "Triple-foam soft polish, ceramic graphene seal, and rain repellent. Gentle on paint, ruthless on grime — a glossy shine that lasts for weeks.",
   },
   {
     num: "04",
+    chapter: "Chapter IV",
     title: "Dry & Detail Yourself",
     body:
-      "25 wide, shaded vacuum bays. Microfiber towels, mat cleaners, glass cleaner, and air guns are all on the house. Finish your detail in the cool, no rush.",
-    icon: "M4 4h16v16H4z M9 9l6 6 M15 9l-6 6",
+      "25 wide, shaded vacuum bays. Microfiber towels, mat cleaners, glass cleaner, and air guns are all on the house. Finish in the cool, no rush.",
   },
+];
+
+const stats = [
+  { label: "Foot Tunnel", value: "180" },
+  { label: "Wide Bay", value: "26'" },
+  { label: "Paystation Lanes", value: "3" },
+  { label: "Vacuum Bays", value: "25" },
 ];
 
 export default function Amenities() {
   return (
-    <section className="relative bg-wizard-cream py-16 lg:py-24 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 lg:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Left rail: heading */}
-          <div className="lg:col-span-4 lg:sticky lg:top-32">
-            <p className="font-script text-magic text-sm uppercase tracking-[0.3em] mb-3">
+    <section className="relative bg-spellbook-night text-white py-24 lg:py-32 overflow-hidden">
+      {/* Decorative wizard plate, faint, top-right */}
+      <div className="hidden lg:block absolute -top-20 -right-24 w-[28rem] opacity-[0.07] pointer-events-none rotate-12">
+        <Image
+          src="/images/wizard-plate.png"
+          alt=""
+          width={500}
+          height={500}
+          className="w-full h-auto"
+        />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-4 lg:px-6">
+        {/* Heading row — left-aligned */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 lg:mb-20">
+          <div className="lg:col-span-8">
+            <p className="font-script text-accent uppercase tracking-[0.32em] text-sm mb-4 inline-flex items-center gap-2">
+              <Crown className="w-4 h-4" />
               The Wash Wizard Tunnel
             </p>
-            <h2 className="font-heading font-bold uppercase text-4xl lg:text-5xl text-primary leading-[0.95] mb-5">
+            <h2 className="font-heading uppercase text-5xl lg:text-6xl xl:text-7xl leading-[0.9]">
               How the
               <br />
               <span className="text-accent">magic</span> happens.
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed mb-6">
-              Every Wash Wizard location is engineered for clean cars, fast.
+          </div>
+          <div className="lg:col-span-4 lg:pt-6">
+            <p className="text-base lg:text-lg text-white/80 leading-relaxed">
               From the first pay-station lane to the last microfiber towel —
               here&apos;s how the spell is cast.
             </p>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/15 text-primary font-heading font-bold uppercase tracking-widest text-xs">
-              <Wand className="w-3.5 h-3.5 text-accent" /> Free vacuums always included
-            </div>
-          </div>
-
-          {/* Right rail: numbered steps */}
-          <div className="lg:col-span-8 flex flex-col gap-5">
-            {steps.map((step, i) => (
-              <div
-                key={step.num}
-                className="group relative flex gap-5 sm:gap-7 p-5 sm:p-7 rounded-2xl bg-white/85 backdrop-blur-sm border border-border hover:border-accent/40 hover:shadow-xl transition-all"
-                style={{ marginLeft: i * 14, animationDelay: `${i * 0.1}s` }}
-              >
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-primary text-white grid place-items-center font-heading text-2xl sm:text-3xl font-bold shadow-lg group-hover:rotate-3 transition-transform">
-                    {step.num}
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl sm:text-2xl font-heading font-bold uppercase text-primary mb-2 leading-tight">
-                    {step.title}
-                  </h3>
-                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                    {step.body}
-                  </p>
-                </div>
-                <Wand className="hidden sm:block absolute top-3 right-3 w-5 h-5 text-accent/40 group-hover:text-accent group-hover:rotate-12 transition-all" />
-              </div>
-            ))}
+            <Link
+              href="/the-wash-wizard-difference"
+              className="mt-5 inline-flex items-center gap-2 text-accent font-heading uppercase tracking-widest text-sm hover:text-white transition-colors"
+            >
+              The Wash Wizard Difference <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
 
-        {/* Feature pill row */}
-        <div className="mt-14 lg:mt-20 grid grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
-          {[
-            "180-Foot Tunnel",
-            "26' Wide Bay",
-            "3 Paystation Lanes",
-            "25 Vacuum Bays",
-            "License Plate Recognition",
-          ].map((f) => (
+        {/* Steps — 2x2 grid, each step has gigantic numeral background */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          {steps.map((step) => (
             <div
-              key={f}
-              className="px-4 py-3 rounded-xl bg-primary text-white text-center text-xs sm:text-sm font-heading font-bold uppercase tracking-wider shadow-md"
+              key={step.num}
+              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] hover:bg-white/[0.07] backdrop-blur-sm p-7 lg:p-10 transition-colors"
             >
-              {f}
+              {/* Ghosted numeral watermark */}
+              <span
+                aria-hidden="true"
+                className="absolute -top-6 right-6 lg:-top-10 lg:right-8 text-[9rem] lg:text-[12rem] font-heading text-accent/10 leading-none select-none pointer-events-none group-hover:text-accent/15 transition-colors"
+              >
+                {step.num}
+              </span>
+
+              <p className="font-script text-accent uppercase tracking-[0.32em] text-xs mb-3 relative z-10">
+                {step.chapter}
+              </p>
+              <h3 className="text-2xl lg:text-3xl font-heading uppercase leading-tight mb-4 relative z-10 max-w-[20ch]">
+                {step.title}
+              </h3>
+              <p className="text-sm lg:text-base text-white/75 leading-relaxed relative z-10 max-w-md">
+                {step.body}
+              </p>
+
+              {/* Top gold rule */}
+              <div
+                aria-hidden="true"
+                className="absolute top-0 left-7 right-7 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent"
+              />
             </div>
           ))}
+        </div>
+
+        {/* Stats strip */}
+        <div className="mt-14 lg:mt-20 grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 border-t border-white/10 pt-10">
+          {stats.map((s) => (
+            <div key={s.label}>
+              <p className="font-heading text-5xl lg:text-6xl text-accent leading-none">
+                {s.value}
+              </p>
+              <p className="mt-2 text-xs lg:text-sm uppercase tracking-[0.22em] text-white/65">
+                {s.label}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom perk pill */}
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-4">
+          <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-accent/10 border border-accent/30 text-accent font-heading uppercase tracking-[0.22em] text-xs lg:text-sm">
+            <Flame className="w-4 h-4" /> Free DIY vacuums always included
+          </div>
+          <div className="inline-flex items-center gap-2 text-white/70 font-heading uppercase tracking-[0.22em] text-xs lg:text-sm">
+            <Wand className="w-4 h-4 text-accent" /> License plate recognition
+          </div>
         </div>
       </div>
     </section>

@@ -1,105 +1,136 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Wand, MapPin } from "lucide-react";
+import { Wand, MapPin, Crown, ArrowRight } from "lucide-react";
 
 const driveAllAddr = encodeURIComponent("Wash Wizard Car Wash, Summerville, SC");
+const EYEBROW_TEXT =
+  "Which of the Philosopher's Stone tasks would you most like to face?";
 
 export default function Hero() {
   return (
-    <section className="relative pt-20 lg:pt-24 pb-12 lg:pb-16 bg-background overflow-hidden">
-      {/* Decorative stars in the soft cream margin */}
-      <div className="hidden lg:block absolute top-32 left-10 text-accent/50">
-        <Wand className="w-6 h-6" />
-      </div>
-      <div className="hidden lg:block absolute top-44 right-16 text-secondary/40 animate-twinkle" style={{ animationDelay: "0.8s" }}>
-        <Wand className="w-8 h-8" />
-      </div>
-      <div className="hidden lg:block absolute bottom-20 left-32 text-magic/40 animate-twinkle" style={{ animationDelay: "1.6s" }}>
-        <Wand className="w-5 h-5" />
-      </div>
+    <section className="relative isolate overflow-hidden bg-white min-h-[680px] lg:min-h-[82vh] pt-20 lg:pt-24 pb-12">
+      <div
+        aria-hidden="true"
+        className="absolute top-0 inset-x-0 h-[40%] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 100% at 50% 0%, hsla(45 100% 65% / 0.35) 0%, transparent 70%)",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="absolute bottom-0 -right-32 w-[40rem] h-[30rem] opacity-30 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, hsla(263 70% 60% / 0.3) 0%, transparent 70%)",
+        }}
+      />
 
-      <div className="mx-auto max-w-7xl px-4 lg:px-6">
-        {/* Inset wizard-night card */}
-        <div className="relative rounded-[2rem] overflow-hidden bg-wizard-night text-white shadow-2xl ring-1 ring-white/10">
-          {/* Magic background images */}
-          <Image
-            src="/images/navy-bubble-bg.jpg"
-            alt=""
-            fill
-            priority
-            sizes="(max-width: 1200px) 100vw, 1200px"
-            className="object-cover opacity-50 mix-blend-screen"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/85 via-magic/40 to-deep/90" />
+      <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start min-h-[58vh]">
+        <div
+          className="lg:col-span-7 lg:order-1 animate-fade-up"
+          style={{ animationDelay: "0.15s" }}
+        >
+          <div
+            className="relative max-w-xl mx-auto lg:mx-0 rounded-[2.25rem] p-8 lg:p-10 xl:p-12 bg-white shadow-[0_30px_80px_-25px_rgba(31,38,76,0.25)]"
+            style={{
+              border: "3px solid transparent",
+              backgroundImage:
+                "linear-gradient(white, white), linear-gradient(135deg, hsl(48 100% 70%), hsl(45 100% 55%), hsl(38 80% 45%))",
+              backgroundOrigin: "border-box",
+              backgroundClip: "padding-box, border-box",
+            }}
+          >
+            <div
+              aria-hidden="true"
+              className="absolute -top-4 left-1/2 -translate-x-1/2 size-9 rounded-full grid place-items-center ring-4 ring-white shadow-md"
+              style={{
+                background:
+                  "radial-gradient(circle at 35% 30%, hsl(48 100% 75%) 0%, hsl(45 100% 55%) 60%, hsl(38 85% 30%) 100%)",
+              }}
+            >
+              <Crown className="w-4 h-4 text-accent-foreground" />
+            </div>
+            <div
+              aria-hidden="true"
+              className="absolute top-4 left-4 w-10 h-10 border-l-2 border-t-2 border-accent/55 rounded-tl-2xl"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute top-4 right-4 w-10 h-10 border-r-2 border-t-2 border-accent/55 rounded-tr-2xl"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute bottom-4 left-4 w-10 h-10 border-l-2 border-b-2 border-accent/55 rounded-bl-2xl"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute bottom-4 right-4 w-10 h-10 border-r-2 border-b-2 border-accent/55 rounded-br-2xl"
+            />
 
-          {/* Floating wizard mascot — right side, bleeds past edge */}
-          <div className="absolute -bottom-4 right-2 sm:right-6 lg:right-10 w-44 sm:w-56 md:w-72 lg:w-[420px] z-10 pointer-events-none animate-float-slow">
+            <p className="font-serif font-bold text-magic text-base sm:text-lg leading-snug mb-5 text-balance">
+              {EYEBROW_TEXT}
+            </p>
+            <h1 className="font-heading uppercase tracking-tight leading-[0.95] text-5xl lg:text-6xl xl:text-7xl text-primary text-balance">
+              We love <span className="text-accent">clean cars.</span>
+            </h1>
+
+            <div className="my-5 flex items-center gap-3 max-w-xs">
+              <div className="flex-1 h-px bg-accent/55" />
+              <Wand className="w-4 h-4 text-accent" />
+              <div className="flex-1 h-px bg-accent/55" />
+            </div>
+
+            <p className="text-base lg:text-lg text-muted-foreground max-w-md leading-relaxed text-pretty">
+              Sparkling clean, lightning fast, and a little bit magical. Three
+              Lowcountry locations.
+            </p>
+
+            <div className="mt-7 flex flex-col sm:flex-row gap-3">
+              <a
+                href={`https://www.google.com/maps/dir/?api=1&destination=${driveAllAddr}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button size="lg" className="w-full sm:w-auto">
+                  <MapPin className="w-4 h-4" /> Get Directions
+                </Button>
+              </a>
+              <Link href="/packages">
+                <Button variant="outlineDark" size="lg" className="w-full sm:w-auto">
+                  See Packages <ArrowRight className="w-4 h-4" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div
+          className="lg:col-span-5 lg:order-2 relative flex justify-center animate-fade-up"
+          style={{ animationDelay: "0.3s" }}
+        >
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 grid place-items-center pointer-events-none"
+          >
+            <div
+              className="w-[18rem] h-[18rem] lg:w-[22rem] lg:h-[22rem] rounded-full"
+              style={{
+                background:
+                  "radial-gradient(circle, hsla(45 100% 60% / 0.45) 0%, transparent 70%)",
+              }}
+            />
+          </div>
+          <div className="relative w-[16rem] sm:w-[20rem] md:w-[24rem]">
             <Image
               src="/images/wizard-mascot.png"
               alt="Wash Wizard mascot"
-              width={520}
-              height={780}
-              className="w-full h-auto drop-shadow-2xl"
+              width={900}
+              height={1350}
               priority
+              className="w-full h-auto drop-shadow-[0_30px_60px_rgba(0,0,0,0.18)]"
             />
-          </div>
-
-          {/* Floating sparkles inside the card */}
-          <div className="absolute top-10 left-12 text-accent/80 animate-sparkle">
-            <Wand className="w-7 h-7" />
-          </div>
-          <div className="absolute top-24 right-1/3 text-white/60 animate-sparkle" style={{ animationDelay: "0.6s" }}>
-            <Wand className="w-5 h-5" />
-          </div>
-          <div className="absolute bottom-32 left-1/3 text-secondary/70 animate-sparkle" style={{ animationDelay: "1.2s" }}>
-            <Wand className="w-6 h-6" />
-          </div>
-
-          {/* Content — anchored bottom-left */}
-          <div className="relative z-20 grid grid-cols-1 lg:grid-cols-12 min-h-[560px] lg:min-h-[640px]">
-            <div className="lg:col-span-7 flex flex-col justify-end px-6 sm:px-10 lg:px-14 pt-16 pb-12 lg:pt-24 lg:pb-16">
-              <p className="font-script text-accent text-sm sm:text-base uppercase tracking-[0.3em] mb-3 animate-fade-up">
-                Charleston&apos;s Magical Car Wash
-              </p>
-              <h1 className="font-heading font-bold uppercase leading-[0.85] text-5xl sm:text-6xl lg:text-7xl xl:text-8xl mb-5 animate-fade-up-delay-1">
-                We love
-                <br />
-                <span className="text-accent">clean cars.</span>
-              </h1>
-              <p className="text-base sm:text-lg lg:text-xl text-white/85 max-w-xl mb-8 leading-relaxed animate-fade-up-delay-2">
-                Sparkling clean, lightning fast, and a little bit magical. Pull
-                through the 180-foot wizard tunnel at any of our three
-                Lowcountry locations and roll out gleaming.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-up-delay-3">
-                <a
-                  href={`https://www.google.com/maps/dir/?api=1&destination=${driveAllAddr}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto"
-                >
-                  <Button size="lg" className="w-full sm:w-auto">
-                    <MapPin className="w-4 h-4" /> Get Directions
-                  </Button>
-                </a>
-                <Link href="/packages" className="w-full sm:w-auto">
-                  <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                    See Wash Packages
-                  </Button>
-                </Link>
-              </div>
-            </div>
-            <div className="hidden lg:block lg:col-span-5" />
-          </div>
-
-          {/* Bottom ribbon — magical motto */}
-          <div className="relative z-20 border-t border-white/10 bg-deep/40 backdrop-blur-sm">
-            <div className="px-6 sm:px-10 lg:px-14 py-3 flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm font-heading uppercase tracking-widest">
-              <span className="text-accent">★ Unlimited Wash Club from $20/mo</span>
-              <span className="text-white/70 hidden sm:block">★ Free DIY Vacuums With Every Wash</span>
-              <span className="text-white/70">★ Open 7 Days a Week</span>
-            </div>
           </div>
         </div>
       </div>

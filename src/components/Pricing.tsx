@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { Check, Wand } from "lucide-react";
+import { Crown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import IframeDrawer from "./IframeDrawer";
+import WizardHat from "./WizardHat";
 
 interface Tier {
   name: string;
@@ -14,14 +14,10 @@ interface Tier {
   singlePrice: string;
   clubPrice: string;
   features: string[];
-  cardClass: string;
-  ctaClass: string;
-  textClass: string;
   isBest?: boolean;
   badge?: string;
   productId?: string;
   singleProductId?: string;
-  lgMarginTop: number;
 }
 
 const tiers: Tier[] = [
@@ -37,12 +33,8 @@ const tiers: Tier[] = [
       "Powerful blowers",
       "Free DIY vacuums",
     ],
-    cardClass: "bg-secondary",
-    ctaClass: "bg-deep hover:bg-deep/90 text-white",
-    textClass: "text-white",
     productId: "TODO-MAGIC-CLUB-PRODUCT-ID",
     singleProductId: "TODO-MAGIC-SINGLE-PRODUCT-ID",
-    lgMarginTop: 96,
   },
   {
     name: "Wicked Wheel",
@@ -56,12 +48,26 @@ const tiers: Tier[] = [
       "Wheel & rim cleaner",
       "Tire shine + brightener",
     ],
-    cardClass: "bg-magic",
-    ctaClass: "bg-accent hover:bg-accent/90 text-accent-foreground",
-    textClass: "text-white",
     productId: "TODO-WICKED-CLUB-PRODUCT-ID",
     singleProductId: "TODO-WICKED-SINGLE-PRODUCT-ID",
-    lgMarginTop: 48,
+  },
+  {
+    name: "King's Graphene",
+    tagline: "The wizard's crown jewel",
+    image: "/images/pkg-kings-graphene.png",
+    singlePrice: "$25",
+    clubPrice: "$50",
+    features: [
+      "Graphene ceramic coating",
+      "Triple-layer paint protection",
+      "Hot wax + sealant armor",
+      "Rain repellent windshield",
+      "Tunnel light show",
+    ],
+    isBest: true,
+    badge: "Most Popular",
+    productId: "TODO-KINGS-CLUB-PRODUCT-ID",
+    singleProductId: "TODO-KINGS-SINGLE-PRODUCT-ID",
   },
   {
     name: "Shining Knight",
@@ -75,103 +81,92 @@ const tiers: Tier[] = [
       "Rain repellent windshield",
       "Underbody rust inhibitor",
     ],
-    cardClass: "bg-deep",
-    ctaClass: "bg-accent hover:bg-accent/90 text-accent-foreground",
-    textClass: "text-white",
     productId: "TODO-KNIGHT-CLUB-PRODUCT-ID",
     singleProductId: "TODO-KNIGHT-SINGLE-PRODUCT-ID",
-    lgMarginTop: 24,
-  },
-  {
-    name: "King's Graphene",
-    tagline: "The wizard's crown jewel",
-    image: "/images/pkg-kings-graphene.png",
-    singlePrice: "$25",
-    clubPrice: "$50",
-    features: [
-      "Everything in Shining Knight",
-      "Graphene ceramic coating",
-      "Triple-layer paint protection",
-      "Hydrophobic mirror shine",
-      "Tunnel light show",
-    ],
-    cardClass: "bg-accent",
-    ctaClass: "bg-primary hover:bg-primary/90 text-white",
-    textClass: "text-accent-foreground",
-    isBest: true,
-    badge: "Best Value",
-    productId: "TODO-KINGS-CLUB-PRODUCT-ID",
-    singleProductId: "TODO-KINGS-SINGLE-PRODUCT-ID",
-    lgMarginTop: 0,
   },
 ];
 
-function PricingCard({
-  tier,
-  onSubscribe,
-  isMonthly,
-}: {
+type CardProps = {
   tier: Tier;
-  onSubscribe: (productId?: string) => void;
   isMonthly: boolean;
-}) {
+  onSubscribe: (productId?: string) => void;
+};
+
+function CardCoin({ tier, isMonthly, onSubscribe }: CardProps) {
+  const isBest = !!tier.isBest;
   return (
     <div
-      className={`relative rounded-[1.5rem] p-6 lg:p-7 ${tier.cardClass} ${tier.textClass} flex flex-col shadow-xl ring-1 ring-black/5 transition-transform duration-300 hover:-translate-y-1`}
+      className={`relative flex flex-col justify-between rounded-3xl p-6 lg:p-8 bg-white text-foreground transition-all duration-300 ${
+        isBest
+          ? "shadow-2xl ring-2 ring-accent"
+          : "shadow-md hover:shadow-xl border border-border"
+      }`}
     >
-      {tier.isBest && (
-        <>
-          <div className="absolute -inset-1 rounded-[1.6rem] bg-gradient-to-br from-accent via-secondary to-magic opacity-60 blur-md -z-10 animate-pulse" />
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-deep text-accent text-xs font-heading font-bold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-lg z-10 flex items-center gap-1.5">
-            <Wand className="w-3.5 h-3.5" />
+      {isBest && (
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+          <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-[10px] font-heading uppercase tracking-[0.22em] shadow-lg">
+            <Crown className="w-3.5 h-3.5" />
             {tier.badge}
           </div>
-        </>
+        </div>
       )}
 
-      <div className="aspect-[5/3] relative -mx-2 -mt-2 mb-4 rounded-2xl overflow-hidden bg-black/10">
-        <Image
-          src={tier.image}
-          alt={tier.name}
-          fill
-          sizes="(max-width: 768px) 100vw, 300px"
-          className="object-contain p-2"
-        />
+      <div className="text-center">
+        <p className="text-[11px] uppercase tracking-[0.22em] mb-1.5 text-muted-foreground">
+          {tier.tagline}
+        </p>
+        <h3 className="text-xl lg:text-2xl font-heading uppercase leading-tight mb-6">
+          {tier.name}
+        </h3>
+
+        <div className="flex justify-center mb-6">
+          <div
+            className={`relative size-44 lg:size-48 rounded-full grid place-items-center font-heading text-accent-foreground select-none ${
+              isBest ? "shadow-[0_0_50px_-5px_hsla(45_100%_55%_/_0.6)]" : ""
+            }`}
+            style={{
+              background:
+                "radial-gradient(circle at 35% 30%, hsl(48 100% 75%) 0%, hsl(45 100% 55%) 35%, hsl(40 95% 42%) 75%, hsl(38 85% 30%) 100%)",
+              boxShadow:
+                "inset 0 0 0 2px hsla(45 100% 92% / 0.55), inset 0 0 0 8px hsla(35 70% 25% / 0.35), inset 0 0 0 10px hsla(45 100% 92% / 0.3), 0 18px 30px -16px hsla(225 100% 16% / 0.5)",
+            }}
+          >
+            <div className="text-center leading-none">
+              <span className="block text-5xl lg:text-6xl">
+                {isMonthly ? tier.clubPrice : tier.singlePrice}
+              </span>
+              <span className="block mt-1.5 text-[10px] uppercase tracking-[0.22em] text-accent-foreground/75">
+                {isMonthly ? "per month" : "per wash"}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <ul className="space-y-2 text-left">
+          {tier.features.map((feature) => (
+            <li
+              key={feature}
+              className="flex items-start gap-2 text-sm leading-snug"
+            >
+              <WizardHat className="size-4 h-lh flex-shrink-0 text-magic" />
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
       </div>
 
-      <p className="text-xs uppercase tracking-widest opacity-80 mb-1">
-        {tier.tagline}
-      </p>
-      <h3 className="text-2xl lg:text-3xl font-heading font-bold uppercase leading-none mb-4">
-        {tier.name}
-      </h3>
-
-      <div className="flex items-baseline gap-2 mb-5">
-        <span className="text-5xl font-heading font-bold leading-none">
-          {isMonthly ? tier.clubPrice : tier.singlePrice}
-        </span>
-        <span className="text-xs uppercase tracking-wider opacity-80">
-          {isMonthly ? "/month" : "single wash"}
-        </span>
+      <div className="mt-7">
+        <Button
+          onClick={() =>
+            onSubscribe(isMonthly ? tier.productId : tier.singleProductId)
+          }
+          size="lg"
+          variant={isBest ? "default" : "outlineDark"}
+          className="w-full"
+        >
+          {isMonthly ? "Join the Club" : "Buy Single Wash"}
+        </Button>
       </div>
-
-      <ul className="space-y-2 flex-1 mb-6">
-        {tier.features.map((feature) => (
-          <li key={feature} className="flex items-start gap-2 text-sm">
-            <Check className="w-4 h-4 flex-shrink-0 mt-0.5" />
-            <span>{feature}</span>
-          </li>
-        ))}
-      </ul>
-
-      <button
-        onClick={() =>
-          onSubscribe(isMonthly ? tier.productId : tier.singleProductId)
-        }
-        className={`mt-auto block w-full text-center py-3 rounded-lg font-heading font-bold uppercase tracking-wider text-sm transition-all hover:brightness-110 shadow-md cursor-pointer ${tier.ctaClass}`}
-      >
-        {isMonthly ? "Join the Club" : "Buy Now"}
-      </button>
     </div>
   );
 }
@@ -190,27 +185,29 @@ export default function Pricing() {
     <>
       <section
         id="pricing"
-        className="relative bg-background py-16 lg:py-24 overflow-hidden"
+        className="relative py-20 lg:py-28 bg-parchment"
       >
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
-          <div className="text-center mb-10 lg:mb-14">
-            <p className="font-script text-magic text-sm sm:text-base uppercase tracking-[0.3em] mb-3 animate-fade-up">
-              Wash Wizard Packages
-            </p>
-            <h2 className="font-heading font-bold uppercase leading-[0.95] text-4xl sm:text-5xl lg:text-6xl text-primary animate-fade-up-delay-1">
-              Various <span className="text-accent">elixirs</span>
-              <br className="hidden sm:block" /> for all budgets
-            </h2>
-            <p className="mt-4 text-base text-muted-foreground max-w-2xl mx-auto animate-fade-up-delay-2">
-              Pay once or unlock unlimited washes with the club. Every package
-              includes free DIY vacuums and the legendary 180-foot tunnel.
-            </p>
-
-            <div className="mt-7 flex justify-center animate-fade-up-delay-3">
-              <div className="inline-flex items-center bg-muted rounded-full p-1.5">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-12 lg:mb-16 items-end">
+            <div className="lg:col-span-7">
+              <p className="font-script uppercase tracking-[0.32em] text-sm mb-4 inline-flex items-center gap-2 text-magic">
+                <Crown className="w-4 h-4 text-accent" />
+                Wash Wizard Packages
+              </p>
+              <h2 className="font-heading uppercase text-5xl lg:text-6xl xl:text-7xl leading-[0.9] text-primary">
+                Pick your <span className="text-accent">spell.</span>
+              </h2>
+            </div>
+            <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-4 lg:items-end">
+              <p className="text-base lg:text-right max-w-md text-muted-foreground">
+                Pay per wash or unlock unlimited washes with the club. Every
+                package includes free DIY vacuums and the legendary 180-foot
+                tunnel.
+              </p>
+              <div className="inline-flex items-center border rounded-full p-1 shadow-sm shrink-0 bg-white border-border">
                 <button
                   onClick={() => setIsMonthly(true)}
-                  className={`px-5 py-2 rounded-full text-xs font-heading font-bold uppercase tracking-widest transition-all ${
+                  className={`px-5 py-2 rounded-full text-xs font-heading uppercase tracking-[0.18em] transition-all ${
                     isMonthly
                       ? "bg-primary text-white shadow-md"
                       : "text-muted-foreground hover:text-primary"
@@ -220,7 +217,7 @@ export default function Pricing() {
                 </button>
                 <button
                   onClick={() => setIsMonthly(false)}
-                  className={`px-5 py-2 rounded-full text-xs font-heading font-bold uppercase tracking-widest transition-all ${
+                  className={`px-5 py-2 rounded-full text-xs font-heading uppercase tracking-[0.18em] transition-all ${
                     !isMonthly
                       ? "bg-primary text-white shadow-md"
                       : "text-muted-foreground hover:text-primary"
@@ -232,24 +229,22 @@ export default function Pricing() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5 items-start">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-[--spacing(6)_1fr_--spacing(6)] gap-6">
             {tiers.map((tier) => (
-              <div key={tier.name}>
-                <div
-                  className="hidden lg:block"
-                  style={{ height: tier.lgMarginTop }}
-                  aria-hidden="true"
-                />
-                <PricingCard
+              <div
+                key={tier.name}
+                className={tier.isBest ? "lg:row-span-full" : "lg:row-start-2"}
+              >
+                <CardCoin
                   tier={tier}
-                  onSubscribe={openPurchaseDrawer}
                   isMonthly={isMonthly}
+                  onSubscribe={openPurchaseDrawer}
                 />
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="mt-14 flex justify-center">
             <Link href="/packages">
               <Button variant="outlineDark" size="lg">
                 Compare every package &rarr;
