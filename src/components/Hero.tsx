@@ -1,11 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { MapPin } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const driveAllAddr = encodeURIComponent("Wash Wizard Car Wash, Summerville, SC");
+const GOLD = "#FFB800";
+
+type Phase = "wizard-in" | "zap" | "reveal" | "wizard-out" | "done";
 
 /* ─── Bubble canvas ─────────────────────────────────────── */
 function BubbleCanvas() {
@@ -32,10 +36,10 @@ function BubbleCanvas() {
     const bubbles: Bubble[] = [];
 
     const spawnBubble = (): Bubble => ({
-      x: canvas.width * 0.72 + (Math.random() - 0.5) * 30,
-      y: canvas.height * 0.56 + (Math.random() - 0.5) * 20,
+      x: canvas.width * 0.5 + (Math.random() - 0.5) * canvas.width * 0.6,
+      y: canvas.height * 0.5 + (Math.random() - 0.5) * canvas.height * 0.3,
       r: 6 + Math.random() * 18,
-      vx: -(0.4 + Math.random() * 0.8),
+      vx: (Math.random() - 0.5) * 0.6,
       vy: -(0.5 + Math.random() * 0.9),
       opacity: 0,
       phase: Math.random() * Math.PI * 2,
@@ -199,13 +203,150 @@ function SparkleCanvas() {
   return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 14 }} />;
 }
 
+/* ─── Magic zap canvas ─────────────────────────────────── */
+function ZapCanvas({ active }: { active: boolean }) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    if (!active) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d")!;
+
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+
+    const startX = canvas.width * 0.22;
+    const startY = canvas.height * 0.40;
+    const endX = canvas.width * 0.5;
+    const endY = canvas.height * 0.5;
+
+    let frame = 0;
+    const totalFrames = 35;
+    let raf: number;
+
+    const drawLightning = (sx: number, sy: number, ex: number, ey: number, progress: number, width: number, color: string) => {
+      const dx = ex - sx;
+      const dy = ey - sy;
+      const segments = 12;
+      const reachSeg = Math.floor(segments * Math.min(progress * 1.5, 1));
+
+      ctx.beginPath();
+      ctx.moveTo(sx, sy);
+
+      for (let i = 1; i <= reachSeg; i++) {
+        const t = i / segments;
+        const jitterX = (Math.random() - 0.5) * 30 * (1 - t);
+        const jitterY = (Math.random() - 0.5) * 20 * (1 - t);
+        const px = sx + dx * t + jitterX;
+        const py = sy + dy * t + jitterY;
+        ctx.lineTo(px, py);
+      }
+
+      ctx.strokeStyle = color;
+      ctx.lineWidth = width;
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      ctx.stroke();
+    };
+
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      frame++;
+      const progress = frame / totalFrames;
+
+      if (progress <= 1) {
+        ctx.shadowColor = "rgba(255,184,0,0.8)";
+        ctx.shadowBlur = 25;
+        drawLightning(startX, startY, endX, endY, progress, 4, "rgba(255,255,255,0.9)");
+        ctx.shadowBlur = 15;
+        drawLightning(startX, startY, endX, endY, progress, 2, GOLD);
+        drawLightning(startX + 5, startY - 5, endX, endY, progress, 1.5, "rgba(255,220,100,0.7)");
+        ctx.shadowBlur = 0;
+
+        if (progress > 0.6) {
+          const burstAlpha = (progress - 0.6) / 0.4;
+          const burstR = burstAlpha * 120;
+          const grad = ctx.createRadialGradient(endX, endY, 0, endX, endY, burstR);
+          grad.addColorStop(0, `rgba(255,255,255,${0.9 * (1 - burstAlpha)})`);
+          grad.addColorStop(0.3, `rgba(255,184,0,${0.6 * (1 - burstAlpha)})`);
+          grad.addColorStop(1, "rgba(255,184,0,0)");
+          ctx.fillStyle = grad;
+          ctx.fillRect(endX - burstR, endY - burstR, burstR * 2, burstR * 2);
+        }
+      }
+
+      if (frame < totalFrames + 10) {
+        raf = requestAnimationFrame(draw);
+      }
+    };
+
+    draw();
+    return () => cancelAnimationFrame(raf);
+  }, [active]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full pointer-events-none"
+      style={{ zIndex: 25, opacity: active ? 1 : 0 }}
+    />
+  );
+}
+
 /* ─── Hero ──────────────────────────────────────────────── */
 export default function Hero() {
+  const [phase, setPhase] = useState<Phase>("wizard-in");
+
+  useEffect(() => {
+    const timers = [
+      setTimeout(() => setPhase("zap"), 900),
+      setTimeout(() => setPhase("reveal"), 1700),
+      setTimeout(() => setPhase("wizard-out"), 2800),
+      setTimeout(() => setPhase("done"), 3800),
+    ];
+    return () => timers.forEach(clearTimeout);
+  }, []);
+
+  const wizardVisible = phase !== "done";
+  const videoRevealed = phase === "reveal" || phase === "wizard-out" || phase === "done";
+  const textVisible = phase === "reveal" || phase === "wizard-out" || phase === "done";
+
   return (
     <section className="relative pt-32 lg:pt-40 pb-12 lg:pb-16 bg-background overflow-hidden">
+      <style>{`
+        @keyframes wizardSlideIn {
+          0%   { transform: translateX(-200px) scale(0.7); opacity: 0; }
+          65%  { transform: translateX(8px) scale(1.03); opacity: 1; }
+          100% { transform: translateX(0) scale(1); opacity: 1; }
+        }
+        @keyframes wizardSlideOut {
+          0%   { transform: translateX(0) scale(1); opacity: 1; }
+          100% { transform: translateX(-200px) scale(0.7); opacity: 0; }
+        }
+        @keyframes flashReveal {
+          0%   { opacity: 0; transform: scale(0.8); filter: brightness(3); }
+          40%  { opacity: 1; transform: scale(1.04); filter: brightness(1.6); }
+          100% { opacity: 1; transform: scale(1); filter: brightness(1); }
+        }
+        @keyframes glowPulse {
+          0%, 100% { text-shadow: 0 0 30px rgba(255,184,0,0.4), 0 0 60px rgba(255,184,0,0.2), 0 2px 4px rgba(0,0,0,0.5); }
+          50%      { text-shadow: 0 0 40px rgba(255,184,0,0.6), 0 0 80px rgba(255,184,0,0.3), 0 2px 4px rgba(0,0,0,0.5); }
+        }
+        @keyframes screenFlash {
+          0%   { opacity: 0; }
+          20%  { opacity: 0.8; }
+          100% { opacity: 0; }
+        }
+        @keyframes overlayLift {
+          0%   { opacity: 1; }
+          100% { opacity: 0; }
+        }
+      `}</style>
+
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
 
-        {/* ── Video card — centered headline only ── */}
+        {/* ── Video card ── */}
         <div
           className="relative rounded-[2rem] overflow-hidden text-white shadow-2xl"
           style={{
@@ -225,36 +366,93 @@ export default function Hero() {
             />
           </div>
 
-          {/* Semi-transparent overlay */}
+          {/* Dark overlay — covers video until zap reveals it */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
-              zIndex: 2,
+              zIndex: 3,
+              background: "linear-gradient(160deg, #1E1832 0%, #2A2050 25%, #32325A 55%, #281E3C 80%, #1A1428 100%)",
+              opacity: videoRevealed ? 0 : 1,
+              animation: videoRevealed ? "overlayLift 0.8s ease-out forwards" : "none",
+            }}
+          />
+
+          {/* Semi-transparent overlay (stays for readability) */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              zIndex: 4,
               background: "linear-gradient(180deg, rgba(20,12,40,0.45) 0%, rgba(30,20,55,0.35) 50%, rgba(20,12,40,0.50) 100%)",
             }}
           />
 
           <SparkleCanvas />
 
+          {/* Flash overlay on zap impact */}
+          {phase === "zap" && (
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                zIndex: 26,
+                background: `radial-gradient(circle at 50% 50%, rgba(255,255,255,0.5), rgba(255,184,0,0.3) 40%, transparent 70%)`,
+                animation: "screenFlash 0.7s ease-out forwards",
+              }}
+            />
+          )}
+
           {/* Subtle gold shimmer top edge */}
           <div
             className="absolute top-0 left-0 right-0 h-px pointer-events-none"
             style={{
               zIndex: 6,
-              background: "linear-gradient(90deg, transparent 0%, rgba(200,175,80,0.4) 30%, rgba(210,185,80,0.65) 50%, rgba(200,175,80,0.4) 70%, transparent 100%)",
+              background: `linear-gradient(90deg, transparent 0%, ${GOLD}66 30%, ${GOLD}A6 50%, ${GOLD}66 70%, transparent 100%)`,
             }}
           />
 
-          {/* Centered headline */}
+          {/* Zap lightning */}
+          <ZapCanvas active={phase === "zap"} />
+
+          {/* Bubble canvas */}
+          <BubbleCanvas />
+
+          {/* Wizard mascot */}
+          {wizardVisible && (
+            <div
+              className="absolute bottom-0 left-4 sm:left-8 lg:left-12 pointer-events-none"
+              style={{
+                zIndex: 30,
+                width: "clamp(180px, 28vw, 340px)",
+                animation:
+                  phase === "wizard-out"
+                    ? "wizardSlideOut 0.9s cubic-bezier(0.6, -0.28, 0.74, 0.05) forwards"
+                    : "wizardSlideIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
+              }}
+            >
+              <Image
+                src="/images/wizard-mascot.png"
+                alt="Wash Wizard mascot"
+                width={340}
+                height={402}
+                style={{ width: "100%", height: "auto", transform: "scaleX(-1)" }}
+                priority
+              />
+            </div>
+          )}
+
+          {/* Centered headline — appears after zap */}
           <div className="relative flex items-center justify-center py-24 sm:py-32 lg:py-40" style={{ zIndex: 20 }}>
             <h1
-              className="text-center uppercase text-5xl sm:text-7xl lg:text-8xl xl:text-9xl animate-fade-up"
+              className="text-center uppercase text-5xl sm:text-7xl lg:text-8xl xl:text-9xl"
               style={{
                 fontFamily: "'Luckiest Guy', cursive",
                 letterSpacing: "0.03em",
                 lineHeight: 0.92,
-                color: "#C8A84B",
-                textShadow: "0 0 30px rgba(200,168,75,0.4), 0 0 60px rgba(200,168,75,0.2), 0 2px 4px rgba(0,0,0,0.5)",
+                color: GOLD,
+                textShadow: `0 0 30px rgba(255,184,0,0.4), 0 0 60px rgba(255,184,0,0.2), 0 2px 4px rgba(0,0,0,0.5)`,
+                opacity: textVisible ? 1 : 0,
+                animation: textVisible
+                  ? "flashReveal 0.6s ease-out forwards, glowPulse 4s ease-in-out 0.6s infinite"
+                  : "none",
               }}
             >
               We love
@@ -266,9 +464,9 @@ export default function Hero() {
           {/* Bottom ribbon */}
           <div className="relative z-20 border-t border-white/10 bg-deep/50 backdrop-blur-sm">
             <div className="px-6 sm:px-10 lg:px-14 py-3 flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm font-heading uppercase tracking-widest">
-              <span style={{ color: "#C8A84B" }}>★ Unlimited Wash Club from $20/mo</span>
-              <span style={{ color: "#C8A84B" }} className="hidden sm:block">★ Free DIY Vacuums With Every Wash</span>
-              <span style={{ color: "#C8A84B" }}>★ Open 7 Days a Week</span>
+              <span style={{ color: GOLD }}>★ Unlimited Wash Club from $20/mo</span>
+              <span style={{ color: GOLD }} className="hidden sm:block">★ Free DIY Vacuums With Every Wash</span>
+              <span style={{ color: GOLD }}>★ Open 7 Days a Week</span>
             </div>
           </div>
         </div>
@@ -283,7 +481,7 @@ export default function Hero() {
             <Button
               size="lg"
               className="gap-2 font-bold"
-              style={{ backgroundColor: "#C8A84B", color: "#1a1428", borderColor: "transparent" }}
+              style={{ backgroundColor: GOLD, color: "#1a1428", borderColor: "transparent" }}
             >
               <MapPin className="size-4 shrink-0" />
               Get Directions
@@ -293,7 +491,7 @@ export default function Hero() {
             <Button
               size="lg"
               className="font-bold"
-              style={{ backgroundColor: "#C8A84B", color: "#1a1428", borderColor: "transparent" }}
+              style={{ backgroundColor: GOLD, color: "#1a1428", borderColor: "transparent" }}
             >
               See Wash Packages
             </Button>

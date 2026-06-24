@@ -29,6 +29,8 @@ const tiers: Tier[] = [
     features: [
       "Exterior wash & rinse",
       "Spot-free water rinse",
+      "Powerful blowers",
+      "Free DIY vacuums",
     ],
     productId: "TODO-MAGIC-CLUB-PRODUCT-ID",
     singleProductId: "TODO-MAGIC-SINGLE-PRODUCT-ID",
@@ -42,7 +44,9 @@ const tiers: Tier[] = [
     clubPrice: "$30",
     features: [
       "Everything in Magic Wash",
+      "Triple-foam soft polish",
       "Wheel & rim cleaner",
+      "Tire shine + brightener",
     ],
     productId: "TODO-WICKED-CLUB-PRODUCT-ID",
     singleProductId: "TODO-WICKED-SINGLE-PRODUCT-ID",
@@ -57,6 +61,8 @@ const tiers: Tier[] = [
     features: [
       "Everything in Wicked Wheel",
       "Hot wax + sealant armor",
+      "Rain repellent windshield",
+      "Underbody rust inhibitor",
     ],
     productId: "TODO-KNIGHT-CLUB-PRODUCT-ID",
     singleProductId: "TODO-KNIGHT-SINGLE-PRODUCT-ID",
@@ -71,6 +77,9 @@ const tiers: Tier[] = [
     features: [
       "Everything in Shining Knight",
       "Graphene ceramic coating",
+      "Triple-layer paint protection",
+      "Hydrophobic mirror shine",
+      "Tunnel light show",
     ],
     isBest: true,
     productId: "TODO-KINGS-CLUB-PRODUCT-ID",
@@ -79,28 +88,33 @@ const tiers: Tier[] = [
 ];
 
 /* ─── Corner flourish ─────────────────────────────────────── */
-function CornerFlourish({ isBest }: { isBest?: boolean }) {
-  const stroke = "#a07010";
-  const opacity = 0.65;
-  const dotFill = "#a07010";
-
+function CornerFlourish() {
   const paths = (
-    <g stroke={stroke} strokeWidth="1.2" fill="none" opacity={opacity}>
+    <g stroke="#a07010" strokeWidth="1.2" fill="none" opacity={0.6}>
       <path d="M4,22 L4,4 L22,4" />
       <path d="M4,4 Q9,9 14,4" />
       <path d="M4,4 Q9,9 4,14" />
-      <circle cx="4" cy="4" r="2.2" fill={dotFill} opacity={0.55} />
+      <circle cx="4" cy="4" r="2.2" fill="#a07010" opacity={0.5} />
       <path d="M11,4 Q13,6.5 15,4" strokeWidth="0.7" />
       <path d="M4,11 Q6.5,13 4,15" strokeWidth="0.7" />
     </g>
   );
 
+  const svgStyle = (pos: React.CSSProperties): React.CSSProperties => ({
+    position: "absolute",
+    width: 36,
+    height: 36,
+    pointerEvents: "none",
+    zIndex: 1,
+    ...pos,
+  });
+
   return (
     <>
-      <svg style={{ position: "absolute", top: 6, left: 6, width: 36, height: 36, pointerEvents: "none", zIndex: 1 }} viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">{paths}</svg>
-      <svg style={{ position: "absolute", top: 6, right: 6, width: 36, height: 36, pointerEvents: "none", zIndex: 1 }} viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g transform="scale(-1,1) translate(-36,0)">{paths}</g></svg>
-      <svg style={{ position: "absolute", bottom: 6, left: 6, width: 36, height: 36, pointerEvents: "none", zIndex: 1 }} viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g transform="scale(1,-1) translate(0,-36)">{paths}</g></svg>
-      <svg style={{ position: "absolute", bottom: 6, right: 6, width: 36, height: 36, pointerEvents: "none", zIndex: 1 }} viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g transform="scale(-1,-1) translate(-36,-36)">{paths}</g></svg>
+      <svg style={svgStyle({ top: 6, left: 6 })} viewBox="0 0 36 36" aria-hidden="true">{paths}</svg>
+      <svg style={svgStyle({ top: 6, right: 6 })} viewBox="0 0 36 36" aria-hidden="true"><g transform="scale(-1,1) translate(-36,0)">{paths}</g></svg>
+      <svg style={svgStyle({ bottom: 6, left: 6 })} viewBox="0 0 36 36" aria-hidden="true"><g transform="scale(1,-1) translate(0,-36)">{paths}</g></svg>
+      <svg style={svgStyle({ bottom: 6, right: 6 })} viewBox="0 0 36 36" aria-hidden="true"><g transform="scale(-1,-1) translate(-36,-36)">{paths}</g></svg>
     </>
   );
 }
@@ -108,19 +122,19 @@ function CornerFlourish({ isBest }: { isBest?: boolean }) {
 /* ─── Divider ─────────────────────────────────────────────── */
 function SpellDivider() {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 6, margin: "14px 0" }}>
-      <div style={{ flex: 1, height: 1, background: "linear-gradient(to right, transparent, #b08020, transparent)" }} />
-      <span style={{ color: "#b08020", fontSize: 12, lineHeight: 1 }}>❧</span>
-      <div style={{ flex: 1, height: 1, background: "linear-gradient(to left, transparent, #b08020, transparent)" }} />
+    <div className="flex items-center gap-1.5 my-2.5">
+      <div className="h-px flex-1" style={{ background: "linear-gradient(to right, transparent, rgba(176,128,32,0.4), transparent)" }} />
+      <span className="text-[11px] leading-none" style={{ color: "rgba(176,128,32,0.55)" }} aria-hidden="true">❧</span>
+      <div className="h-px flex-1" style={{ background: "linear-gradient(to left, transparent, rgba(176,128,32,0.4), transparent)" }} />
     </div>
   );
 }
 
-/* ─── Best Value ribbon — dark purple ─────────────────────── */
+/* ─── Best Value ribbon ──────────────────────────────────── */
 function BestRibbon() {
   return (
-    <div style={{ position: "absolute", top: -16, left: "50%", transform: "translateX(-50%)", zIndex: 10, whiteSpace: "nowrap" }}>
-      <svg viewBox="0 0 152 36" width="152" height="36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap">
+      <svg viewBox="0 0 152 36" width="152" height="36" aria-hidden="true">
         <defs>
           <linearGradient id="ribGrad" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#4A2D6B" />
@@ -151,139 +165,141 @@ function SpellCard({
   const price = isMonthly ? tier.clubPrice : tier.singlePrice;
   const priceLabel = isMonthly ? "per month" : "single wash";
 
-  // FIX 1: identical background for all cards
-  const cardBg = "linear-gradient(160deg, #fdf6e3 0%, #f7e9c4 40%, #f2dfa8 70%, #f7e9c4 100%)";
-  const cardShadow = tier.isBest
-    ? "0 8px 36px rgba(60,20,90,0.18), 0 0 0 1.5px rgba(100,60,160,0.25)"
-    : "0 6px 28px rgba(80,50,0,0.16), 0 0 0 1px rgba(160,110,20,0.12)";
-  const innerBorder = "1.5px solid rgba(160,110,20,0.28)";
-
-  const inkDark = "#1a0e00";
-  const inkMid = "#7a5a10";
-  const inkGold = "#5a3800";
-
   return (
-    // FIX 2: h-full so all cards stretch to same height in the grid
     <div
+      className="relative flex flex-col h-full"
       style={{
-        position: "relative",
-        background: cardBg,
-        borderRadius: 12,
-        padding: "36px 32px 30px",
-        display: "flex",
-        flexDirection: "column",
-        boxShadow: cardShadow,
-        height: "100%",
+        background: "linear-gradient(160deg, #fdf6e3 0%, #f7e9c4 40%, #f2dfa8 70%, #f7e9c4 100%)",
+        borderRadius: 14,
+        padding: "30px 22px 24px",
+        boxShadow: tier.isBest
+          ? "0 10px 40px rgba(60,20,90,0.2), 0 0 0 1.5px rgba(100,60,160,0.25)"
+          : "0 8px 32px rgba(80,50,0,0.12), 0 0 0 1px rgba(160,110,20,0.1)",
       }}
     >
       {tier.isBest && <BestRibbon />}
-      <CornerFlourish isBest={tier.isBest} />
+      <CornerFlourish />
 
-      <div style={{ position: "absolute", inset: 8, borderRadius: 8, border: innerBorder, pointerEvents: "none", zIndex: 0 }} />
+      {/* Inner border */}
+      <div
+        className="absolute pointer-events-none"
+        style={{ inset: 9, borderRadius: 9, border: "1.5px solid rgba(160,110,20,0.22)" }}
+        aria-hidden="true"
+      />
 
-      <div style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", flex: 1 }}>
+      <div className="relative z-[2] flex flex-col flex-1">
 
-        {/* tier badge */}
-        <div style={{
-          alignSelf: "center",
-          fontFamily: "var(--font-cinzel), Georgia, serif",
-          fontSize: 11,
-          fontWeight: 700,
-          letterSpacing: "2.5px",
-          textTransform: "uppercase" as const,
-          color: "#7a5a10",
-          border: "1px solid rgba(160,110,20,0.35)",
-          borderRadius: 3,
-          padding: "4px 14px",
-          marginBottom: 14,
-          background: "rgba(255,240,180,0.4)",
-        }}>
+        {/* Tier badge */}
+        <div
+          className="self-center mb-3"
+          style={{
+            fontFamily: "var(--font-cinzel, Georgia, serif)",
+            fontSize: 9,
+            fontWeight: 700,
+            letterSpacing: "2.5px",
+            textTransform: "uppercase",
+            color: "#7a5a10",
+            border: "1px solid rgba(160,110,20,0.3)",
+            borderRadius: 3,
+            padding: "3px 12px",
+            background: "rgba(255,240,180,0.35)",
+          }}
+        >
           {tier.tier}
         </div>
 
-        {/* icon circle */}
-        <div style={{ display: "flex", justifyContent: "center", marginBottom: 10 }}>
-          <div style={{
-            width: 60, height: 60,
-            borderRadius: "50%",
-            border: "1.2px solid rgba(160,110,20,0.35)",
-            background: "rgba(160,110,20,0.07)",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: 26,
-            color: "#8a6010",
-            fontFamily: "Georgia, serif",
-          }}>
+        {/* Icon circle */}
+        <div className="flex justify-center mb-3">
+          <div
+            className="flex items-center justify-center"
+            style={{
+              width: 56,
+              height: 56,
+              borderRadius: "50%",
+              border: "1.5px solid rgba(160,110,20,0.25)",
+              background: "rgba(160,110,20,0.06)",
+              fontSize: 24,
+              color: "#8a6010",
+              fontFamily: "Georgia, serif",
+            }}
+          >
             {tier.icon}
           </div>
         </div>
 
-        {/* name */}
-        <h3 style={{
-          fontFamily: "var(--font-cinzel), Georgia, serif",
-          fontWeight: 700,
-          fontSize: 20,
-          color: inkDark,
-          textAlign: "center",
-          letterSpacing: "0.05em",
-          lineHeight: 1.2,
-          marginBottom: 4,
-        }}>
+        {/* Name */}
+        <h3
+          className="text-center mb-1"
+          style={{
+            fontFamily: "var(--font-cinzel, Georgia, serif)",
+            fontWeight: 700,
+            fontSize: 17,
+            color: "#1a0e00",
+            letterSpacing: "0.04em",
+            lineHeight: 1.2,
+          }}
+        >
           {tier.name}
         </h3>
 
-        {/* tagline */}
-        <p style={{
-          fontFamily: "var(--font-im-fell), Georgia, serif",
-          fontStyle: "italic",
-          fontSize: 14,
-          color: inkMid,
-          textAlign: "center",
-          marginBottom: 0,
-        }}>
+        {/* Tagline */}
+        <p
+          className="text-center"
+          style={{
+            fontFamily: "var(--font-im-fell, Georgia, serif)",
+            fontStyle: "italic",
+            fontSize: 12,
+            color: "#7a5a10",
+          }}
+        >
           {tier.tagline}
         </p>
 
         <SpellDivider />
 
-        {/* price */}
-        <div style={{ textAlign: "center", marginBottom: 2 }}>
-          <span style={{
-            fontFamily: "var(--font-cinzel), Georgia, serif",
-            fontWeight: 700,
-            fontSize: 46,
-            color: inkGold,
-            lineHeight: 1,
-          }}>
+        {/* Price */}
+        <div className="text-center mb-0.5">
+          <span
+            className="tabular-nums"
+            style={{
+              fontFamily: "var(--font-cinzel, Georgia, serif)",
+              fontWeight: 700,
+              fontSize: 42,
+              color: "#5a3800",
+              lineHeight: 1,
+            }}
+          >
             {price}
           </span>
-          <span style={{
-            display: "block",
-            fontFamily: "var(--font-im-fell), Georgia, serif",
-            fontStyle: "italic",
-            fontSize: 13,
-            color: inkMid,
-            marginTop: 2,
-          }}>
+          <span
+            className="block mt-0.5"
+            style={{
+              fontFamily: "var(--font-im-fell, Georgia, serif)",
+              fontStyle: "italic",
+              fontSize: 12,
+              color: "#7a5a10",
+            }}
+          >
             {priceLabel}
           </span>
         </div>
 
         <SpellDivider />
 
-        {/* features */}
-        <ul style={{ listStyle: "none", padding: 0, margin: "0 0 16px", flex: 1 }}>
+        {/* Features */}
+        <ul className="flex-1 mb-5" role="list" style={{ padding: 0, margin: 0, listStyle: "none" }}>
           {tier.features.map((f) => (
-            <li key={f} style={{
-              fontFamily: "var(--font-im-fell), Georgia, serif",
-              fontSize: 15,
-              color: inkDark,
-              display: "flex",
-              alignItems: "flex-start",
-              gap: 8,
-              marginBottom: 8,
-              lineHeight: 1.4,
-            }}>
-              <span style={{ color: "#a07010", fontSize: 9, marginTop: 5, flexShrink: 0 }}>✦</span>
+            <li
+              key={f}
+              className="flex items-start gap-2 mb-1.5"
+              style={{
+                fontFamily: "var(--font-im-fell, Georgia, serif)",
+                fontSize: 13,
+                color: "#1a0e00",
+                lineHeight: 1.4,
+              }}
+            >
+              <span className="shrink-0 mt-1" style={{ color: "#a07010", fontSize: 7 }} aria-hidden="true">✦</span>
               {f}
             </li>
           ))}
@@ -291,23 +307,24 @@ function SpellCard({
 
         {/* CTA */}
         <button
+          type="button"
           onClick={() => onSubscribe(isMonthly ? tier.productId : tier.singleProductId)}
+          className="w-full cursor-pointer"
           style={{
-            display: "block",
-            width: "100%",
-            padding: "12px 0",
-            fontFamily: "var(--font-cinzel), Georgia, serif",
-            fontSize: 12,
+            padding: "10px 0",
+            fontFamily: "var(--font-cinzel, Georgia, serif)",
+            fontSize: 11,
             fontWeight: 700,
             letterSpacing: "2px",
-            textTransform: "uppercase" as const,
-            textAlign: "center" as const,
+            textTransform: "uppercase",
+            textAlign: "center",
             border: "none",
-            borderRadius: 4,
-            cursor: "pointer",
-            background: "linear-gradient(135deg, #3d2206 0%, #5c3610 60%, #3d2206 100%)",
-            color: "#f0d890",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,220,100,0.1)",
+            borderRadius: 5,
+            background: tier.isBest
+              ? "linear-gradient(135deg, #2E1A4A 0%, #4A2D6B 50%, #2E1A4A 100%)"
+              : "linear-gradient(135deg, #3d2206 0%, #5c3610 60%, #3d2206 100%)",
+            color: tier.isBest ? "#E8D5FF" : "#f0d890",
+            boxShadow: "0 2px 10px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,220,100,0.08)",
           }}
         >
           {isMonthly ? "Join the Club" : "Buy Now"}
@@ -330,11 +347,11 @@ export default function Pricing() {
 
   return (
     <>
-      <section id="pricing" className="relative bg-background py-16 lg:py-24 overflow-hidden">
+      <section id="pricing" className="relative bg-wizard-cream py-16 lg:py-24 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
 
           <div className="text-center mb-10 lg:mb-14">
-            <p className="font-script text-magic text-sm sm:text-base tracking-wide mb-3 animate-fade-up">
+            <p className="font-script text-magic text-sm tracking-wide mb-3 animate-fade-up">
               Wash Wizard Packages
             </p>
             <h2 className="font-heading font-semibold uppercase text-4xl sm:text-5xl lg:text-6xl text-primary text-balance animate-fade-up-delay-1">
@@ -347,18 +364,23 @@ export default function Pricing() {
             </p>
 
             <div className="mt-7 flex justify-center animate-fade-up-delay-3">
-              <div className="inline-flex items-center bg-muted rounded-full p-1.5">
+              <div
+                className="inline-flex items-center rounded-full p-1.5"
+                style={{ background: "rgba(160,110,20,0.08)", border: "1px solid rgba(160,110,20,0.15)" }}
+              >
                 <button
+                  type="button"
                   onClick={() => setIsMonthly(true)}
-                  className={`px-5 py-2 rounded-full text-xs font-heading font-bold uppercase tracking-widest transition-all ${
+                  className={`px-5 py-2 rounded-full text-xs font-heading font-semibold uppercase tracking-widest ${
                     isMonthly ? "bg-primary text-white shadow-md" : "text-muted-foreground hover:text-primary"
                   }`}
                 >
                   Unlimited Club
                 </button>
                 <button
+                  type="button"
                   onClick={() => setIsMonthly(false)}
-                  className={`px-5 py-2 rounded-full text-xs font-heading font-bold uppercase tracking-widest transition-all ${
+                  className={`px-5 py-2 rounded-full text-xs font-heading font-semibold uppercase tracking-widest ${
                     !isMonthly ? "bg-primary text-white shadow-md" : "text-muted-foreground hover:text-primary"
                   }`}
                 >
@@ -368,8 +390,7 @@ export default function Pricing() {
             </div>
           </div>
 
-          {/* FIX 3: items-stretch so all cards in the row grow to the same height */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch pt-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch pt-6">
             {tiers.map((tier) => (
               <SpellCard
                 key={tier.name}

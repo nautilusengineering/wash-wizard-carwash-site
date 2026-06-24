@@ -25,6 +25,7 @@
   --font-sans: var(--font-open-sans), "Open Sans", ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-khand), "Khand", "Oswald", "Bebas Neue", system-ui, sans-serif;
   --font-script: var(--font-cinzel), "Cinzel", "Trajan Pro", serif;
+  --font-fell: var(--font-im-fell), "IM Fell English", Georgia, serif;
 
   --animate-fade-up: fade-up 0.7s ease-out both;
   --animate-fade-up-delay-1: fade-up 0.7s ease-out 0.15s both;
@@ -165,4 +166,6 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 999px;
 }
 
-
+.bg-parchment {
+  background: linear-gradient(160deg, #fdf6e3 0%, #f7e9c4 40%, #f2dfa8 70%, #f7e9c4 100%);
+}
