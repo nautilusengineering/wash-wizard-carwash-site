@@ -21,7 +21,7 @@ const locations: Location[] = [
     shortName: "North Main",
     address: "2146 N Main St.",
     city: "Summerville, SC 29486",
-    image: "/images/loc-north-main.webp",
+    image: "https://ucarecdn.com/924824ae-e14b-4454-b92d-1a90f0b42d7a/loc-north-main.webp",
     mapQuery: "2146 N Main St, Summerville, SC 29486",
   },
   {
@@ -29,7 +29,7 @@ const locations: Location[] = [
     shortName: "Ladson Road",
     address: "3910 Ladson Rd",
     city: "Ladson, SC 29456",
-    image: "/images/loc-ladson-road.webp",
+    image: "https://ucarecdn.com/79724f54-79b5-463e-bd9d-9356f047ee51/loc-ladson-road.webp",
     mapQuery: "3910 Ladson Rd, Ladson, SC 29456",
   },
   {
@@ -37,7 +37,7 @@ const locations: Location[] = [
     shortName: "Bacons Bridge",
     address: "999 Bacons Bridge Rd",
     city: "Summerville, SC 29485",
-    image: "/images/loc-bacons-bridge.webp",
+    image: "https://ucarecdn.com/900af020-1d9a-41fc-8af9-caa56d7556d6/loc-bacons-bridge.webp",
     mapQuery: "999 Bacons Bridge Rd, Summerville, SC 29485",
   },
 ];
@@ -157,16 +157,13 @@ export default function Locations() {
       <LocationSparkles />
       <div className="relative mx-auto max-w-7xl px-4 lg:px-6" style={{ zIndex: 2 }}>
         <div className="mb-10 lg:mb-14">
-          <p className="font-script text-magic text-sm tracking-wide mb-3">
-            ✦ Three Lowcountry Locations ✦
-          </p>
           <h2 className="font-heading font-semibold uppercase text-4xl sm:text-5xl text-balance text-primary">
             Find your <span className="text-accent">Wash Wizard.</span>
           </h2>
 
-          <div className="mt-7 inline-flex flex-wrap items-center gap-x-6 gap-y-2 px-6 py-4 rounded-2xl bg-white/85 ring-1 ring-black/5 text-sm">
+          <div className="mt-7 inline-flex flex-wrap items-center gap-x-6 gap-y-2 px-5 sm:px-6 py-4 rounded-2xl bg-white/85 ring-1 ring-black/5 text-base sm:text-sm w-full sm:w-auto">
             <span className="font-heading font-semibold uppercase tracking-widest text-primary flex items-center gap-2">
-              <Clock className="size-4 shrink-0 text-accent" /> Open 7 Days
+              <Clock className="size-5 sm:size-4 shrink-0 text-accent" /> Open 7 Days
             </span>
             <span className="text-muted-foreground">
               Summer · 8 AM – 8 PM
@@ -178,7 +175,7 @@ export default function Locations() {
               href={PHONE_HREF}
               className="font-heading font-semibold uppercase tracking-widest text-primary flex items-center gap-2 hover:text-secondary"
             >
-              <Phone className="size-4 shrink-0 text-accent" /> {PHONE}
+              <Phone className="size-5 sm:size-4 shrink-0 text-accent" /> {PHONE}
             </a>
           </div>
         </div>
@@ -211,7 +208,7 @@ export default function Locations() {
                     }}
                   />
                   <div
-                    className="absolute top-3 left-3 inline-flex items-center gap-1.5 py-1.5 pl-2 pr-3 rounded-full text-[0.65rem] font-heading font-semibold uppercase tracking-widest shadow-lg"
+                    className="absolute top-3 left-3 inline-flex items-center gap-1.5 py-1.5 pl-2 pr-3 rounded-full text-xs font-heading font-semibold uppercase tracking-widest shadow-lg"
                     style={{
                       background: "linear-gradient(135deg, #FFB800, #e6a600)",
                       color: "#1a0e00",
@@ -223,13 +220,13 @@ export default function Locations() {
                 </div>
                 <div className="p-5">
                   <h3
-                    className="font-heading font-semibold uppercase text-xl mb-1"
+                    className="font-heading font-semibold uppercase text-2xl sm:text-xl mb-1"
                     style={{ color: "#FFB800" }}
                   >
                     {loc.name}
                   </h3>
-                  <p className="text-sm text-white/50 mb-1">{loc.address}</p>
-                  <p className="text-sm text-white/50 mb-4">{loc.city}</p>
+                  <p className="text-base sm:text-sm text-white/60 mb-1">{loc.address}</p>
+                  <p className="text-base sm:text-sm text-white/60 mb-4">{loc.city}</p>
 
                   <div
                     className="rounded-xl overflow-hidden mb-4 aspect-[5/3]"
@@ -254,8 +251,8 @@ export default function Locations() {
                     rel="noopener noreferrer"
                     className="block"
                   >
-                    <Button size="default" className="w-full">
-                      <MapPin className="size-4 shrink-0" /> Get Directions
+                    <Button size="default" className="w-full text-base sm:text-sm">
+                      <MapPin className="size-5 sm:size-4 shrink-0" /> Get Directions
                     </Button>
                   </a>
                 </div>

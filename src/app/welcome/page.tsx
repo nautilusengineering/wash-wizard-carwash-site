@@ -2,7 +2,7 @@ import SubscribeBanner from "@/components/SubscribeBanner";
 import { Button } from "@/components/ui/button";
 import { Wand, MapPin, CreditCard, Repeat } from "lucide-react";
 import Link from "next/link";
-import { BUY_ONLINE_URL, MANAGE_ACCOUNT_URL } from "@/lib/utils";
+import { JOIN_URL, MANAGE_ACCOUNT_URL } from "@/lib/utils";
 
 export const metadata = {
   title: "Member Welcome | Wash Wizard Car Wash",
@@ -27,7 +27,7 @@ const steps = [
     icon: CreditCard,
     title: "Manage Your Plan Anywhere",
     body:
-      "Log in any time at washwizard.mywashaccount.com — update payment, change tier, add a vehicle, or pause. Self-service is built in.",
+      "Log in any time from your Wash Wizard customer portal — update payment, change tier, add a vehicle, or pause. Self-service is built in.",
   },
   {
     icon: Repeat,
@@ -43,9 +43,6 @@ export default function WelcomePage() {
       <section className="bg-background pt-32 lg:pt-40 pb-16 lg:pb-24">
         <div className="mx-auto max-w-5xl px-4 lg:px-6">
           <div className="text-center mb-10 lg:mb-14">
-            <p className="font-script text-magic text-sm uppercase tracking-[0.3em] mb-3">
-              Wash Wizard Welcome
-            </p>
             <h2 className="font-heading font-bold uppercase text-4xl lg:text-5xl text-primary leading-[0.95]">
               Welcome to <span className="text-accent">the club.</span>
             </h2>
@@ -85,16 +82,12 @@ export default function WelcomePage() {
                 Manage My Membership
               </Button>
             </a>
-            <a href={BUY_ONLINE_URL} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="outlineDark">
-                Buy Online
-              </Button>
-            </a>
-            <Link href="/faq">
-              <Button size="lg" variant="ghost">
-                Membership FAQ &rarr;
-              </Button>
-            </Link>
+            <Button asChild size="lg" variant="outlineDark">
+              <Link href={JOIN_URL}>Join the Club</Link>
+            </Button>
+            <Button asChild size="lg" variant="ghost">
+              <Link href="/faq">Membership FAQ &rarr;</Link>
+            </Button>
           </div>
         </div>
       </section>

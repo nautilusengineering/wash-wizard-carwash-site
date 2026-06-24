@@ -7,7 +7,7 @@ import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   cn,
-  BUY_ONLINE_URL,
+  JOIN_URL,
   MANAGE_ACCOUNT_URL,
   PHONE,
   PHONE_HREF,
@@ -69,11 +69,11 @@ export default function Header() {
         <div className="mx-auto max-w-7xl px-6 flex items-center justify-between gap-6 py-1.5">
           <a
             href={PHONE_HREF}
-            className="text-xs font-semibold text-white/80 hover:text-accent flex items-center gap-1.5 transition-colors"
+            className="text-sm font-semibold text-white/80 hover:text-accent flex items-center gap-1.5 transition-colors"
           >
-            <Phone className="w-3 h-3" /> {PHONE}
+            <Phone className="w-3.5 h-3.5" /> {PHONE}
           </a>
-          <div className="flex items-center gap-5 text-xs text-white/70">
+          <div className="flex items-center gap-5 text-sm text-white/70">
             <Link
               href="/the-wash-wizard-difference"
               className="hover:text-white transition-colors"
@@ -112,7 +112,7 @@ export default function Header() {
             className="shrink-0 flex items-center gap-3"
           >
             <Image
-              src="/images/logo.png"
+              src="https://ucarecdn.com/5cadb1ef-9189-413a-9de0-234cab570451/logo.png"
               alt="Wash Wizard Car Wash"
               width={220}
               height={64}
@@ -134,12 +134,12 @@ export default function Header() {
                     <ChevronDown className="size-4 shrink-0 transition-transform group-hover:rotate-180" />
                   </button>
                   <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 invisible opacity-0 group-hover:visible group-hover:opacity-100 focus-within:visible focus-within:opacity-100 transition-opacity duration-150">
-                    <div className="min-w-[240px] bg-primary/97 backdrop-blur-md rounded-xl shadow-2xl ring-1 ring-white/10 py-2">
+                    <div className="min-w-[260px] bg-primary/97 backdrop-blur-md rounded-xl shadow-2xl ring-1 ring-white/10 py-2">
                       {item.children.map((child) => (
                         <Link
                           key={child.label}
                           href={child.href}
-                          className="block px-5 py-2.5 text-sm font-semibold text-white/90 hover:text-accent hover:bg-white/5"
+                          className="block px-5 py-2.5 text-base font-semibold text-white/90 hover:text-accent hover:bg-white/5"
                         >
                           {child.label}
                         </Link>
@@ -161,9 +161,9 @@ export default function Header() {
 
           {/* Desktop CTAs */}
           <div className="hidden lg:flex items-center gap-3">
-            <a href={BUY_ONLINE_URL} target="_blank" rel="noopener noreferrer">
-              <Button size="default">Buy Online</Button>
-            </a>
+            <Button asChild size="default">
+              <Link href={JOIN_URL}>Join the Club</Link>
+            </Button>
             <a
               href={MANAGE_ACCOUNT_URL}
               target="_blank"
@@ -232,7 +232,7 @@ export default function Header() {
                           key={child.label}
                           href={child.href}
                           onClick={closeMobile}
-                          className="text-sm font-semibold text-white/80 hover:text-accent transition-colors py-1.5"
+                          className="text-base font-semibold text-white/80 hover:text-accent transition-colors py-2"
                         >
                           {child.label}
                         </Link>
@@ -255,19 +255,16 @@ export default function Header() {
           <hr className="border-white/10 my-2" />
           <a
             href={PHONE_HREF}
-            className="text-sm text-white/80 hover:text-accent flex items-center gap-2 py-1"
+            className="text-base text-white/80 hover:text-accent flex items-center gap-2 py-1"
           >
-            <Phone className="w-3.5 h-3.5" /> {PHONE}
+            <Phone className="w-4 h-4" /> {PHONE}
           </a>
           <div className="flex flex-col gap-3 mt-4">
-            <a
-              href={BUY_ONLINE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={closeMobile}
-            >
-              <Button className="w-full">Buy Online</Button>
-            </a>
+            <Button asChild className="w-full">
+              <Link href={JOIN_URL} onClick={closeMobile}>
+                Join the Club
+              </Link>
+            </Button>
             <a
               href={MANAGE_ACCOUNT_URL}
               target="_blank"
