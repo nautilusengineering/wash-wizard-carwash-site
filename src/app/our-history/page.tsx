@@ -54,9 +54,6 @@ export default function OurHistoryPage() {
 
           {/* Page header */}
           <div className="text-center mb-14 lg:mb-20">
-            <p className="font-script text-magic text-sm uppercase tracking-[0.35em] mb-3">
-              Thirty Years of Magic
-            </p>
             <h1 className="font-heading font-bold uppercase text-4xl sm:text-5xl lg:text-6xl text-primary leading-[0.95]">
               The wizard&apos;s <span className="text-accent">chronicle</span>
             </h1>
@@ -85,11 +82,6 @@ export default function OurHistoryPage() {
                       <Star className="w-3 h-3 fill-current" />
                       {m.year}
                     </div>
-
-                    {/* Spell label */}
-                    <p className="font-script text-magic text-xs sm:text-sm uppercase tracking-[0.3em] mb-2">
-                      {m.spell}
-                    </p>
 
                     {/* Title */}
                     <h2 className="font-heading font-bold uppercase text-2xl sm:text-3xl text-primary leading-[0.95] mb-4">

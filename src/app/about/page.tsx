@@ -70,7 +70,7 @@ export default function AboutPage() {
             <div className="lg:col-span-5">
               <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden bg-wizard-night ring-1 ring-white/10 shadow-2xl">
                 <Image
-                  src="/images/navy-bubble-bg.jpg"
+                  src="https://ucarecdn.com/81f05802-df3d-4e02-be5f-fcce6f256492/navy-bubble-bg.jpg"
                   alt=""
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
@@ -78,7 +78,7 @@ export default function AboutPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/60 to-deep/85" />
                 <Image
-                  src="/images/wizard-mascot.png"
+                  src="https://ucarecdn.com/43922423-7fb1-4544-a761-23782edcdae2/wizard-mascot.png"
                   alt="The Wash Wizard"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
@@ -96,9 +96,6 @@ export default function AboutPage() {
       <section className="bg-background py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="text-center mb-10 lg:mb-14">
-            <p className="font-script text-magic text-sm uppercase tracking-[0.3em] mb-3">
-              What We Stand For
-            </p>
             <h2 className="font-heading font-bold uppercase text-4xl lg:text-5xl text-primary leading-[0.95]">
               Wash Wizard <span className="text-accent">company values</span>
             </h2>

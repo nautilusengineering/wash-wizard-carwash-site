@@ -9,7 +9,6 @@ export default function DisclaimerPage() {
   return (
     <>
       <PageHero
-        eyebrow="Legal"
         title="Disclaimer"
         subtitle="Wash Wizard Car Wash terms and conditions of entry."
         showMascot={false}

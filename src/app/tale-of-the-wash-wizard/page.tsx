@@ -52,9 +52,6 @@ export default function TalePage() {
     <>
       <section className="bg-background pt-32 lg:pt-40 pb-20 lg:pb-28">
         <div className="mx-auto max-w-2xl px-4 lg:px-6 text-center mb-10 lg:mb-14">
-          <p className="font-script text-magic text-sm sm:text-base uppercase tracking-[0.35em] mb-3">
-            A Legend Told
-          </p>
           <h1 className="font-heading font-bold uppercase text-4xl sm:text-5xl text-primary leading-[0.95]">
             The tale of the <span className="text-accent">Wash Wizard</span>
           </h1>
@@ -130,7 +127,7 @@ export default function TalePage() {
 
       <section className="bg-background py-14 lg:py-20 text-center">
         <Image
-          src="/images/knight.png"
+          src="https://ucarecdn.com/90d2b46c-36b6-40b5-97cf-a064612cd9f9/knight.png"
           alt=""
           width={160}
           height={230}

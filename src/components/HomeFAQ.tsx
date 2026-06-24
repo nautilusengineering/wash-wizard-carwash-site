@@ -43,9 +43,6 @@ export default function HomeFAQ() {
     <section className="relative bg-background py-16 lg:py-24">
       <div className="mx-auto max-w-3xl px-4 lg:px-6">
         <div className="mb-10 lg:mb-12">
-          <p className="font-script text-magic text-sm tracking-wide mb-3">
-            Wizardly Wisdom
-          </p>
           <h2 className="font-heading font-semibold uppercase text-4xl sm:text-5xl text-primary text-balance">
             Frequently asked <span className="text-accent">questions</span>
           </h2>
@@ -76,7 +73,7 @@ export default function HomeFAQ() {
                 }`}
               >
                 <div className="overflow-hidden">
-                  <p className="text-base sm:text-sm text-muted-foreground leading-relaxed pr-8 text-pretty">
+                  <p className="text-base text-foreground leading-relaxed pr-8 text-pretty">
                     {faq.a}
                   </p>
                 </div>

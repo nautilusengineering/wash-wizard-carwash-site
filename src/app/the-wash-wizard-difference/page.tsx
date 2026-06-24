@@ -29,9 +29,6 @@ export default function DifferencePage() {
       <section className="bg-background pt-32 lg:pt-40 pb-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="text-center mb-12 lg:mb-16">
-            <p className="font-script text-magic text-sm uppercase tracking-[0.3em] mb-3">
-              The Wash Wizard Advantage
-            </p>
             <h2 className="font-heading font-bold uppercase text-4xl lg:text-5xl text-primary leading-[0.95]">
               Fast, Flexible, <span className="text-accent">Flawless.</span>
             </h2>
@@ -54,10 +51,10 @@ export default function DifferencePage() {
                       <Image
                         src={
                           i === 0
-                            ? "/images/pkg-wicked-wheel.png"
+                            ? "https://ucarecdn.com/c104882e-1001-4cc0-8d87-87dda0432c7e/pkg-wicked-wheel.png"
                             : i === 1
-                            ? "/images/pkg-shining-knight.png"
-                            : "/images/pkg-kings-graphene.png"
+                            ? "https://ucarecdn.com/9b021d97-a8ee-401f-91ba-70828d82eea4/pkg-shining-knight.png"
+                            : "https://ucarecdn.com/382e1d8a-b45b-4c44-8aee-916c28cc464a/pkg-kings-graphene.png"
                         }
                         alt=""
                         fill
@@ -71,9 +68,6 @@ export default function DifferencePage() {
                   </div>
                 </div>
                 <div className="lg:col-span-6 lg:[direction:ltr]">
-                  <p className="font-script text-magic text-xs uppercase tracking-[0.3em] mb-3">
-                    Advantage 0{i + 1}
-                  </p>
                   <h3 className="font-heading font-bold uppercase text-3xl sm:text-4xl text-primary leading-[0.95] mb-4">
                     {a.title}
                   </h3>

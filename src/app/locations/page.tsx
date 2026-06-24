@@ -29,9 +29,6 @@ export default function LocationsPage() {
       <section className="bg-background py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="text-center mb-10 lg:mb-12">
-            <p className="font-script text-magic text-sm uppercase tracking-[0.3em] mb-3">
-              Built For Speed & Shine
-            </p>
             <h2 className="font-heading font-bold uppercase text-4xl lg:text-5xl text-primary leading-[0.95]">
               Wash Wizard <span className="text-accent">features</span>
             </h2>

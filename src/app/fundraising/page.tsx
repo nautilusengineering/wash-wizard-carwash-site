@@ -37,9 +37,6 @@ export default function FundraisingPage() {
       <section className="bg-background pt-32 lg:pt-40 pb-16 lg:pb-24">
         <div className="mx-auto max-w-6xl px-4 lg:px-6">
           <div className="text-center mb-10 lg:mb-14">
-            <p className="font-script text-magic text-sm uppercase tracking-[0.3em] mb-3">
-              How It Works
-            </p>
             <h2 className="font-heading font-bold uppercase text-4xl lg:text-5xl text-primary leading-[0.95]">
               Pick a <span className="text-accent">wand</span> to fundraise.
             </h2>
@@ -74,9 +71,6 @@ export default function FundraisingPage() {
           </div>
 
           <div className="mt-12 p-7 sm:p-9 rounded-2xl bg-primary text-white text-center shadow-xl">
-            <p className="font-script text-accent text-sm uppercase tracking-[0.3em] mb-3">
-              Ready to Start?
-            </p>
             <h3 className="font-heading font-bold uppercase text-2xl sm:text-3xl mb-4">
               Call the wizard.
             </h3>

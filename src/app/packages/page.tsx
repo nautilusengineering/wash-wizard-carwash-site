@@ -26,9 +26,6 @@ export default function PackagesPage() {
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-5">
-              <p className="font-script text-magic text-sm uppercase tracking-[0.3em] mb-3">
-                Every Wash Includes
-              </p>
               <h2 className="font-heading font-bold uppercase text-4xl lg:text-5xl text-primary leading-[0.95] mb-5">
                 The basics
                 <br />

@@ -171,13 +171,10 @@ export default function Amenities() {
       >
         {/* Header */}
         <div className="max-w-2xl mb-12 lg:mb-16">
-          <p className="font-script text-magic text-sm uppercase tracking-[0.3em] mb-3">
-            The Wash Wizard Tunnel
-          </p>
           <h2 className="font-heading font-bold uppercase text-4xl lg:text-5xl xl:text-6xl text-primary leading-[0.95] mb-5">
             How the <span className="text-accent">magic</span> happens.
           </h2>
-          <p className="text-base text-muted-foreground leading-relaxed max-w-[48ch]">
+          <p className="text-lg sm:text-base text-foreground leading-relaxed max-w-[48ch]">
             Every location engineered for a fast, flawless clean — from the
             first pay lane to the last vacuum bay.
           </p>
@@ -203,10 +200,10 @@ export default function Amenities() {
                 <Wand className="w-5 h-5 text-accent/30 group-hover:text-accent group-hover:rotate-12 transition-all duration-200" />
               </div>
 
-              <h3 className="font-heading font-bold uppercase text-lg text-primary mb-2 leading-tight">
+              <h3 className="font-heading font-bold uppercase text-xl sm:text-lg text-primary mb-2 leading-tight">
                 {step.title}
               </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-base sm:text-sm text-foreground leading-relaxed">
                 {step.body}
               </p>
 
@@ -222,8 +219,8 @@ export default function Amenities() {
 
         {/* Free vacuums callout */}
         <div className="mt-8 flex justify-center">
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-accent/20 bg-white/70 backdrop-blur-sm text-primary font-heading font-bold uppercase tracking-widest text-xs">
-            <Wand className="w-3.5 h-3.5 text-accent" />
+          <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-accent/20 bg-white/70 backdrop-blur-sm text-primary font-heading font-bold uppercase tracking-widest text-sm sm:text-xs">
+            <Wand className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-accent" />
             Free vacuums always included
           </div>
         </div>
@@ -233,7 +230,7 @@ export default function Amenities() {
           {pills.map((f) => (
             <div
               key={f}
-              className="px-4 py-3 rounded-xl text-white text-center text-xs font-heading font-bold uppercase tracking-wider shadow-sm"
+              className="px-4 py-3 rounded-xl text-white text-center text-sm sm:text-xs font-heading font-bold uppercase tracking-wider shadow-sm"
               style={{
                 background: "linear-gradient(135deg, #2A2050 0%, #1E1832 100%)",
               }}

@@ -87,9 +87,6 @@ export default function FAQPage() {
       <section className="bg-background py-16 lg:py-20">
         <div className="mx-auto max-w-3xl px-4 lg:px-6">
           <div className="mb-12">
-            <p className="font-script text-magic text-xs sm:text-sm uppercase tracking-[0.3em] mb-3">
-              Frequently Asked
-            </p>
             <h1 className="font-heading font-bold uppercase text-4xl sm:text-5xl lg:text-6xl text-primary leading-[0.95]">
               You ask, the wizard{" "}
               <span className="text-accent">shall answer.</span>

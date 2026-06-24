@@ -42,9 +42,6 @@ export default function EmploymentPage() {
       {/* Title */}
       <section className="bg-background pt-32 lg:pt-40 pb-10 lg:pb-14">
         <div className="mx-auto max-w-4xl px-4 lg:px-6 text-center">
-          <p className="font-script text-magic text-sm uppercase tracking-[0.3em] mb-3">
-            Join Our Team
-          </p>
           <h1 className="font-heading font-bold uppercase text-4xl sm:text-5xl text-primary leading-[0.95] mb-4">
             We&apos;re hiring <span className="text-accent">wizards.</span>
           </h1>
@@ -94,9 +91,6 @@ export default function EmploymentPage() {
       <section className="bg-background pb-16 lg:pb-24">
         <div className="mx-auto max-w-4xl px-4 lg:px-6">
           <div className="text-center mb-10">
-            <p className="font-script text-magic text-sm uppercase tracking-[0.3em] mb-3">
-              Open Roles
-            </p>
             <h2 className="font-heading font-bold uppercase text-4xl lg:text-5xl text-primary leading-[0.95]">
               Find your <span className="text-accent">spot.</span>
             </h2>
@@ -138,9 +132,6 @@ export default function EmploymentPage() {
       <section className="relative pb-16 lg:pb-24 bg-background">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="rounded-[2rem] bg-magic text-white p-10 lg:p-16 text-center shadow-2xl">
-            <p className="font-script text-accent text-sm uppercase tracking-[0.3em] mb-3">
-              Don&apos;t See Your Role?
-            </p>
             <h2 className="font-heading font-bold uppercase text-3xl sm:text-4xl mb-4">
               Send us your resume anyway.
             </h2>
