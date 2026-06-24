@@ -2,14 +2,12 @@ import Image from "next/image";
 import { Wand } from "lucide-react";
 
 interface PageHeroProps {
-  eyebrow?: string;
   title: string;
   subtitle?: string;
   showMascot?: boolean;
 }
 
 export default function PageHero({
-  eyebrow,
   title,
   subtitle,
   showMascot = true,
@@ -19,7 +17,7 @@ export default function PageHero({
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
         <div className="relative rounded-[2rem] overflow-hidden bg-wizard-night text-white shadow-xl ring-1 ring-white/10">
           <Image
-            src="/images/navy-bubble-bg.jpg"
+            src="https://ucarecdn.com/81f05802-df3d-4e02-be5f-fcce6f256492/navy-bubble-bg.jpg"
             alt=""
             fill
             sizes="100vw"
@@ -30,7 +28,7 @@ export default function PageHero({
           {showMascot && (
             <div className="absolute -bottom-4 right-4 sm:right-10 w-32 sm:w-40 lg:w-56 z-10 pointer-events-none animate-float-slow">
               <Image
-                src="/images/wizard-mascot.png"
+                src="https://ucarecdn.com/43922423-7fb1-4544-a761-23782edcdae2/wizard-mascot.png"
                 alt=""
                 width={300}
                 height={460}
@@ -46,17 +44,12 @@ export default function PageHero({
             <Wand className="w-4 h-4" />
           </div>
 
-          <div className="relative z-20 px-6 sm:px-10 lg:px-14 py-14 lg:py-20 min-h-[280px] flex flex-col justify-end">
-            {eyebrow && (
-              <p className="font-script text-accent text-xs sm:text-sm uppercase tracking-[0.3em] mb-3 animate-fade-up">
-                {eyebrow}
-              </p>
-            )}
+          <div className="relative z-20 px-5 sm:px-10 lg:px-14 py-14 lg:py-20 min-h-[280px] flex flex-col justify-end">
             <h1 className="font-heading font-bold uppercase leading-[0.95] text-4xl sm:text-5xl lg:text-6xl xl:text-7xl max-w-3xl animate-fade-up-delay-1">
               {title}
             </h1>
             {subtitle && (
-              <p className="mt-4 text-base sm:text-lg text-white/85 max-w-2xl animate-fade-up-delay-2">
+              <p className="mt-4 text-lg text-white/85 max-w-2xl animate-fade-up-delay-2">
                 {subtitle}
               </p>
             )}

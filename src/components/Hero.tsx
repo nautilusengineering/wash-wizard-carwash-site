@@ -419,7 +419,7 @@ export default function Hero() {
     phase === "reveal" || phase === "wizard-out" || phase === "done";
 
   return (
-    <section className="relative pt-32 lg:pt-40 pb-12 lg:pb-16 bg-white overflow-hidden">
+    <section className="relative pt-28 sm:pt-32 lg:pt-40 pb-12 lg:pb-16 bg-white overflow-hidden">
       <style>{`
         @keyframes wizardSlideIn {
           0%   { transform: translateX(-200px) scale(0.7); opacity: 0; }
@@ -464,7 +464,7 @@ export default function Hero() {
             style={{ zIndex: 1 }}
           >
             <iframe
-              src="https://www.youtube.com/embed/_NSsCicryZE?autoplay=1&mute=1&loop=1&playlist=_NSsCicryZE&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&disablekb=1&start=3&end=38"
+              src="https://www.youtube.com/embed/_NSsCicryZE?autoplay=1&mute=1&loop=1&playlist=_NSsCicryZE&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&disablekb=1&start=13&end=33"
               allow="autoplay; encrypted-media"
               className="absolute top-1/2 left-1/2 min-w-[140%] min-h-[140%] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
               style={{ border: 0, aspectRatio: "16/9" }}
@@ -529,10 +529,10 @@ export default function Hero() {
           {/* Wizard mascot */}
           {wizardVisible && (
             <div
-              className="absolute bottom-0 left-4 sm:left-8 lg:left-12 pointer-events-none"
+              className="absolute bottom-0 left-2 sm:left-8 lg:left-12 pointer-events-none"
               style={{
                 zIndex: 30,
-                width: "clamp(180px, 28vw, 340px)",
+                width: "clamp(120px, 32vw, 340px)",
                 animation:
                   phase === "wizard-out"
                     ? "wizardSlideOut 0.9s cubic-bezier(0.6, -0.28, 0.74, 0.05) forwards"
@@ -540,7 +540,7 @@ export default function Hero() {
               }}
             >
               <Image
-                src="/images/wizard-mascot.png"
+                src="https://ucarecdn.com/43922423-7fb1-4544-a761-23782edcdae2/wizard-mascot.png"
                 alt="Wash Wizard mascot"
                 width={340}
                 height={402}
@@ -556,7 +556,7 @@ export default function Hero() {
 
           {/* Centered headline + CTAs — appear after zap */}
           <div
-            className="relative flex flex-col items-center justify-center py-24 sm:py-32 lg:py-40"
+            className="relative flex flex-col items-center justify-center py-20 sm:py-32 lg:py-40 px-4"
             style={{ zIndex: 20 }}
           >
             <h1
@@ -578,55 +578,50 @@ export default function Hero() {
               clean cars.
             </h1>
 
+            {/* Branded tagline */}
+            <p
+              className="mt-6 max-w-2xl text-center text-lg sm:text-xl lg:text-2xl text-white font-heading uppercase tracking-[0.18em] sm:tracking-[0.22em]"
+              style={{
+                textShadow: "0 2px 12px rgba(0,0,0,0.65)",
+                opacity: textVisible ? 1 : 0,
+                transition: "opacity 0.45s ease 0.2s",
+              }}
+            >
+              Charleston&apos;s magical car wash —{" "}
+              <span>pull up dirty, drive off legendary.</span>
+            </p>
+
             {/* CTAs — fade in with text */}
             <div
-              className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3"
+              className="mt-7 w-full flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 max-w-sm sm:max-w-none"
               style={{
                 opacity: textVisible ? 1 : 0,
                 transition: "opacity 0.4s ease 0.3s",
               }}
             >
-              <a
-                href={`https://www.google.com/maps/dir/?api=1&destination=${driveAllAddr}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button
-                  size="lg"
-                  className="gap-2 font-bold"
-                  style={{
-                    backgroundColor: GOLD,
-                    color: "#1a1428",
-                    borderColor: "transparent",
-                  }}
+              <Button asChild size="lg" className="w-full sm:w-auto">
+                <a
+                  href={`https://www.google.com/maps/dir/?api=1&destination=${driveAllAddr}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <MapPin className="size-4 shrink-0" />
+                  <MapPin className="size-5 sm:size-4 shrink-0" />
                   Get Directions
-                </Button>
-              </a>
-              <Link href="/packages">
-                <Button
-                  size="lg"
-                  className="font-bold"
-                  style={{
-                    backgroundColor: GOLD,
-                    color: "#1a1428",
-                    borderColor: "transparent",
-                  }}
-                >
-                  See Wash Packages
-                </Button>
-              </Link>
+                </a>
+              </Button>
+              <Button asChild size="lg" className="w-full sm:w-auto">
+                <Link href="/packages">See Wash Packages</Link>
+              </Button>
             </div>
           </div>
 
           {/* Bottom ribbon */}
           <div className="relative z-20 border-t border-white/10 bg-deep/50 backdrop-blur-sm">
-            <div className="px-6 sm:px-10 lg:px-14 py-3 flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm font-heading uppercase tracking-widest">
+            <div className="px-4 sm:px-10 lg:px-14 py-3 flex flex-col sm:flex-row sm:flex-wrap items-center justify-between gap-2 sm:gap-3 text-sm font-heading uppercase tracking-widest text-center sm:text-left">
               <span style={{ color: GOLD }}>
                 ★ Unlimited Wash Club from $20/mo
               </span>
-              <span style={{ color: GOLD }} className="hidden sm:block">
+              <span style={{ color: GOLD }} className="hidden md:block">
                 ★ Free DIY Vacuums With Every Wash
               </span>
               <span style={{ color: GOLD }}>★ Open 7 Days a Week</span>
