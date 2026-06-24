@@ -37,7 +37,7 @@ export default function Footer() {
               alt="Wash Wizard"
               width={220}
               height={64}
-              className="h-14 w-auto mb-5"
+              className="h-10 w-auto mb-5"
             />
             <p className="text-sm text-white/70 leading-relaxed mb-4">
               Charleston&apos;s magical car wash. Three Lowcountry locations,
@@ -45,14 +45,14 @@ export default function Footer() {
             </p>
             <a
               href={PHONE_HREF}
-              className="inline-flex items-center gap-2 text-accent font-heading font-bold uppercase tracking-widest text-sm hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 text-accent font-heading font-semibold uppercase tracking-widest text-sm hover:text-white"
             >
               <Phone className="w-4 h-4" /> {PHONE}
             </a>
           </div>
 
           <div>
-            <h4 className="font-heading font-bold uppercase tracking-widest text-sm text-accent mb-4">
+            <h4 className="font-heading font-semibold uppercase tracking-widest text-sm text-accent mb-4">
               Shop
             </h4>
             <ul className="space-y-2.5">
@@ -70,7 +70,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-heading font-bold uppercase tracking-widest text-sm text-accent mb-4">
+            <h4 className="font-heading font-semibold uppercase tracking-widest text-sm text-accent mb-4">
               About
             </h4>
             <ul className="space-y-2.5">
@@ -88,7 +88,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-heading font-bold uppercase tracking-widest text-sm text-accent mb-4">
+            <h4 className="font-heading font-semibold uppercase tracking-widest text-sm text-accent mb-4">
               Support
             </h4>
             <ul className="space-y-2.5">
@@ -116,7 +116,7 @@ export default function Footer() {
             <div key={l.name} className="flex items-start gap-2">
               <MapPin className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
               <div>
-                <p className="font-heading font-bold uppercase tracking-wider text-white">
+                <p className="font-heading font-semibold uppercase tracking-wider text-white">
                   {l.name}
                 </p>
                 <p className="text-white/65">{l.addr}</p>

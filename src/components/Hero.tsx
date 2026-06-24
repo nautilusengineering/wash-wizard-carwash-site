@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { MapPin } from "lucide-react";
@@ -123,7 +122,7 @@ function SparkleCanvas() {
       life: number; maxLife: number; rotation: number; rotSpeed: number; color: string;
     };
 
-    const COLORS = ["210,185,80", "195,170,65", "220,200,100", "200,180,70", "230,215,130", "255,255,200"];
+    const COLORS = ["139,92,246", "160,100,255", "120,60,220", "180,140,255", "100,40,200", "200,170,255"];
 
     const sparkles: Sparkle[] = [];
 
@@ -203,11 +202,10 @@ function SparkleCanvas() {
 /* ─── Hero ──────────────────────────────────────────────── */
 export default function Hero() {
   return (
-    <section className="relative pt-36 lg:pt-44 pb-12 lg:pb-16 bg-background overflow-hidden">
-      {/* Load Luckiest Guy from Google Fonts */}
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');`}</style>
-
+    <section className="relative pt-32 lg:pt-40 pb-12 lg:pb-16 bg-background overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
+
+        {/* ── Video card — centered headline only ── */}
         <div
           className="relative rounded-[2rem] overflow-hidden text-white shadow-2xl"
           style={{
@@ -215,24 +213,28 @@ export default function Hero() {
             boxShadow: "0 0 0 1px rgba(180,160,220,0.12), 0 32px 80px rgba(10,5,30,0.8)",
           }}
         >
-          <SparkleCanvas />
-          <BubbleCanvas />
-
-          {/* Nebula depth glows */}
-          <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 5 }}>
-            <div style={{
-              position: "absolute", inset: 0,
-              background: "radial-gradient(ellipse 55% 65% at 8% 45%, rgba(60,50,100,0.55) 0%, transparent 70%)",
-            }} />
-            <div style={{
-              position: "absolute", inset: 0,
-              background: "radial-gradient(ellipse 40% 50% at 75% 15%, rgba(80,60,120,0.2) 0%, transparent 65%)",
-            }} />
-            <div style={{
-              position: "absolute", inset: 0,
-              background: "radial-gradient(ellipse 60% 35% at 50% 100%, rgba(15,10,35,0.85) 0%, transparent 70%)",
-            }} />
+          {/* YouTube video background */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 1 }}>
+            <iframe
+              src="https://www.youtube.com/embed/_NSsCicryZE?autoplay=1&mute=1&loop=1&playlist=_NSsCicryZE&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&disablekb=1"
+              allow="autoplay; encrypted-media"
+              className="absolute top-1/2 left-1/2 min-w-[140%] min-h-[140%] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+              style={{ border: 0, aspectRatio: "16/9" }}
+              tabIndex={-1}
+              aria-hidden="true"
+            />
           </div>
+
+          {/* Semi-transparent overlay */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              zIndex: 2,
+              background: "linear-gradient(180deg, rgba(20,12,40,0.45) 0%, rgba(30,20,55,0.35) 50%, rgba(20,12,40,0.50) 100%)",
+            }}
+          />
+
+          <SparkleCanvas />
 
           {/* Subtle gold shimmer top edge */}
           <div
@@ -243,86 +245,22 @@ export default function Hero() {
             }}
           />
 
-          {/* Two-column layout */}
-          <div className="relative grid grid-cols-1 lg:grid-cols-[1fr_360px] xl:grid-cols-[1fr_420px] items-end" style={{ zIndex: 20 }}>
-
-            {/* Left: content */}
-            <div className="px-6 sm:px-10 lg:px-14 pt-10 lg:pt-12 pb-10 lg:pb-12">
-
-              {/* Headline — Luckiest Guy */}
-              <h1
-                className="uppercase leading-[0.92] text-6xl sm:text-7xl lg:text-8xl mb-5 animate-fade-up-delay-1"
-                style={{ fontFamily: "'Luckiest Guy', cursive", letterSpacing: "0.02em" }}
-              >
-                We love
-                <br />
-                <span style={{
-                  color: "#C8A84B",
-                  textShadow: "0 0 24px rgba(180,145,50,0.35), 0 2px 4px rgba(0,0,0,0.5)",
-                }}>
-                  clean cars.
-                </span>
-              </h1>
-
-              {/* Body */}
-              <p className="text-base sm:text-lg text-white/75 max-w-md mb-8 leading-relaxed animate-fade-up-delay-2">
-                Sparkling clean, lightning fast, and a little bit magical. Pull
-                through the 180-foot wizard tunnel at any of our three
-                Lowcountry locations and roll out gleaming.
-              </p>
-
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-3 animate-fade-up-delay-3">
-                <a
-                  href={`https://www.google.com/maps/dir/?api=1&destination=${driveAllAddr}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto"
-                >
-                  <Button
-                    size="lg"
-                    className="w-full sm:w-auto gap-2 font-bold transition-all duration-200 hover:scale-[1.03] hover:brightness-110"
-                    style={{ backgroundColor: "#C8A84B", color: "#1a1428", borderColor: "transparent" }}
-                  >
-                    <MapPin className="w-4 h-4" />
-                    Get Directions
-                  </Button>
-                </a>
-                <Link href="/packages" className="w-full sm:w-auto">
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="w-full sm:w-auto font-bold transition-all duration-200 hover:scale-[1.03]"
-                    style={{
-                      borderColor: "rgba(255,255,255,0.4)",
-                      color: "#ffffff",
-                      background: "rgba(255,255,255,0.07)",
-                    }}
-                  >
-                    See Wash Packages
-                  </Button>
-                </Link>
-              </div>
-            </div>
-
-            {/* Right: wizard — flush to bottom */}
-            <div
-              className="hidden lg:flex items-end justify-center self-end pointer-events-none select-none"
-              style={{ paddingBottom: 0 }}
+          {/* Centered headline */}
+          <div className="relative flex items-center justify-center py-24 sm:py-32 lg:py-40" style={{ zIndex: 20 }}>
+            <h1
+              className="text-center uppercase text-5xl sm:text-7xl lg:text-8xl xl:text-9xl animate-fade-up"
+              style={{
+                fontFamily: "'Luckiest Guy', cursive",
+                letterSpacing: "0.03em",
+                lineHeight: 0.92,
+                color: "#C8A84B",
+                textShadow: "0 0 30px rgba(200,168,75,0.4), 0 0 60px rgba(200,168,75,0.2), 0 2px 4px rgba(0,0,0,0.5)",
+              }}
             >
-              <Image
-                src="/images/wizard-mascot.png"
-                alt="Wash Wizard mascot"
-                width={549}
-                height={600}
-                className="w-full h-auto object-contain object-bottom"
-                style={{
-                  maxHeight: "420px",
-                  filter: "drop-shadow(0 0 24px rgba(0,195,255,0.25)) drop-shadow(0 16px 32px rgba(0,0,0,0.6))",
-                }}
-                priority
-              />
-            </div>
+              We love
+              <br />
+              clean cars.
+            </h1>
           </div>
 
           {/* Bottom ribbon */}
@@ -333,8 +271,35 @@ export default function Hero() {
               <span style={{ color: "#C8A84B" }}>★ Open 7 Days a Week</span>
             </div>
           </div>
-
         </div>
+
+        {/* ── Centered CTAs below video ── */}
+        <div className="mt-8 lg:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 animate-fade-up-delay-1">
+          <a
+            href={`https://www.google.com/maps/dir/?api=1&destination=${driveAllAddr}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button
+              size="lg"
+              className="gap-2 font-bold"
+              style={{ backgroundColor: "#C8A84B", color: "#1a1428", borderColor: "transparent" }}
+            >
+              <MapPin className="size-4 shrink-0" />
+              Get Directions
+            </Button>
+          </a>
+          <Link href="/packages">
+            <Button
+              size="lg"
+              className="font-bold"
+              style={{ backgroundColor: "#C8A84B", color: "#1a1428", borderColor: "transparent" }}
+            >
+              See Wash Packages
+            </Button>
+          </Link>
+        </div>
+
       </div>
     </section>
   );

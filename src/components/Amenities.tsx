@@ -330,17 +330,17 @@ export default function Promos() {
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
 
         <div className="text-center mb-12 lg:mb-16">
-          <p className="font-script text-magic text-sm uppercase tracking-[0.3em] mb-3">
+          <p className="font-script text-magic text-sm tracking-wide mb-3">
             Wash Wizard Specials
           </p>
-          <h2 className="font-heading font-bold uppercase text-4xl lg:text-5xl text-primary leading-[0.95]">
+          <h2 className="font-heading font-semibold uppercase text-4xl sm:text-5xl text-primary text-balance">
             Make your ride
             <br />
             <span className="text-accent">shine for less.</span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 items-start">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 items-start">
           {flags.map((flag) => (
             <PennantFlag key={flag.label} flag={flag} />
           ))}

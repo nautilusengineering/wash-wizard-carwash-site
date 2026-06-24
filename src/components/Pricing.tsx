@@ -29,8 +29,6 @@ const tiers: Tier[] = [
     features: [
       "Exterior wash & rinse",
       "Spot-free water rinse",
-      "Powerful blowers",
-      "Free DIY vacuums",
     ],
     productId: "TODO-MAGIC-CLUB-PRODUCT-ID",
     singleProductId: "TODO-MAGIC-SINGLE-PRODUCT-ID",
@@ -44,9 +42,7 @@ const tiers: Tier[] = [
     clubPrice: "$30",
     features: [
       "Everything in Magic Wash",
-      "Triple-foam soft polish",
       "Wheel & rim cleaner",
-      "Tire shine + brightener",
     ],
     productId: "TODO-WICKED-CLUB-PRODUCT-ID",
     singleProductId: "TODO-WICKED-SINGLE-PRODUCT-ID",
@@ -61,8 +57,6 @@ const tiers: Tier[] = [
     features: [
       "Everything in Wicked Wheel",
       "Hot wax + sealant armor",
-      "Rain repellent windshield",
-      "Underbody rust inhibitor",
     ],
     productId: "TODO-KNIGHT-CLUB-PRODUCT-ID",
     singleProductId: "TODO-KNIGHT-SINGLE-PRODUCT-ID",
@@ -77,9 +71,6 @@ const tiers: Tier[] = [
     features: [
       "Everything in Shining Knight",
       "Graphene ceramic coating",
-      "Triple-layer paint protection",
-      "Hydrophobic mirror shine",
-      "Tunnel light show",
     ],
     isBest: true,
     productId: "TODO-KINGS-CLUB-PRODUCT-ID",
@@ -117,9 +108,9 @@ function CornerFlourish({ isBest }: { isBest?: boolean }) {
 /* ─── Divider ─────────────────────────────────────────────── */
 function SpellDivider() {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 6, margin: "10px 0" }}>
+    <div style={{ display: "flex", alignItems: "center", gap: 6, margin: "14px 0" }}>
       <div style={{ flex: 1, height: 1, background: "linear-gradient(to right, transparent, #b08020, transparent)" }} />
-      <span style={{ color: "#b08020", fontSize: 11, lineHeight: 1 }}>❧</span>
+      <span style={{ color: "#b08020", fontSize: 12, lineHeight: 1 }}>❧</span>
       <div style={{ flex: 1, height: 1, background: "linear-gradient(to left, transparent, #b08020, transparent)" }} />
     </div>
   );
@@ -178,7 +169,7 @@ function SpellCard({
         position: "relative",
         background: cardBg,
         borderRadius: 12,
-        padding: "28px 20px 22px",
+        padding: "36px 32px 30px",
         display: "flex",
         flexDirection: "column",
         boxShadow: cardShadow,
@@ -196,15 +187,15 @@ function SpellCard({
         <div style={{
           alignSelf: "center",
           fontFamily: "var(--font-cinzel), Georgia, serif",
-          fontSize: 9,
+          fontSize: 11,
           fontWeight: 700,
           letterSpacing: "2.5px",
           textTransform: "uppercase" as const,
           color: "#7a5a10",
           border: "1px solid rgba(160,110,20,0.35)",
-          borderRadius: 2,
-          padding: "3px 10px",
-          marginBottom: 12,
+          borderRadius: 3,
+          padding: "4px 14px",
+          marginBottom: 14,
           background: "rgba(255,240,180,0.4)",
         }}>
           {tier.tier}
@@ -213,12 +204,12 @@ function SpellCard({
         {/* icon circle */}
         <div style={{ display: "flex", justifyContent: "center", marginBottom: 10 }}>
           <div style={{
-            width: 52, height: 52,
+            width: 60, height: 60,
             borderRadius: "50%",
             border: "1.2px solid rgba(160,110,20,0.35)",
             background: "rgba(160,110,20,0.07)",
             display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: 22,
+            fontSize: 26,
             color: "#8a6010",
             fontFamily: "Georgia, serif",
           }}>
@@ -230,12 +221,12 @@ function SpellCard({
         <h3 style={{
           fontFamily: "var(--font-cinzel), Georgia, serif",
           fontWeight: 700,
-          fontSize: 16,
+          fontSize: 20,
           color: inkDark,
           textAlign: "center",
           letterSpacing: "0.05em",
           lineHeight: 1.2,
-          marginBottom: 3,
+          marginBottom: 4,
         }}>
           {tier.name}
         </h3>
@@ -244,7 +235,7 @@ function SpellCard({
         <p style={{
           fontFamily: "var(--font-im-fell), Georgia, serif",
           fontStyle: "italic",
-          fontSize: 11,
+          fontSize: 14,
           color: inkMid,
           textAlign: "center",
           marginBottom: 0,
@@ -259,7 +250,7 @@ function SpellCard({
           <span style={{
             fontFamily: "var(--font-cinzel), Georgia, serif",
             fontWeight: 700,
-            fontSize: 40,
+            fontSize: 46,
             color: inkGold,
             lineHeight: 1,
           }}>
@@ -269,9 +260,9 @@ function SpellCard({
             display: "block",
             fontFamily: "var(--font-im-fell), Georgia, serif",
             fontStyle: "italic",
-            fontSize: 11,
+            fontSize: 13,
             color: inkMid,
-            marginTop: 1,
+            marginTop: 2,
           }}>
             {priceLabel}
           </span>
@@ -284,15 +275,15 @@ function SpellCard({
           {tier.features.map((f) => (
             <li key={f} style={{
               fontFamily: "var(--font-im-fell), Georgia, serif",
-              fontSize: 12.5,
+              fontSize: 15,
               color: inkDark,
               display: "flex",
               alignItems: "flex-start",
-              gap: 7,
-              marginBottom: 5,
-              lineHeight: 1.35,
+              gap: 8,
+              marginBottom: 8,
+              lineHeight: 1.4,
             }}>
-              <span style={{ color: "#a07010", fontSize: 7, marginTop: 4, flexShrink: 0 }}>✦</span>
+              <span style={{ color: "#a07010", fontSize: 9, marginTop: 5, flexShrink: 0 }}>✦</span>
               {f}
             </li>
           ))}
@@ -304,9 +295,9 @@ function SpellCard({
           style={{
             display: "block",
             width: "100%",
-            padding: "9px 0",
+            padding: "12px 0",
             fontFamily: "var(--font-cinzel), Georgia, serif",
-            fontSize: 10.5,
+            fontSize: 12,
             fontWeight: 700,
             letterSpacing: "2px",
             textTransform: "uppercase" as const,
@@ -343,14 +334,14 @@ export default function Pricing() {
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
 
           <div className="text-center mb-10 lg:mb-14">
-            <p className="font-script text-magic text-sm sm:text-base uppercase tracking-[0.3em] mb-3 animate-fade-up">
+            <p className="font-script text-magic text-sm sm:text-base tracking-wide mb-3 animate-fade-up">
               Wash Wizard Packages
             </p>
-            <h2 className="font-heading font-bold uppercase leading-[0.95] text-4xl sm:text-5xl lg:text-6xl text-primary animate-fade-up-delay-1">
+            <h2 className="font-heading font-semibold uppercase text-4xl sm:text-5xl lg:text-6xl text-primary text-balance animate-fade-up-delay-1">
               Various <span className="text-accent">elixirs</span>
               <br className="hidden sm:block" /> for all budgets
             </h2>
-            <p className="mt-4 text-base text-muted-foreground max-w-2xl mx-auto animate-fade-up-delay-2">
+            <p className="mt-4 text-base text-muted-foreground max-w-[56ch] mx-auto text-pretty animate-fade-up-delay-2">
               Pay once or unlock unlimited washes with the club. Every package
               includes free DIY vacuums and the legendary 180-foot tunnel.
             </p>
@@ -378,7 +369,7 @@ export default function Pricing() {
           </div>
 
           {/* FIX 3: items-stretch so all cards in the row grow to the same height */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5 items-stretch pt-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch pt-6">
             {tiers.map((tier) => (
               <SpellCard
                 key={tier.name}

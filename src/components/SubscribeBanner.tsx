@@ -31,15 +31,15 @@ export default function SubscribeBanner() {
 
           {/* Content */}
           <div className="relative z-10 px-6 sm:px-10 lg:px-16 py-12 lg:py-16 max-w-xl">
-            <p className="font-script text-accent text-xs sm:text-sm uppercase tracking-[0.3em] mb-3">
+            <p className="font-script text-accent text-xs sm:text-sm tracking-wide mb-3">
               Ride into Sparkle City
             </p>
-            <h2 className="font-heading font-bold uppercase leading-[0.9] text-4xl sm:text-5xl lg:text-6xl mb-5">
+            <h2 className="font-heading font-semibold uppercase text-4xl sm:text-5xl lg:text-6xl mb-5 text-balance">
               Grab your wand.
               <br />
               <span className="text-accent">Make the magic</span> happen.
             </h2>
-            <p className="text-base sm:text-lg mb-7 text-white/75 max-w-md">
+            <p className="text-base sm:text-lg mb-7 text-white/75 max-w-md text-pretty">
               Join the Unlimited Wash Club today. Cancel anytime. First wash is on the wizard.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">

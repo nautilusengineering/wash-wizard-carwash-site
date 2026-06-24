@@ -42,17 +42,16 @@ export default function HomeFAQ() {
   return (
     <section className="relative bg-background py-16 lg:py-24">
       <div className="mx-auto max-w-3xl px-4 lg:px-6">
-        <div className="text-center mb-10 lg:mb-12">
-          <p className="font-script text-magic text-sm uppercase tracking-[0.3em] mb-3">
+        <div className="mb-10 lg:mb-12">
+          <p className="font-script text-magic text-sm tracking-wide mb-3">
             Wizardly Wisdom
           </p>
-          <h2 className="font-heading font-bold uppercase text-4xl lg:text-5xl text-primary leading-[0.95]">
-            Frequently asked <br />
-            <span className="text-accent">questions</span>
+          <h2 className="font-heading font-semibold uppercase text-4xl sm:text-5xl text-primary text-balance">
+            Frequently asked <span className="text-accent">questions</span>
           </h2>
         </div>
 
-        <div className="divide-y divide-border border-y border-border">
+        <div className="divide-y divide-primary/10 border-y border-primary/10">
           {faqs.map((faq, i) => (
             <div key={i}>
               <button
@@ -60,7 +59,7 @@ export default function HomeFAQ() {
                 className="w-full flex items-center justify-between gap-4 py-5 text-left group"
                 aria-expanded={open === i}
               >
-                <span className="font-heading font-bold uppercase text-base sm:text-lg text-primary tracking-wide group-hover:text-secondary transition-colors">
+                <span className="font-heading font-semibold uppercase text-base sm:text-lg text-primary tracking-wide group-hover:text-secondary">
                   {faq.q}
                 </span>
                 <ChevronDown
@@ -77,7 +76,7 @@ export default function HomeFAQ() {
                 }`}
               >
                 <div className="overflow-hidden">
-                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed pr-8">
+                  <p className="text-base sm:text-sm text-muted-foreground leading-relaxed pr-8 text-pretty">
                     {faq.a}
                   </p>
                 </div>

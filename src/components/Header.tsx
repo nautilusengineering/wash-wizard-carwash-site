@@ -83,38 +83,38 @@ export default function Header() {
 
       {/* Main nav */}
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
-        <div className="flex items-center justify-between h-16 lg:h-20 gap-6">
+        <div className="flex items-center justify-between h-16 lg:h-18 gap-6">
           {/* Logo */}
-          <Link href="/" className="flex-shrink-0 flex items-center gap-3">
+          <Link href="/" aria-label="Homepage" className="shrink-0 flex items-center gap-3">
             <Image
               src="/images/logo.png"
               alt="Wash Wizard Car Wash"
               width={220}
               height={64}
-              className="h-10 lg:h-14 w-auto"
+              className="h-9 lg:h-11 w-auto"
               priority
             />
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-8 mx-auto">
+          <nav className="hidden lg:flex items-center gap-7 xl:gap-9 mx-auto">
             {navItems.map((item) =>
               "children" in item ? (
                 <div key={item.label} className="relative group">
                   <button
                     type="button"
-                    className="flex items-center gap-1 text-sm font-heading font-bold uppercase tracking-wider text-white/90 hover:text-accent transition-colors py-2"
+                    className="flex items-center gap-1.5 text-base font-heading font-bold uppercase tracking-wider text-white hover:text-accent py-2"
                   >
                     {item.label}
-                    <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180" />
+                    <ChevronDown className="size-4 shrink-0 transition-transform group-hover:rotate-180" />
                   </button>
                   <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 invisible opacity-0 group-hover:visible group-hover:opacity-100 focus-within:visible focus-within:opacity-100 transition-opacity duration-150">
-                    <div className="min-w-[230px] bg-primary/97 backdrop-blur-md rounded-xl shadow-2xl border border-white/10 py-2">
+                    <div className="min-w-[240px] bg-primary/97 backdrop-blur-md rounded-xl shadow-2xl ring-1 ring-white/10 py-2">
                       {item.children.map((child) => (
                         <Link
                           key={child.label}
                           href={child.href}
-                          className="block px-4 py-2 text-sm font-semibold text-white/90 hover:text-accent hover:bg-white/5 transition-colors"
+                          className="block px-5 py-2.5 text-sm font-semibold text-white/90 hover:text-accent hover:bg-white/5"
                         >
                           {child.label}
                         </Link>
@@ -126,7 +126,7 @@ export default function Header() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-sm font-heading font-bold uppercase tracking-wider text-white/90 hover:text-accent transition-colors"
+                  className="text-base font-heading font-bold uppercase tracking-wider text-white hover:text-accent"
                 >
                   {item.label}
                 </Link>
@@ -137,10 +137,10 @@ export default function Header() {
           {/* Desktop CTAs */}
           <div className="hidden lg:flex items-center gap-3">
             <a href={BUY_ONLINE_URL} target="_blank" rel="noopener noreferrer">
-              <Button size="sm">Buy Online</Button>
+              <Button size="default">Buy Online</Button>
             </a>
             <a href={MANAGE_ACCOUNT_URL} target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" size="sm">
+              <Button variant="outline" size="default">
                 Manage My Membership
               </Button>
             </a>
@@ -177,7 +177,7 @@ export default function Header() {
                       mobileExpanded === item.label ? null : item.label
                     )
                   }
-                  className="flex items-center justify-between text-base font-heading font-bold uppercase tracking-wider text-white/90 hover:text-accent transition-colors py-2"
+                  className="flex items-center justify-between text-lg font-heading font-semibold uppercase tracking-wider text-white/90 hover:text-accent py-2"
                   aria-expanded={mobileExpanded === item.label}
                 >
                   <span>{item.label}</span>
@@ -217,7 +217,7 @@ export default function Header() {
                 key={item.label}
                 href={item.href}
                 onClick={closeMobile}
-                className="text-base font-heading font-bold uppercase tracking-wider text-white/90 hover:text-accent transition-colors py-2"
+                className="text-lg font-heading font-semibold uppercase tracking-wider text-white/90 hover:text-accent py-2"
               >
                 {item.label}
               </Link>
@@ -226,7 +226,7 @@ export default function Header() {
           <hr className="border-white/10 my-2" />
           <a
             href={PHONE_HREF}
-            className="text-sm text-white/80 hover:text-accent transition-colors flex items-center gap-2 py-1"
+            className="text-sm text-white/80 hover:text-accent flex items-center gap-2 py-1"
           >
             <Phone className="w-3.5 h-3.5" /> {PHONE}
           </a>
