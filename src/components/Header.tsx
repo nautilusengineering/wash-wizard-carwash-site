@@ -5,7 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { cn, BUY_ONLINE_URL, MANAGE_ACCOUNT_URL, PHONE, PHONE_HREF } from "@/lib/utils";
+import {
+  cn,
+  BUY_ONLINE_URL,
+  MANAGE_ACCOUNT_URL,
+  PHONE,
+  PHONE_HREF,
+} from "@/lib/utils";
 
 type NavItem =
   | { label: string; href: string }
@@ -13,13 +19,16 @@ type NavItem =
 
 const navItems: NavItem[] = [
   { label: "Locations", href: "/locations" },
-  { label: "Wash Packages", href: "/packages" },
+  { label: "Packages", href: "/packages" },
   { label: "Deals", href: "/washwizard-deals" },
   {
     label: "About",
     children: [
       { label: "About Wash Wizard", href: "/about" },
-      { label: "The Wash Wizard Difference", href: "/the-wash-wizard-difference" },
+      {
+        label: "The Wash Wizard Difference",
+        href: "/the-wash-wizard-difference",
+      },
       { label: "Our History", href: "/our-history" },
       { label: "Tale of the Wash Wizard", href: "/tale-of-the-wash-wizard" },
       { label: "Member Welcome", href: "/welcome" },
@@ -52,7 +61,7 @@ export default function Header() {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
           ? "bg-primary/95 backdrop-blur-md shadow-xl"
-          : "bg-primary/85 backdrop-blur-sm"
+          : "bg-primary/85 backdrop-blur-sm",
       )}
     >
       {/* Utility bar */}
@@ -65,16 +74,28 @@ export default function Header() {
             <Phone className="w-3 h-3" /> {PHONE}
           </a>
           <div className="flex items-center gap-5 text-xs text-white/70">
-            <Link href="/the-wash-wizard-difference" className="hover:text-white transition-colors">
+            <Link
+              href="/the-wash-wizard-difference"
+              className="hover:text-white transition-colors"
+            >
               Why Wash Wizard
             </Link>
-            <Link href="/fundraising" className="hover:text-white transition-colors">
+            <Link
+              href="/fundraising"
+              className="hover:text-white transition-colors"
+            >
               Fundraising
             </Link>
-            <Link href="/employment" className="hover:text-white transition-colors">
+            <Link
+              href="/employment"
+              className="hover:text-white transition-colors"
+            >
               Employment
             </Link>
-            <Link href="/welcome" className="hover:text-white transition-colors">
+            <Link
+              href="/welcome"
+              className="hover:text-white transition-colors"
+            >
               Member Welcome
             </Link>
           </div>
@@ -85,7 +106,11 @@ export default function Header() {
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
         <div className="flex items-center justify-between h-16 lg:h-18 gap-6">
           {/* Logo */}
-          <Link href="/" aria-label="Homepage" className="shrink-0 flex items-center gap-3">
+          <Link
+            href="/"
+            aria-label="Homepage"
+            className="shrink-0 flex items-center gap-3"
+          >
             <Image
               src="/images/logo.png"
               alt="Wash Wizard Car Wash"
@@ -130,7 +155,7 @@ export default function Header() {
                 >
                   {item.label}
                 </Link>
-              )
+              ),
             )}
           </nav>
 
@@ -139,7 +164,11 @@ export default function Header() {
             <a href={BUY_ONLINE_URL} target="_blank" rel="noopener noreferrer">
               <Button size="default">Buy Online</Button>
             </a>
-            <a href={MANAGE_ACCOUNT_URL} target="_blank" rel="noopener noreferrer">
+            <a
+              href={MANAGE_ACCOUNT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button variant="outline" size="default">
                 Manage My Membership
               </Button>
@@ -163,7 +192,7 @@ export default function Header() {
           "lg:hidden transition-all duration-300 bg-primary/97 backdrop-blur-md overflow-y-auto overscroll-contain",
           mobileOpen
             ? "max-h-[calc(100dvh-4rem)] opacity-100"
-            : "max-h-0 opacity-0 overflow-hidden"
+            : "max-h-0 opacity-0 overflow-hidden",
         )}
       >
         <nav className="px-6 py-4 pb-8 flex flex-col gap-2">
@@ -174,7 +203,7 @@ export default function Header() {
                   type="button"
                   onClick={() =>
                     setMobileExpanded(
-                      mobileExpanded === item.label ? null : item.label
+                      mobileExpanded === item.label ? null : item.label,
                     )
                   }
                   className="flex items-center justify-between text-lg font-heading font-semibold uppercase tracking-wider text-white/90 hover:text-accent py-2"
@@ -184,7 +213,7 @@ export default function Header() {
                   <ChevronDown
                     className={cn(
                       "w-4 h-4 transition-transform",
-                      mobileExpanded === item.label && "rotate-180"
+                      mobileExpanded === item.label && "rotate-180",
                     )}
                   />
                 </button>
@@ -193,7 +222,7 @@ export default function Header() {
                     "grid transition-all duration-300 ease-in-out",
                     mobileExpanded === item.label
                       ? "grid-rows-[1fr] opacity-100"
-                      : "grid-rows-[0fr] opacity-0"
+                      : "grid-rows-[0fr] opacity-0",
                   )}
                 >
                   <div className="overflow-hidden">
@@ -221,7 +250,7 @@ export default function Header() {
               >
                 {item.label}
               </Link>
-            )
+            ),
           )}
           <hr className="border-white/10 my-2" />
           <a

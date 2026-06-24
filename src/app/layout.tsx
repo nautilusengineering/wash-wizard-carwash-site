@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Open_Sans, Khand, Cinzel, IM_Fell_English } from "next/font/google";
+import { Fredoka, Nunito, Cinzel, IM_Fell_English } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-const openSans = Open_Sans({
-  variable: "--font-open-sans",
+const fredoka = Fredoka({
+  variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const khand = Khand({
-  variable: "--font-khand",
+const nunito = Nunito({
+  variable: "--font-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
@@ -46,7 +46,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${openSans.variable} ${khand.variable} ${cinzel.variable} ${imFell.variable} h-full antialiased`}
+      className={`${fredoka.variable} ${nunito.variable} ${cinzel.variable} ${imFell.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background">
         <Header />
