@@ -2,8 +2,15 @@
 
 import { useState } from "react";
 import IframeDrawer from "./IframeDrawer";
+import { Button } from "@/components/ui/button";
+import {
+  DEFAULT_LOCATION_ID,
+  getSalesItemId,
+  type TierKey,
+} from "@/lib/utils";
 
 interface Tier {
+  key: TierKey;
   name: string;
   tagline: string;
   icon: string;
@@ -11,61 +18,57 @@ interface Tier {
   clubPrice: string;
   features: string[];
   isBest?: boolean;
-  productId?: string;
-  singleProductId?: string;
 }
 
 const tiers: Tier[] = [
   {
+    key: "magic",
     name: "Magic Wash",
     tagline: "The everyday spell",
     icon: "✦",
     singlePrice: "$10",
-    clubPrice: "$20",
+    clubPrice: "$15",
     features: [
       "Exterior wash & rinse",
       "Spot-free water rinse",
       "Powerful blowers",
       "Free DIY vacuums",
     ],
-    productId: "TODO-MAGIC-CLUB-PRODUCT-ID",
-    singleProductId: "TODO-MAGIC-SINGLE-PRODUCT-ID",
   },
   {
+    key: "wicked",
     name: "Wicked Wheel",
     tagline: "Wheels & rims polished",
     icon: "❋",
-    singlePrice: "$14",
-    clubPrice: "$30",
+    singlePrice: "$20",
+    clubPrice: "$34",
     features: [
       "Everything in Magic Wash",
       "Triple-foam soft polish",
       "Wheel & rim cleaner",
       "Tire shine + brightener",
     ],
-    productId: "TODO-WICKED-CLUB-PRODUCT-ID",
-    singleProductId: "TODO-WICKED-SINGLE-PRODUCT-ID",
   },
   {
+    key: "shining",
     name: "Shining Knight",
     tagline: "Long-lasting protection",
     icon: "⚜",
-    singlePrice: "$18",
-    clubPrice: "$40",
+    singlePrice: "$25",
+    clubPrice: "$43",
     features: [
       "Everything in Wicked Wheel",
       "Hot wax + sealant armor",
       "Rain repellent windshield",
       "Underbody rust inhibitor",
     ],
-    productId: "TODO-KNIGHT-CLUB-PRODUCT-ID",
-    singleProductId: "TODO-KNIGHT-SINGLE-PRODUCT-ID",
   },
   {
+    key: "kings",
     name: "King's Graphene",
     tagline: "The wizard's crown jewel",
     icon: "♛",
-    singlePrice: "$25",
+    singlePrice: "$30",
     clubPrice: "$50",
     features: [
       "Everything in Shining Knight",
@@ -75,8 +78,6 @@ const tiers: Tier[] = [
       "Tunnel light show",
     ],
     isBest: true,
-    productId: "TODO-KINGS-CLUB-PRODUCT-ID",
-    singleProductId: "TODO-KINGS-SINGLE-PRODUCT-ID",
   },
 ];
 
@@ -149,17 +150,16 @@ function SpellCard({
         style={{
           fontSize: 20,
           letterSpacing: "0.05em",
-          color: tier.isBest ? "#fff" : "#1a1428",
+          color: tier.isBest ? "#fff" : "hsl(218 100% 25%)",
         }}
       >
         {tier.name}
       </h3>
 
       <p
-        className="text-center mb-6"
+        className="text-center mb-6 text-base sm:text-[15px]"
         style={{
-          fontSize: 13,
-          color: tier.isBest ? "rgba(255,255,255,0.55)" : "rgba(0,0,0,0.4)",
+          color: tier.isBest ? "rgba(255,255,255,0.85)" : "hsl(225 100% 16%)",
           fontStyle: "italic",
         }}
       >
@@ -172,18 +172,18 @@ function SpellCard({
           style={{
             fontSize: 54,
             lineHeight: 1,
-            color: tier.isBest ? "#FFB800" : "#1a1428",
+            color: tier.isBest ? "#FFB800" : "hsl(218 100% 25%)",
           }}
         >
           {price}
         </span>
         <span
-          className="block mt-1"
+          className="block mt-1 text-sm"
           style={{
-            fontSize: 12,
-            color: tier.isBest ? "rgba(255,255,255,0.4)" : "rgba(0,0,0,0.35)",
+            color: tier.isBest ? "rgba(255,255,255,0.85)" : "hsl(225 100% 16%)",
             textTransform: "uppercase",
             letterSpacing: "0.08em",
+            fontWeight: 600,
           }}
         >
           {priceLabel}
@@ -198,55 +198,50 @@ function SpellCard({
         }}
       />
 
-      <ul className="flex-1 mb-7 space-y-2.5" role="list">
-        {tier.features.map((f) => (
-          <li
-            key={f}
-            className="flex items-center gap-2.5"
-            style={{
-              fontSize: 14,
-              color: tier.isBest ? "rgba(255,255,255,0.8)" : "rgba(0,0,0,0.65)",
-            }}
-          >
-            <span
+      <ul className="flex-1 mb-7 space-y-3 sm:space-y-2.5" role="list">
+        {tier.features.map((f) => {
+          const isInheritLine = f.startsWith("Everything in");
+          return (
+            <li
+              key={f}
+              className={`flex items-center gap-2.5 text-base sm:text-[15px] leading-snug ${
+                isInheritLine ? "font-bold" : ""
+              }`}
               style={{
-                color: tier.isBest ? "#FFB800" : "#2A2050",
-                fontSize: 10,
-                flexShrink: 0,
+                color: tier.isBest ? "#ffffff" : "hsl(225 100% 16%)",
               }}
-              aria-hidden="true"
             >
-              ✦
-            </span>
-            {f}
-          </li>
-        ))}
+              <span
+                className="text-xs sm:text-[11px]"
+                style={{
+                  color: tier.isBest ? "#FFB800" : "#2A2050",
+                  flexShrink: 0,
+                }}
+                aria-hidden="true"
+              >
+                ✦
+              </span>
+              {f}
+            </li>
+          );
+        })}
       </ul>
 
-      <button
-        type="button"
+      <Button
+        size="lg"
         onClick={() =>
-          onSubscribe(isMonthly ? tier.productId : tier.singleProductId)
+          onSubscribe(
+            getSalesItemId(
+              DEFAULT_LOCATION_ID,
+              tier.key,
+              isMonthly ? "club" : "single",
+            ),
+          )
         }
-        className="w-full cursor-pointer font-heading font-bold uppercase tracking-widest transition-all"
-        style={{
-          padding: "13px 0",
-          fontSize: 12,
-          borderRadius: 8,
-          border: "none",
-          background: tier.isBest ? "#FFB800" : "#1a1428",
-          color: tier.isBest ? "#1a1428" : "#fff",
-          letterSpacing: "0.12em",
-        }}
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLElement).style.opacity = "0.88";
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLElement).style.opacity = "1";
-        }}
+        className="w-full text-sm"
       >
         {isMonthly ? "Join the Club" : "Buy Now"}
-      </button>
+      </Button>
     </div>
   );
 }
@@ -271,14 +266,11 @@ export default function Pricing() {
       >
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="text-center mb-10 lg:mb-14">
-            <p className="font-script text-magic text-sm tracking-wide mb-3">
-              Wash Wizard Packages
-            </p>
             <h2 className="font-heading font-semibold uppercase text-4xl sm:text-5xl lg:text-6xl text-primary text-balance">
               Various <span className="text-accent">elixirs</span>
               <br className="hidden sm:block" /> for all budgets
             </h2>
-            <p className="mt-4 text-base text-muted-foreground max-w-[52ch] mx-auto text-pretty">
+            <p className="mt-4 text-lg sm:text-base text-foreground max-w-[52ch] mx-auto text-pretty">
               Pay once or unlock unlimited washes with the club. Every package
               includes free DIY vacuums and the legendary 180-foot tunnel.
             </p>
@@ -294,7 +286,7 @@ export default function Pricing() {
                 <button
                   type="button"
                   onClick={() => setIsMonthly(true)}
-                  className={`px-5 py-2 rounded-full text-xs font-heading font-semibold uppercase tracking-widest transition-all ${
+                  className={`px-5 py-2.5 rounded-full text-sm sm:text-xs font-heading font-semibold uppercase tracking-widest transition-all ${
                     isMonthly
                       ? "bg-primary text-white shadow-md"
                       : "text-muted-foreground hover:text-primary"
@@ -305,7 +297,7 @@ export default function Pricing() {
                 <button
                   type="button"
                   onClick={() => setIsMonthly(false)}
-                  className={`px-5 py-2 rounded-full text-xs font-heading font-semibold uppercase tracking-widest transition-all ${
+                  className={`px-5 py-2.5 rounded-full text-sm sm:text-xs font-heading font-semibold uppercase tracking-widest transition-all ${
                     !isMonthly
                       ? "bg-primary text-white shadow-md"
                       : "text-muted-foreground hover:text-primary"
