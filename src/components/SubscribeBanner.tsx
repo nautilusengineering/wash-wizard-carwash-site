@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Wand } from "lucide-react";
-import { BUY_ONLINE_URL } from "@/lib/utils";
+import { JOIN_URL, MANAGE_ACCOUNT_URL } from "@/lib/utils";
 
 export default function SubscribeBanner() {
   return (
@@ -26,10 +26,10 @@ export default function SubscribeBanner() {
             style={{ animationDelay: "1.2s" }}
           />
 
-          {/* Wizard mascot — right side */}
-          <div className="absolute -bottom-2 right-4 lg:right-16 w-48 sm:w-64 lg:w-80 pointer-events-none opacity-90">
+          {/* Wizard mascot — right side, hidden on mobile to keep text readable */}
+          <div className="hidden sm:block absolute -bottom-2 right-4 lg:right-16 w-56 sm:w-64 lg:w-80 pointer-events-none opacity-90">
             <Image
-              src="/images/wizard-mascot.png"
+              src="https://ucarecdn.com/43922423-7fb1-4544-a761-23782edcdae2/wizard-mascot.png"
               alt=""
               width={400}
               height={600}
@@ -42,29 +42,27 @@ export default function SubscribeBanner() {
 
           {/* Content */}
           <div className="relative z-10 px-6 sm:px-10 lg:px-16 py-12 lg:py-16 max-w-xl">
-            <p className="font-script text-accent text-xs sm:text-sm tracking-wide mb-3">
-              Ride into Sparkle City
-            </p>
             <h2 className="font-heading font-semibold uppercase text-4xl sm:text-5xl lg:text-6xl mb-5 text-balance">
               Grab your wand.
               <br />
               <span className="text-accent">Make the magic</span> happen.
             </h2>
-            <p className="text-base sm:text-lg mb-7 text-white/75 max-w-md text-pretty">
+            <p className="text-lg mb-7 text-white/75 max-w-md text-pretty">
               Join the Unlimited Wash Club today. Cancel anytime. First wash is
               on the wizard.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link href="/packages">
-                <Button size="lg">See Wash Packages</Button>
-              </Link>
+              <Button asChild size="lg" className="w-full sm:w-auto text-base">
+                <Link href={JOIN_URL}>See Wash Packages</Link>
+              </Button>
               <a
-                href={BUY_ONLINE_URL}
+                href={MANAGE_ACCOUNT_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="w-full sm:w-auto"
               >
-                <Button variant="outline" size="lg">
-                  Buy Online
+                <Button variant="outline" size="lg" className="w-full sm:w-auto text-base">
+                  Manage Membership
                 </Button>
               </a>
             </div>
