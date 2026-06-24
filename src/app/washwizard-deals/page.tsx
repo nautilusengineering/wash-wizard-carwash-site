@@ -1,4 +1,3 @@
-import PageHero from "@/components/PageHero";
 import Promos from "@/components/Promos";
 import SubscribeBanner from "@/components/SubscribeBanner";
 
@@ -11,14 +10,8 @@ export const metadata = {
 export default function DealsPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Wash Wizard Special Deals"
-        title="Make your ride shine for less"
-        subtitle="Limited-time spells and ongoing savings — picked fresh from the wizard's spellbook."
-      />
-
+      <div className="pt-32 lg:pt-36" />
       <Promos />
-
       <SubscribeBanner />
     </>
   );

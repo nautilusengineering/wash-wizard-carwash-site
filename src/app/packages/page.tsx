@@ -1,7 +1,5 @@
-import PageHero from "@/components/PageHero";
 import Pricing from "@/components/Pricing";
 import SubscribeBanner from "@/components/SubscribeBanner";
-import Image from "next/image";
 import { Check } from "lucide-react";
 
 export const metadata = {
@@ -22,16 +20,9 @@ const allIncluded = [
 export default function PackagesPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Wash Wizard Packages"
-        title="Various elixirs for all budgets"
-        subtitle="From the everyday Magic Wash to the legendary King's Graphene. Pick your spell."
-      />
-
+      <div className="pt-32 lg:pt-36" />
       <Pricing />
-
-      {/* "All washes include" banner */}
-      <section className="relative bg-wizard-cream py-16 lg:py-24 overflow-hidden">
+      <section className="relative bg-background py-16 lg:py-24 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-5">
@@ -65,7 +56,6 @@ export default function PackagesPage() {
           </div>
         </div>
       </section>
-
       <SubscribeBanner />
     </>
   );

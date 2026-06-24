@@ -1,4 +1,3 @@
-import PageHero from "@/components/PageHero";
 import SubscribeBanner from "@/components/SubscribeBanner";
 import { Button } from "@/components/ui/button";
 import { Wand, MapPin, CreditCard, Repeat } from "lucide-react";
@@ -41,21 +40,20 @@ const steps = [
 export default function WelcomePage() {
   return (
     <>
-      <PageHero
-        eyebrow="Wash Wizard Welcome"
-        title="Welcome to the Club"
-        subtitle="You're now part of the Lowcountry's most magical car-wash family. Here's how to make the most of your membership."
-      />
-
-      <section className="bg-background py-16 lg:py-24">
+      <section className="bg-background pt-32 lg:pt-40 pb-16 lg:pb-24">
         <div className="mx-auto max-w-5xl px-4 lg:px-6">
           <div className="text-center mb-10 lg:mb-14">
             <p className="font-script text-magic text-sm uppercase tracking-[0.3em] mb-3">
-              New Member Magic
+              Wash Wizard Welcome
             </p>
             <h2 className="font-heading font-bold uppercase text-4xl lg:text-5xl text-primary leading-[0.95]">
-              How to use <span className="text-accent">your plan</span>
+              Welcome to <span className="text-accent">the club.</span>
             </h2>
+            <p className="mt-4 text-base sm:text-lg text-muted-foreground max-w-xl mx-auto">
+              You&apos;re now part of the Lowcountry&apos;s most magical
+              car-wash family. Here&apos;s how to make the most of your
+              membership.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -64,7 +62,7 @@ export default function WelcomePage() {
               return (
                 <div
                   key={s.title}
-                  className="relative p-6 sm:p-7 rounded-2xl bg-wizard-cream border border-border hover:border-accent/40 hover:shadow-lg transition-all"
+                  className="relative p-6 sm:p-7 rounded-2xl bg-background border border-border hover:border-accent/40 hover:shadow-lg transition-all"
                 >
                   <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-accent text-accent-foreground grid place-items-center font-heading font-bold shadow-lg">
                     0{i + 1}

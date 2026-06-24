@@ -1,4 +1,3 @@
-import PageHero from "@/components/PageHero";
 import SubscribeBanner from "@/components/SubscribeBanner";
 import Image from "next/image";
 import { Wand } from "lucide-react";
@@ -27,13 +26,7 @@ const advantages = [
 export default function DifferencePage() {
   return (
     <>
-      <PageHero
-        eyebrow="The Wash Wizard Difference"
-        title="Fast. Flexible. Flawlessly clean."
-        subtitle="Why a Wash Wizard wash beats every other tunnel in the Lowcountry."
-      />
-
-      <section className="bg-background py-16 lg:py-24">
+      <section className="bg-background pt-32 lg:pt-40 pb-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="text-center mb-12 lg:mb-16">
             <p className="font-script text-magic text-sm uppercase tracking-[0.3em] mb-3">
@@ -53,27 +46,28 @@ export default function DifferencePage() {
                 }`}
               >
                 <div className="lg:col-span-6 lg:[direction:ltr]">
-                  <div className="aspect-[4/3] rounded-[1.5rem] overflow-hidden bg-wizard-night relative">
-                    <Image
-                      src="/images/navy-bubble-bg.jpg"
-                      alt=""
-                      fill
-                      className="object-cover opacity-50 mix-blend-screen"
+                  <div className="aspect-[4/3] relative flex items-center justify-center">
+                    <div
+                      className="relative w-full h-full"
+                      style={{ transform: i % 2 === 0 ? "rotate(-6deg)" : "rotate(6deg)" }}
+                    >
+                      <Image
+                        src={
+                          i === 0
+                            ? "/images/pkg-wicked-wheel.png"
+                            : i === 1
+                            ? "/images/pkg-shining-knight.png"
+                            : "/images/pkg-kings-graphene.png"
+                        }
+                        alt=""
+                        fill
+                        className="object-contain drop-shadow-2xl"
+                      />
+                    </div>
+                    <Wand
+                      className="absolute top-4 right-4 w-6 h-6 text-accent animate-sparkle"
+                      style={{ transform: i % 2 === 0 ? "rotate(-6deg)" : "rotate(6deg)" }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/70 via-magic/30 to-deep/90" />
-                    <Image
-                      src={
-                        i === 0
-                          ? "/images/pkg-wicked-wheel.png"
-                          : i === 1
-                          ? "/images/pkg-shining-knight.png"
-                          : "/images/pkg-kings-graphene.png"
-                      }
-                      alt=""
-                      fill
-                      className="object-contain p-12 z-10 drop-shadow-2xl"
-                    />
-                    <Wand className="absolute top-8 left-8 w-6 h-6 text-accent animate-sparkle z-20" />
                   </div>
                 </div>
                 <div className="lg:col-span-6 lg:[direction:ltr]">

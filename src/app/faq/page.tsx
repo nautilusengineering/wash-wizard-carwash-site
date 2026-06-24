@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { ChevronDown, Wand } from "lucide-react";
-import PageHero from "@/components/PageHero";
 import SubscribeBanner from "@/components/SubscribeBanner";
 
 interface FAQ {
@@ -84,19 +83,23 @@ export default function FAQPage() {
   const [open, setOpen] = useState<string | null>("Membership-0");
   return (
     <>
-      <PageHero
-        eyebrow="Frequently Asked"
-        title="Wizardly questions, answered."
-        subtitle="Membership, washing, hours — find the spell that answers your question."
-      />
-
+      <div className="pt-32 lg:pt-36" />
       <section className="bg-background py-16 lg:py-20">
         <div className="mx-auto max-w-3xl px-4 lg:px-6">
+          <div className="mb-12">
+            <p className="font-script text-magic text-xs sm:text-sm uppercase tracking-[0.3em] mb-3">
+              Frequently Asked
+            </p>
+            <h1 className="font-heading font-bold uppercase text-4xl sm:text-5xl lg:text-6xl text-primary leading-[0.95]">
+              You ask, the wizard{" "}
+              <span className="text-accent">shall answer.</span>
+            </h1>
+          </div>
           {groups.map((group) => (
             <div key={group.title} className="mb-10 last:mb-0">
-              <div className="flex items-center gap-2 mb-4">
-                <Wand className="w-4 h-4 text-accent" />
-                <h2 className="font-heading font-bold uppercase text-xl tracking-widest text-primary">
+              <div className="flex items-center gap-2 mb-4 pb-2 border-b-2 border-accent">
+                <Wand className="w-5 h-5 text-accent" />
+                <h2 className="font-heading font-bold uppercase text-2xl tracking-widest text-accent">
                   {group.title}
                 </h2>
               </div>
@@ -141,7 +144,6 @@ export default function FAQPage() {
           ))}
         </div>
       </section>
-
       <SubscribeBanner />
     </>
   );

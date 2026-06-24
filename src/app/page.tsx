@@ -1,5 +1,5 @@
 import Hero from "@/components/Hero";
-import MarqueeBanner from "@/components/MarqueeBanner";
+// import MarqueeBanner from "@/components/MarqueeBanner";
 import Pricing from "@/components/Pricing";
 import Amenities from "@/components/Amenities";
 import Promos from "@/components/Promos";
@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <MarqueeBanner />
+  
       <Pricing />
       <Amenities />
       <Promos />

@@ -158,3 +158,5 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(90deg, transparent, hsl(var(--accent)) 20%, hsl(var(--accent)) 80%, transparent);
   border-radius: 999px;
 }
+
+

@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
-import { Open_Sans, Khand, Cinzel } from "next/font/google";
+import { Open_Sans, Khand, Cinzel, IM_Fell_English } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
+<link
+  href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap"
+  rel="stylesheet"
+/>
 
 const openSans = Open_Sans({
   variable: "--font-open-sans",
@@ -25,6 +29,14 @@ const cinzel = Cinzel({
   display: "swap",
 });
 
+const imFell = IM_Fell_English({
+  variable: "--font-im-fell",
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Wash Wizard Car Wash | Summerville & Ladson, SC",
   description:
@@ -38,7 +50,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${openSans.variable} ${khand.variable} ${cinzel.variable} h-full antialiased`}
+      className={`${openSans.variable} ${khand.variable} ${cinzel.variable} ${imFell.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background">
         <Header />

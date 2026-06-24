@@ -43,7 +43,7 @@ export default function Locations() {
   return (
     <section
       id="locations"
-      className="relative bg-wizard-cream py-16 lg:py-24 overflow-hidden"
+      className="relative bg-background py-16 lg:py-24 overflow-hidden"
     >
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
         <div className="text-center mb-10 lg:mb-14">

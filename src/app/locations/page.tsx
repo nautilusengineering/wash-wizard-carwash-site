@@ -1,4 +1,3 @@
-import PageHero from "@/components/PageHero";
 import Locations from "@/components/Locations";
 import SubscribeBanner from "@/components/SubscribeBanner";
 import { Wand } from "lucide-react";
@@ -25,14 +24,8 @@ const features = [
 export default function LocationsPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Three Lowcountry Locations"
-        title="Wash Wizard locations"
-        subtitle="Summerville, Ladson, and Bacons Bridge — all open 7 days a week."
-      />
-
+      <div className="pt-32 lg:pt-36" />
       <Locations />
-
       <section className="bg-background py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="text-center mb-10 lg:mb-12">
@@ -47,7 +40,7 @@ export default function LocationsPage() {
             {features.map((f) => (
               <div
                 key={f}
-                className="flex items-start gap-3 p-5 rounded-2xl bg-wizard-cream border border-border"
+                className="flex items-start gap-3 p-5 rounded-2xl bg-background border border-border"
               >
                 <Wand className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                 <p className="text-sm sm:text-base text-foreground/85 leading-relaxed">
@@ -58,7 +51,6 @@ export default function LocationsPage() {
           </div>
         </div>
       </section>
-
       <SubscribeBanner />
     </>
   );

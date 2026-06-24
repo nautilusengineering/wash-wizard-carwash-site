@@ -1,4 +1,3 @@
-import PageHero from "@/components/PageHero";
 import { Button } from "@/components/ui/button";
 import { Wand, Clock, DollarSign, Users, Heart } from "lucide-react";
 import { PHONE_HREF } from "@/lib/utils";
@@ -40,31 +39,53 @@ const roles = [
 export default function EmploymentPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Join Our Team"
-        title="We're hiring wizards."
-        subtitle="Friendly crews, flexible hours, and free washes. Come grow with us."
-      />
+      {/* Title */}
+      <section className="bg-background pt-32 lg:pt-40 pb-10 lg:pb-14">
+        <div className="mx-auto max-w-4xl px-4 lg:px-6 text-center">
+          <p className="font-script text-magic text-sm uppercase tracking-[0.3em] mb-3">
+            Join Our Team
+          </p>
+          <h1 className="font-heading font-bold uppercase text-4xl sm:text-5xl text-primary leading-[0.95] mb-4">
+            We&apos;re hiring <span className="text-accent">wizards.</span>
+          </h1>
+          <p className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto">
+            Friendly crews, flexible hours, and free washes. Come grow with us.
+          </p>
+        </div>
+      </section>
 
-      {/* Perks */}
-      <section className="bg-background py-12 lg:py-16">
-        <div className="mx-auto max-w-6xl px-4 lg:px-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
-            {perks.map((p) => {
-              const Icon = p.icon;
-              return (
-                <div
-                  key={p.title}
-                  className="p-5 rounded-2xl bg-wizard-cream border border-border text-center"
-                >
-                  <Icon className="w-7 h-7 text-magic mx-auto mb-3" />
-                  <h3 className="font-heading font-bold uppercase text-sm sm:text-base text-primary mb-1">
-                    {p.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground">{p.body}</p>
-                </div>
-              );
-            })}
+      {/* Perks — spell badges along a dotted path */}
+      <section className="bg-background pb-14 lg:pb-20">
+        <div className="mx-auto max-w-5xl px-4 lg:px-6">
+          <div className="relative">
+            <div
+              className="hidden sm:block absolute top-9 left-[12%] right-[12%] h-0 border-t-2 border-dotted border-accent/40"
+              aria-hidden="true"
+            />
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-4">
+              {perks.map((p, i) => {
+                const Icon = p.icon;
+                return (
+                  <div
+                    key={p.title}
+                    className="relative flex flex-col items-center text-center"
+                  >
+                    <div
+                      className="relative w-16 h-16 sm:w-[4.5rem] sm:h-[4.5rem] rounded-full bg-background border-2 border-dashed border-accent/50 grid place-items-center shadow-sm"
+                      style={{ transform: i % 2 === 0 ? "rotate(-4deg)" : "rotate(4deg)" }}
+                    >
+                      <Icon className="w-7 h-7 text-magic" />
+                    </div>
+                    <h3 className="font-script text-magic text-sm sm:text-base mt-4">
+                      {p.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-muted-foreground mt-1 max-w-[9rem]">
+                      {p.body}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>

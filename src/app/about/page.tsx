@@ -1,4 +1,3 @@
-import PageHero from "@/components/PageHero";
 import SubscribeBanner from "@/components/SubscribeBanner";
 import Image from "next/image";
 import { Wand } from "lucide-react";
@@ -24,13 +23,7 @@ const values = [
 export default function AboutPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Wash Wizard"
-        title="Our mission"
-        subtitle="Greetings, fellow seekers of car-wash magic. Here's what we stand for."
-      />
-
-      <section className="bg-background py-16 lg:py-24">
+      <section className="bg-background pt-32 lg:pt-40 pb-16 lg:py-24">
         <div className="mx-auto max-w-6xl px-4 lg:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             <div className="lg:col-span-7">
@@ -100,7 +93,7 @@ export default function AboutPage() {
       </section>
 
       {/* Company values */}
-      <section className="bg-wizard-cream py-16 lg:py-24">
+      <section className="bg-background py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="text-center mb-10 lg:mb-14">
             <p className="font-script text-magic text-sm uppercase tracking-[0.3em] mb-3">
