@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { JOIN_URL } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 const GOLD = "#FFB800";
@@ -17,36 +16,67 @@ interface Deal {
   accent: string;
 }
 
+const heroDeal: Deal = {
+  name: "The Chivalrous Unlimited Wash Club",
+  price: "3 Months",
+  cadence: "for one wash / mo",
+  description:
+    "Enlist online today and claim three months of unlimited washes for the cost of just one wash per month. Endless sparkle, legendary savings. Valid for new online sign-ups only; auto-renews at regular price in month 4.",
+  cta: "Get Your Deal Now",
+  href: "/packages",
+  accent: GOLD,
+};
+
 const deals: Deal[] = [
   {
-    name: "The King's Wash",
+    name: "The King's Twice A Month Wash Club",
     price: "$30",
     cadence: "/ month",
     description:
-      "Unlimited graphene shine, sealant armor, and rain repellent. The wizard's choice when only legendary clean will do.",
-    cta: "Claim the Crown",
-    href: "/packages",
-    accent: GOLD,
-  },
-  {
-    name: "Annual Plan",
-    price: "2 Months",
-    cadence: "free",
-    description:
-      "Pay annually and unlock two full months of unlimited washes — completely free. The savviest spell in the spellbook.",
-    cta: "Save with Annual",
+      "Don't need full unlimited? Join the royal ranks and wash twice a month for only $30/month. Not unlimited — just smart.",
+    cta: "Get Your Deal Now",
     href: "/packages",
     accent: "#7A5CFF",
   },
   {
-    name: "First Wash Free",
-    price: "$0",
-    cadence: "new members",
+    name: "The New Magic Wash À La Carte Unlimited",
+    price: "$14.99",
+    cadence: "/ month",
     description:
-      "Sign up for any Unlimited Club tier and your first wash is on the wizard. No prorations, no fine print.",
-    cta: "Start Today",
-    href: JOIN_URL,
+      "Enjoy unlimited Magic Washes at a super low price, with the freedom to add optional services whenever you need them.",
+    cta: "Get Your Deal Now",
+    href: "/packages",
     accent: "#00AEEF",
+  },
+  {
+    name: "Monthly Unlimited Added Family Members",
+    price: "$25",
+    cadence: "/ month",
+    description:
+      "Add family members to your Monthly Unlimited plan for just $25/month. Magic Wash Monthly Unlimited family pricing is just $13/month per added member.",
+    cta: "Get Your Deal Now",
+    href: "/packages",
+    accent: "#22C55E",
+  },
+  {
+    name: "The Wizard's Annual Unlimited Wash Spell",
+    price: "$135",
+    cadence: "/ year",
+    description:
+      "Our lowest unlimited pricing ever. Abracadabra — it’s just like getting three months free, with annual plans starting at $135/year.",
+    cta: "Get Your Deal Now",
+    href: "/packages",
+    accent: "#F97316",
+  },
+  {
+    name: "Buy 5 Washes, Get 1 Free",
+    price: "$50",
+    cadence: "starting at",
+    description:
+      "Get rewarded for staying clean. Buy five washes and your sixth wash is on us, with bundles starting at just $50.",
+    cta: "Get Your Deal Now",
+    href: "/packages",
+    accent: "#EC4899",
   },
 ];
 
@@ -57,12 +87,12 @@ export default function Promos() {
         {/* Header */}
         <div className="mb-10 lg:mb-14 max-w-3xl">
           <h2 className="font-heading font-semibold uppercase text-4xl sm:text-5xl text-primary text-balance">
-            Make your ride{" "}
-            <span className="text-accent">shine for less.</span>
+            Make your ride <span className="text-accent">shine for less.</span>
           </h2>
-          <p className="mt-4 text-lg text-foreground max-w-[52ch] text-pretty">
-            Three current deals on the Unlimited Wash Club. Cancel anytime, no
-            fine print.
+          <p className="mt-4 text-lg text-foreground max-w-[58ch] text-pretty">
+            Welcome to the enchanted realm of savings. These six Wash Wizard
+            deals won’t last forever — grab your wand and make the magic happen
+            today.
           </p>
         </div>
 
@@ -73,34 +103,35 @@ export default function Promos() {
         >
           <div
             className="absolute inset-x-0 top-0 h-1"
-            style={{ background: GOLD }}
+            style={{ background: heroDeal.accent }}
           />
           <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center p-8 sm:p-10 lg:p-14">
             <div className="lg:col-span-7">
+              <p className="font-heading uppercase tracking-[0.22em] text-sm text-accent mb-3">
+                Deal 1
+              </p>
               <h3 className="font-heading font-bold uppercase text-3xl sm:text-4xl lg:text-5xl leading-[0.95] mb-4">
-                The Cheapest Way to Wash
+                {heroDeal.name}
               </h3>
-              <p className="text-lg text-white/85 max-w-xl text-pretty mb-2">
-                Lock in unlimited Magic Washes for{" "}
-                <span className="text-accent font-bold">$20/month</span>. Cancel
-                anytime. The fastest path from dirty ride to sparkling clean.
+              <p className="text-lg text-white/85 max-w-2xl text-pretty mb-2">
+                {heroDeal.description}
               </p>
             </div>
             <div className="lg:col-span-5 flex flex-col items-start lg:items-end gap-4">
-              <div className="flex items-baseline gap-2">
+              <div className="flex flex-col items-start lg:items-end">
                 <span
-                  className="font-heading font-bold tabular-nums text-6xl sm:text-7xl"
+                  className="font-heading font-bold tabular-nums text-5xl sm:text-6xl"
                   style={{ color: GOLD }}
                 >
-                  $20
+                  {heroDeal.price}
                 </span>
                 <span className="font-heading uppercase tracking-widest text-sm text-white/70">
-                  / month
+                  {heroDeal.cadence}
                 </span>
               </div>
               <Button asChild size="lg" className="w-full sm:w-auto">
-                <Link href="/packages">
-                  Get the Club
+                <Link href={heroDeal.href}>
+                  {heroDeal.cta}
                   <ArrowRight className="size-4" />
                 </Link>
               </Button>
@@ -109,8 +140,8 @@ export default function Promos() {
         </div>
 
         {/* Sub-deals grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {deals.map((d) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {deals.map((d, index) => (
             <article
               key={d.name}
               className="relative flex flex-col rounded-2xl bg-white ring-1 ring-black/10 shadow-sm hover:shadow-md transition-shadow overflow-hidden"
@@ -120,6 +151,9 @@ export default function Promos() {
                 style={{ background: d.accent }}
               />
               <div className="p-7 sm:p-8 flex flex-col flex-1">
+                <p className="font-heading uppercase tracking-[0.18em] text-xs text-muted-foreground mb-3">
+                  Deal {index + 2}
+                </p>
                 <h3 className="font-heading font-bold uppercase text-2xl text-primary leading-tight mb-2">
                   {d.name}
                 </h3>

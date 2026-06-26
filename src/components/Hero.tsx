@@ -619,10 +619,10 @@ export default function Hero() {
           <div className="relative z-20 border-t border-white/10 bg-deep/50 backdrop-blur-sm">
             <div className="px-4 sm:px-10 lg:px-14 py-3 flex flex-col sm:flex-row sm:flex-wrap items-center justify-between gap-2 sm:gap-3 text-sm font-heading uppercase tracking-widest text-center sm:text-left">
               <span style={{ color: GOLD }}>
-                ★ Unlimited Wash Club from $20/mo
+                ★ Summerville&apos;s $14.99/mo Magic Wash
               </span>
               <span style={{ color: GOLD }} className="hidden md:block">
-                ★ Free DIY Vacuums With Every Wash
+                ★ DIY Vacuums Included With Every Wash
               </span>
               <span style={{ color: GOLD }}>★ Open 7 Days a Week</span>
             </div>

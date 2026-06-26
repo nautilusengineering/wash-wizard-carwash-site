@@ -11,27 +11,28 @@ const steps = [
   },
   {
     num: "02",
-    title: "Roll Into the Tunnel",
-    body: "180 feet of wizardry. A 26-foot-wide bay and LED light show your kids will beg to repeat.",
+    title: "180 Feet of Wizardry",
+    body: "180 feet of pure wizardry. An extra long wash tunnel and amazing LED light show your kids will beg to repeat.",
   },
   {
     num: "03",
-    title: "Soft-Touch Sorcery",
-    body: "Triple-foam polish, ceramic graphene seal, and rain repellent — gentle on paint, ruthless on grime.",
+    title: "Shine & Protect",
+    body: "An extensive wash process plus available ceramic & graphene coatings, and buffing — gentle on paint, ruthless on grime.",
   },
   {
     num: "04",
     title: "Dry & Detail",
-    body: "25 shaded vacuum bays. Microfiber towels, mat cleaners, and air guns — all on the house.",
+    body: "25 shaded vacuum bays, microfiber towels, air tool, glass & interior spray, floor mat cleaners — all included with your wash!",
   },
 ];
 
 const pills = [
   "180-Foot Tunnel",
-  "26' Wide Bay",
-  "3 Paystation Lanes",
-  "25 Vacuum Bays",
-  "License Plate Recognition",
+  "25 Shaded Vacuum Bays",
+  "Microfiber Towels",
+  "Air Tool",
+  "Glass & Interior Spray",
+  "Floor Mat Cleaners",
 ];
 
 function BubbleCanvas() {
@@ -226,7 +227,7 @@ export default function Amenities() {
         </div>
 
         {/* Feature pills */}
-        <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+        <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
           {pills.map((f) => (
             <div
               key={f}

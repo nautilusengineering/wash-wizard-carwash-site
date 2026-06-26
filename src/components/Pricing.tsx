@@ -24,58 +24,60 @@ const tiers: Tier[] = [
   {
     key: "magic",
     name: "Magic Wash",
-    tagline: "The everyday spell",
+    tagline: "Clean & dry",
     icon: "✦",
     singlePrice: "$10",
-    clubPrice: "$15",
+    clubPrice: "$14.99",
     features: [
-      "Exterior wash & rinse",
-      "Spot-free water rinse",
-      "Powerful blowers",
-      "Free DIY vacuums",
+      "Wash Wizard Amenities Package",
+      "Vacuums, towels & air tool",
+      "Glass & interior cleaner",
+      "Specialized floor mat cleaning equipment",
     ],
   },
   {
     key: "wicked",
     name: "Wicked Wheel",
-    tagline: "Wheels & rims polished",
+    tagline: "Wheel cleaning and tire dressing",
     icon: "❋",
     singlePrice: "$20",
-    clubPrice: "$34",
+    clubPrice: "$33.99",
     features: [
       "Everything in Magic Wash",
-      "Triple-foam soft polish",
-      "Wheel & rim cleaner",
-      "Tire shine + brightener",
+      "Wheel cleaner",
+      "Tire shine",
+      "Underbody rinse",
+      "Rain repellent",
     ],
   },
   {
     key: "shining",
-    name: "Shining Knight",
-    tagline: "Long-lasting protection",
+    name: "Shining Knight Ceramic",
+    tagline: "Outstanding shine",
     icon: "⚜",
     singlePrice: "$25",
-    clubPrice: "$43",
+    clubPrice: "$42.99",
     features: [
       "Everything in Wicked Wheel",
-      "Hot wax + sealant armor",
-      "Rain repellent windshield",
-      "Underbody rust inhibitor",
+      "Bug removal process",
+      "Ceramic coating shine",
+      "The Magic Potion",
+      "Hand Prep Package included",
     ],
   },
   {
     key: "kings",
-    name: "King's Graphene",
-    tagline: "The wizard's crown jewel",
+    name: "King Graphene",
+    tagline: "The best protection available",
     icon: "♛",
     singlePrice: "$30",
-    clubPrice: "$50",
+    clubPrice: "$49.99",
     features: [
-      "Everything in Shining Knight",
-      "Graphene ceramic coating",
-      "Triple-layer paint protection",
-      "Hydrophobic mirror shine",
-      "Tunnel light show",
+      "Everything in Shining Knight Ceramic",
+      "Graphene coating protection",
+      "Buffing and extra drying",
+      "Best light show",
+      "Hand Prep Package included",
     ],
     isBest: true,
   },
@@ -270,9 +272,10 @@ export default function Pricing() {
               Various <span className="text-accent">elixirs</span>
               <br className="hidden sm:block" /> for all budgets
             </h2>
-            <p className="mt-4 text-lg sm:text-base text-foreground max-w-[52ch] mx-auto text-pretty">
-              Pay once or unlock unlimited washes with the club. Every package
-              includes free DIY vacuums and the legendary 180-foot tunnel.
+            <p className="mt-4 text-lg sm:text-base text-foreground max-w-[58ch] mx-auto text-pretty">
+              Pay as you go or unlock unlimited washes with our Unlimited Club
+              Memberships. Every package includes extra-wide vacuum bays,
+              interior cleaning amenities, and our legendary 180-foot tunnel!
             </p>
 
             <div className="mt-7 flex justify-center">
@@ -318,6 +321,28 @@ export default function Pricing() {
                 onSubscribe={openPurchaseDrawer}
               />
             ))}
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-5">
+            <div className="rounded-2xl border border-primary/10 bg-primary/[0.03] p-6 text-left">
+              <h3 className="font-heading font-bold uppercase text-xl text-primary mb-3">
+                All washes include the Wash Wizard Amenities Package
+              </h3>
+              <p className="text-base text-foreground leading-relaxed">
+                Vacuums, towels, air tool, glass & interior cleaner, and
+                specialized floor mat cleaning equipment.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-accent/25 bg-accent/[0.08] p-6 text-left">
+              <h3 className="font-heading font-bold uppercase text-xl text-primary mb-3">
+                Hand Prep Package
+              </h3>
+              <p className="text-base text-foreground leading-relaxed">
+                Included with our top two washes: extra spray for wheel wells,
+                insect & bird residue, running boards, plus light soapy brushing
+                of truck/SUV rear windows and all license plate areas.
+              </p>
+            </div>
           </div>
         </div>
       </section>
