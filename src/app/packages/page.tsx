@@ -5,7 +5,7 @@ import { Check } from "lucide-react";
 export const metadata = {
   title: "Wash Packages | Wash Wizard Car Wash",
   description:
-    "Compare every Wash Wizard package — Magic Wash, Wicked Wheel, Shining Knight Ceramic, and King Graphene. Single washes or unlimited monthly clubs starting at $14.99/month.",
+    "Compare every Wash Wizard package — The Magic Wash, The Wicked Wheel Wash, The Shining Knight Wash, and The King Graphene Wash. Monthly clubs start at $14.99/month.",
 };
 
 const allIncluded = [
