@@ -27,7 +27,7 @@ const groups: { title: string; items: FAQ[] }[] = [
       },
       {
         q: "What's the cost of the Unlimited Wash Club?",
-        a: "Plans start at $20/month for the Magic Wash Unlimited and go up to $50/month for the King's Graphene. See the Packages page for the full breakdown.",
+        a: "Plans start at $14.99/month for The Magic Wash and go up to $49.99/month for The King Graphene Wash. See the Packages page for the full breakdown.",
       },
       {
         q: "Are there annual / family / fundraiser plans?",

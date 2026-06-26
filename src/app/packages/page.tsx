@@ -5,16 +5,16 @@ import { Check } from "lucide-react";
 export const metadata = {
   title: "Wash Packages | Wash Wizard Car Wash",
   description:
-    "Compare every Wash Wizard package — Magic Wash, Wicked Wheel, Shining Knight, and the King's Graphene. Single washes or unlimited monthly clubs.",
+    "Compare every Wash Wizard package — The Magic Wash, The Wicked Wheel Wash, The Shining Knight Wash, and The King Graphene Wash. Monthly clubs start at $14.99/month.",
 };
 
 const allIncluded = [
-  "Triple-foam soft polish",
-  "Spot-free water rinse",
-  "High-power blowers",
-  "Free DIY vacuums",
-  "Air & towels included",
-  "License plate recognition",
+  "Vacuums",
+  "Towels",
+  "Air tool",
+  "Glass & interior cleaner",
+  "Specialized floor mat cleaning equipment",
+  "180-foot tunnel",
 ];
 
 export default function PackagesPage() {
@@ -32,9 +32,10 @@ export default function PackagesPage() {
                 done <span className="text-accent">brilliantly.</span>
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed">
-                No matter which package you pick, you get the same fast tunnel
-                experience, the same gentle chemistry, and the same free
-                vacuum bays. The upgrades are extra magic on top.
+                No matter which package you pick, every wash includes the Wash
+                Wizard Amenities Package: vacuums, towels, air tool, glass &
+                interior cleaner, specialized floor mat cleaning equipment, and
+                the same legendary 180-foot tunnel experience.
               </p>
             </div>
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3">
