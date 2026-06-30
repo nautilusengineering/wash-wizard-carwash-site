@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { NAUTILUS_ORG_SLUG, DEFAULT_LOCATION_ID } from '@/lib/utils';
+import { NAUTILUS_ORG_SLUG } from '@/lib/utils';
 
 const ANIMATION_DURATION = 500;
 
@@ -23,8 +23,8 @@ export default function IframeDrawer({
   const [isKeyboardVisible, setIsKeyboardVisible] = useState(false);
   const [viewportHeight, setViewportHeight] = useState(0);
 
-  const locId = locationId ?? DEFAULT_LOCATION_ID;
-  const embedUrl = `https://www.nautilus-app.com/c/storefront/${NAUTILUS_ORG_SLUG}?locationId=${locId}${
+  const locId = locationId;
+  const embedUrl = `https://www.nautilus-app.com/c/storefront/${NAUTILUS_ORG_SLUG}${locId ? `?locationId=${locId}` : '?'}${
     productId ? `&productId=${productId}` : ''
   }&embedded=true`;
 

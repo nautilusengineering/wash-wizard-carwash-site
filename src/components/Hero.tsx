@@ -587,7 +587,7 @@ export default function Hero() {
                 transition: "opacity 0.45s ease 0.2s",
               }}
             >
-              Charleston&apos;s magical car wash —{" "}
+              Summerville&apos;s magical car wash —{" "}
               <span>pull up dirty, drive off legendary.</span>
             </p>
 
@@ -619,7 +619,7 @@ export default function Hero() {
           <div className="relative z-20 border-t border-white/10 bg-deep/50 backdrop-blur-sm">
             <div className="px-4 sm:px-10 lg:px-14 py-3 flex flex-col sm:flex-row sm:flex-wrap items-center justify-between gap-2 sm:gap-3 text-sm font-heading uppercase tracking-widest text-center sm:text-left">
               <span style={{ color: GOLD }}>
-                ★ Summerville&apos;s $14.99/mo Magic Wash
+                ★ Unlimited Wash Club from $14.99 a month
               </span>
               <span style={{ color: GOLD }} className="hidden md:block">
                 ★ DIY Vacuums Included With Every Wash

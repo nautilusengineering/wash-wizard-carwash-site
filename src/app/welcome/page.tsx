@@ -1,8 +1,8 @@
 import SubscribeBanner from "@/components/SubscribeBanner";
 import { Button } from "@/components/ui/button";
-import { Wand, MapPin, CreditCard, Repeat } from "lucide-react";
+import { Wand, MapPin, CreditCard, Repeat, HelpCircle, ShieldCheck } from "lucide-react";
 import Link from "next/link";
-import { JOIN_URL, MANAGE_ACCOUNT_URL } from "@/lib/utils";
+import { MANAGE_ACCOUNT_URL } from "@/lib/utils";
 
 export const metadata = {
   title: "Member Welcome | Wash Wizard Car Wash",
@@ -13,27 +13,35 @@ export const metadata = {
 const steps = [
   {
     icon: MapPin,
-    title: "Pull Into the Plate Lane",
-    body:
-      "Drive straight into the dedicated Unlimited Club lane. Our license plate recognition checks you in automatically — no scan, no app, no friction.",
+    title: "Pull Into The Member Only Lane",
+    body: "Drive straight into the dedicated Unlimited Club lane. Our license plate recognition checks you in automatically — no scan, no app, no friction. Member Lane is full? Use any lane if you prefer.",
   },
   {
     icon: Wand,
-    title: "Enjoy the Tunnel",
-    body:
-      "Sit back. The LED light show and soft-touch foam do their thing. Pull up and finish your detail at any of our free DIY vacuum bays.",
+    title: "Enjoy The Included Amenities",
+    body: "Sit back. Enjoy the LED light show and let the soft-touch foam do its thing. Finish your detail and interior at any of our DIY vacuum spaces. Vacuums, Towels, Air Tool, Glass & Interior Cleaner, & Specialized Floor Mat Cleaning Equipment.",
   },
   {
     icon: CreditCard,
     title: "Manage Your Plan Anywhere",
-    body:
-      "Log in any time from your Wash Wizard customer portal — update payment, change tier, add a vehicle, or pause. Self-service is built in.",
+    body: "Log in any time from your Wash Wizard customer portal to update payment methods, change tiers, add a vehicle at a discount, update your plate (1X per year) or pause. Self-service is built in.",
+  },
+  {
+    icon: HelpCircle,
+    title: "Review Our Frequently Asked Questions",
+    body: "Check out our FAQ page to learn more about washing at our facility.",
+    link: { href: "/faq", label: "Visit FAQ →" },
+  },
+  {
+    icon: ShieldCheck,
+    title: "Check Out Your Responsibilities",
+    body: "Visit our Disclaimer Policy page to learn more about your responsibilities when visiting the facility and our commitments to you.",
+    link: { href: "/disclaimer", label: "View Disclaimer →" },
   },
   {
     icon: Repeat,
     title: "Come Back as Often as You Like",
-    body:
-      "Unlimited means unlimited. Wash daily if you want — that's the point. Members typically wash 3–5x per month.",
+    body: "Unlimited means unlimited. Wash daily if you want at any location — that's the point. Members typically wash 3–5x per month. If you're ever unhappy with your wash, let a manager know before leaving and we'll make it right!",
   },
 ];
 
@@ -43,13 +51,11 @@ export default function WelcomePage() {
       <section className="bg-background pt-32 lg:pt-40 pb-16 lg:pb-24">
         <div className="mx-auto max-w-5xl px-4 lg:px-6">
           <div className="text-center mb-10 lg:mb-14">
-            <h2 className="font-heading font-bold uppercase text-4xl lg:text-5xl text-primary leading-[0.95]">
-              Welcome to <span className="text-accent">the club.</span>
-            </h2>
+            <h1 className="font-heading font-bold uppercase text-4xl lg:text-5xl text-primary leading-[0.95]">
+              Welcome To <span className="text-accent">The Club.</span>
+            </h1>
             <p className="mt-4 text-base sm:text-lg text-muted-foreground max-w-xl mx-auto">
-              You&apos;re now part of the Lowcountry&apos;s most magical
-              car-wash family. Here&apos;s how to make the most of your
-              membership.
+              You&apos;re now part of the Lowcountry&apos;s most magical car-wash family. Here&apos;s how to make the most of your membership.
             </p>
           </div>
 
@@ -71,6 +77,14 @@ export default function WelcomePage() {
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {s.body}
                   </p>
+                  {s.link && (
+                    <Link
+                      href={s.link.href}
+                      className="inline-block mt-3 text-sm font-heading font-bold uppercase tracking-wide text-secondary hover:text-primary transition-colors"
+                    >
+                      {s.link.label}
+                    </Link>
+                  )}
                 </div>
               );
             })}
@@ -82,9 +96,6 @@ export default function WelcomePage() {
                 Manage My Membership
               </Button>
             </a>
-            <Button asChild size="lg" variant="outlineDark">
-              <Link href={JOIN_URL}>Join the Club</Link>
-            </Button>
             <Button asChild size="lg" variant="ghost">
               <Link href="/faq">Membership FAQ &rarr;</Link>
             </Button>

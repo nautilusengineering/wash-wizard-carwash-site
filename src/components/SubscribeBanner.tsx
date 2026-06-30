@@ -48,8 +48,7 @@ export default function SubscribeBanner() {
               <span className="text-accent">Make the magic</span> happen.
             </h2>
             <p className="text-lg mb-7 text-white/75 max-w-md text-pretty">
-              Join the Unlimited Wash Club today. Cancel anytime. First wash is
-              on the wizard.
+              Join the Unlimited Wash Club today. Cancel anytime.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Button asChild size="lg" className="w-full sm:w-auto text-base">
