@@ -560,9 +560,8 @@ export default function Hero() {
             style={{ zIndex: 20 }}
           >
             <h1
-              className="text-center uppercase text-5xl sm:text-7xl lg:text-8xl xl:text-9xl"
+              className="text-center uppercase text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-heading"
               style={{
-                fontFamily: "'Luckiest Guy', cursive",
                 letterSpacing: "0.03em",
                 lineHeight: 0.92,
                 color: GOLD,

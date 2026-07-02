@@ -71,7 +71,7 @@ export default function WelcomePage() {
                     0{i + 1}
                   </div>
                   <Icon className="w-9 h-9 text-magic mb-4" />
-                  <h3 className="font-heading font-bold uppercase text-xl text-primary mb-2 leading-tight">
+                  <h3 className="font-card font-bold uppercase text-xl text-primary mb-2 leading-tight">
                     {s.title}
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">

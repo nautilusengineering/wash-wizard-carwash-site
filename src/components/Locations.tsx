@@ -220,7 +220,7 @@ export default function Locations() {
                 </div>
                 <div className="p-5">
                   <h3
-                    className="font-heading font-semibold uppercase text-2xl sm:text-xl mb-1"
+                    className="font-card font-semibold uppercase text-2xl sm:text-xl mb-1"
                     style={{ color: "#FFB800" }}
                   >
                     {loc.name}

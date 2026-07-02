@@ -43,7 +43,7 @@ export default function DifferencePage() {
                 <div className="transition-transform duration-300 group-hover:scale-105 group-hover:-translate-y-1">
                   <CrystalBall color={a.color} icon={a.icon} />
                 </div>
-                <h3 className="font-heading font-bold uppercase text-base sm:text-lg text-white leading-tight mt-3 mb-2">
+                <h3 className="font-card font-bold uppercase text-base sm:text-lg text-white leading-tight mt-3 mb-2">
                   {a.title}
                 </h3>
                 <p className="text-sm text-white/55 leading-relaxed max-w-[180px]">

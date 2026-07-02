@@ -1,6 +1,5 @@
 import PageHero from "@/components/PageHero";
 import Promos from "@/components/Promos";
-import SubscribeBanner from "@/components/SubscribeBanner";
 
 export const metadata = {
   title: "Deals & Specials | Wash Wizard Car Wash",
@@ -17,7 +16,6 @@ export default function DealsPage() {
         showMascot={false}
       />
       <Promos />
-      <SubscribeBanner />
     </>
   );
 }
