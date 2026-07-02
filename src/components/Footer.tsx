@@ -13,7 +13,6 @@ const shopLinks = [
 const aboutLinks = [
   { label: "About Wash Wizard", href: "/about" },
   { label: "The Wash Wizard Difference", href: "/the-wash-wizard-difference" },
-  { label: "Our History", href: "/our-history" },
   { label: "Tale of the Wash Wizard", href: "/tale-of-the-wash-wizard" },
 ];
 

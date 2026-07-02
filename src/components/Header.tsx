@@ -21,6 +21,7 @@ const navItems: NavItem[] = [
   { label: "Locations", href: "/locations" },
   { label: "Packages", href: "/packages" },
   { label: "Deals", href: "/washwizard-deals" },
+  { label: "Rewards", href: "/rewards" },
   {
     label: "About",
     children: [
@@ -29,7 +30,6 @@ const navItems: NavItem[] = [
         label: "The Wash Wizard Difference",
         href: "/the-wash-wizard-difference",
       },
-      { label: "Our History", href: "/our-history" },
       { label: "Tale of the Wash Wizard", href: "/tale-of-the-wash-wizard" },
       { label: "Member Welcome", href: "/welcome" },
       { label: "Fundraising", href: "/fundraising" },
@@ -64,44 +64,6 @@ export default function Header() {
           : "bg-primary/85 backdrop-blur-sm",
       )}
     >
-      {/* Utility bar */}
-      <div className="hidden lg:block border-b border-white/10">
-        <div className="mx-auto max-w-7xl px-6 flex items-center justify-between gap-6 py-1.5">
-          <a
-            href={PHONE_HREF}
-            className="text-sm font-semibold text-white/80 hover:text-accent flex items-center gap-1.5 transition-colors"
-          >
-            <Phone className="w-3.5 h-3.5" /> {PHONE}
-          </a>
-          <div className="flex items-center gap-5 text-sm text-white/70">
-            <Link
-              href="/the-wash-wizard-difference"
-              className="hover:text-white transition-colors"
-            >
-              Why Wash Wizard
-            </Link>
-            <Link
-              href="/fundraising"
-              className="hover:text-white transition-colors"
-            >
-              Fundraising
-            </Link>
-            <Link
-              href="/employment"
-              className="hover:text-white transition-colors"
-            >
-              Employment
-            </Link>
-            <Link
-              href="/welcome"
-              className="hover:text-white transition-colors"
-            >
-              Member Welcome
-            </Link>
-          </div>
-        </div>
-      </div>
-
       {/* Main nav */}
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
         <div className="flex items-center justify-between h-16 lg:h-18 gap-6">
