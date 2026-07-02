@@ -16,6 +16,15 @@ interface Tier {
   isBest?: boolean;
 }
 
+const amenityPills = [
+  "180-Foot Tunnel",
+  "25 Shaded Vacuum Bays",
+  "Microfiber Towels",
+  "Air Tool",
+  "Glass & Interior Spray",
+  "Floor Mat Cleaners",
+];
+
 const tiers: Tier[] = [
   {
     key: "magic",
@@ -39,7 +48,7 @@ const tiers: Tier[] = [
     singlePrice: "$20",
     clubPrice: "$33.99",
     features: [
-      "Everything in The Magic Wash plus:",
+      "Everything in The Magic Wash +",
       'Bug "Slayer" Process',
       "Rain Repellant",
       "Wheel Cleaner & Tire Shine",
@@ -54,7 +63,7 @@ const tiers: Tier[] = [
     singlePrice: "$25",
     clubPrice: "$42.99",
     features: [
-      "Everything in The Wicked Wheel Wash plus:",
+      "Everything in The Wicked Wheel Wash +",
       "Magic Potion Foam",
       "Ceramic Shine Coating",
       "Light Hand Prep Process",
@@ -68,7 +77,7 @@ const tiers: Tier[] = [
     singlePrice: "$30",
     clubPrice: "$49.99",
     features: [
-      "Everything In The Shining Knight Wash Package plus:",
+      "Everything In The Shining Knight Wash Package +",
       "Graphene Protective Coating",
       "Buffing and Extra Drying",
       "Our Best Light Show!",
@@ -99,12 +108,11 @@ function SpellCard({
       ? "#9f15b9"
       : "#41a1d3";
 
-  const isBlue = tier.key === "kings";
-  const cardBg = isBlue ? "#41a1d3" : "#fff";
-  const textColor = isBlue ? "#fff" : "#151b41";
-  const priceColor = isBlue ? "#FFB800" : "#151b41";
-  const bulletColor = isBlue ? "#FFB800" : "#151b41";
-  const dividerColor = isBlue ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.07)";
+  const cardBg = borderColor;
+  const textColor = "#fff";
+  const priceColor = "#fff";
+  const bulletColor = "#FFB800";
+  const dividerColor = "rgba(255,255,255,0.2)";
 
   return (
     <div
@@ -114,22 +122,18 @@ function SpellCard({
         padding: "36px 28px 28px",
         background: cardBg,
         border: `2px solid ${borderColor}`,
-        boxShadow: isBlue
-          ? "0 20px 60px rgba(65,161,211,0.25)"
-          : "0 4px 24px rgba(0,0,0,0.06)",
+        boxShadow: "0 12px 40px rgba(0,0,0,0.15)",
         transition: "box-shadow 0.2s ease, transform 0.2s ease",
       }}
       onMouseEnter={(e) => {
         (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)";
-        (e.currentTarget as HTMLElement).style.boxShadow = isBlue
-          ? "0 28px 70px rgba(65,161,211,0.35)"
-          : "0 12px 40px rgba(0,0,0,0.12)";
+        (e.currentTarget as HTMLElement).style.boxShadow =
+          "0 20px 55px rgba(0,0,0,0.22)";
       }}
       onMouseLeave={(e) => {
         (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-        (e.currentTarget as HTMLElement).style.boxShadow = isBlue
-          ? "0 20px 60px rgba(65,161,211,0.25)"
-          : "0 4px 24px rgba(0,0,0,0.06)";
+        (e.currentTarget as HTMLElement).style.boxShadow =
+          "0 12px 40px rgba(0,0,0,0.15)";
       }}
     >
       {/* Colored top band with icon/name/tagline pinned inside */}
@@ -149,8 +153,8 @@ function SpellCard({
           {tier.icon}
         </div>
         <h3
-          className="text-center font-heading font-bold uppercase mt-2"
-          style={{ fontSize: 18, letterSpacing: "0.05em", color: "#fff" }}
+          className="text-center font-card font-bold uppercase mt-2"
+          style={{ fontSize: 22, letterSpacing: "0.05em", color: "#fff" }}
         >
           {tier.name}
         </h3>
@@ -188,10 +192,14 @@ function SpellCard({
           return (
             <li
               key={f}
-              className={`flex items-center gap-2.5 text-base sm:text-[15px] leading-snug ${isInheritLine ? "font-bold" : ""}`}
+              className={`flex items-center gap-2.5 leading-snug ${isInheritLine ? "font-sans uppercase tracking-wide text-sm font-bold" : "text-base sm:text-[15px]"}`}
               style={{ color: textColor }}
             >
-              <span className="text-xs sm:text-[11px]" style={{ color: bulletColor, flexShrink: 0 }} aria-hidden="true">
+              <span
+                className="text-xs sm:text-[11px]"
+                style={{ color: bulletColor, flexShrink: 0 }}
+                aria-hidden="true"
+              >
                 ✦
               </span>
               {f}
@@ -231,7 +239,10 @@ export default function Pricing() {
               Various <span className="text-accent">elixirs</span>
               <br className="hidden sm:block" /> for all budgets
             </h2>
-            <p className="mt-4 text-lg sm:text-base text-foreground max-w-[58ch] mx-auto text-pretty">
+            <p
+              className="mt-4 text-lg lg:text-xl text-foreground max-w-[58ch] mx-auto text-pretty"
+              style={{ fontFamily: "var(--font-sans), sans-serif" }}
+            >
               Pay as you go or unlock unlimited washes with our Unlimited Club
               Memberships. Every package includes extra-wide vacuum bays,
               interior cleaning amenities, and our legendary 180-foot tunnel!
@@ -282,26 +293,19 @@ export default function Pricing() {
             ))}
           </div>
 
-          <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-5">
-            <div className="rounded-2xl border border-primary/10 bg-primary/[0.03] p-6 text-left">
-              <h3 className="font-heading font-bold uppercase text-xl text-primary mb-3">
-                All washes include the Wash Wizard Amenities Package
-              </h3>
-              <p className="text-base text-foreground leading-relaxed">
-                Vacuums, towels, air tool, glass & interior cleaner, and
-                specialized floor mat cleaning equipment.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-accent/25 bg-accent/[0.08] p-6 text-left">
-              <h3 className="font-heading font-bold uppercase text-xl text-primary mb-3">
-                Hand Prep Package
-              </h3>
-              <p className="text-base text-foreground leading-relaxed">
-                Included with our top two washes: extra spray for wheel wells,
-                insect & bird residue, running boards, plus light soapy brushing
-                of truck/SUV rear windows and all license plate areas.
-              </p>
-            </div>
+          <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            {amenityPills.map((f) => (
+              <div
+                key={f}
+                className="px-4 py-3 rounded-xl text-white text-center text-sm font-sans font-bold uppercase tracking-wider shadow-sm"
+                style={{
+                  background:
+                    "linear-gradient(135deg, #2A2050 0%, #1E1832 100%)",
+                }}
+              >
+                {f}
+              </div>
+            ))}
           </div>
         </div>
       </section>
