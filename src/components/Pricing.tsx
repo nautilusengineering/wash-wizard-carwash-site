@@ -297,7 +297,7 @@ export default function Pricing() {
             {amenityPills.map((f) => (
               <div
                 key={f}
-                className="px-4 py-3 rounded-xl text-white text-center text-sm font-sans font-bold uppercase tracking-wider shadow-sm"
+                className="px-4 py-3 rounded-xl text-white text-center text-sm font-card font-medium tracking-normal shadow-sm"
                 style={{
                   background:
                     "linear-gradient(135deg, #2A2050 0%, #1E1832 100%)",

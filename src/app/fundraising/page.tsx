@@ -201,38 +201,6 @@ export default function FundraisingPage() {
         </div>
       </section>
 
-      {/* Supporters get + CTA */}
-      <section className="bg-background py-16 lg:py-20">
-        <div className="mx-auto max-w-5xl px-4 lg:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div className="order-2 lg:order-1">
-              <p className="font-heading uppercase tracking-[0.28em] text-xs text-accent mb-3">
-                Supporters get
-              </p>
-              <h2 className="font-heading font-bold uppercase text-3xl sm:text-4xl text-primary leading-[0.95] mb-4">
-                A wash they&apos;ll actually{" "}
-                <span className="text-accent">brag about.</span>
-              </h2>
-              <p className="text-lg text-foreground/80 leading-relaxed mb-6">
-                Each card unlocks a top-tier{" "}
-                <strong>$30 King Graphene Car Wash</strong> — graphene paint
-                protection, our best light show, and a ceramic shine coating.
-                Not a coupon. A real premium wash.
-              </p>
-              <a href="#apply">
-                <Button size="lg">
-                  Start Your Fundraiser
-                  <ArrowRight className="size-4" />
-                </Button>
-              </a>
-            </div>
-            <div className="order-1 lg:order-2 flex justify-center">
-              <WashCardMockup tilt={-4} />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Application form — embedded, no redirect */}
       <section id="apply" className="bg-cream py-16 lg:py-24 scroll-mt-24">
         <div className="mx-auto max-w-3xl px-4 lg:px-6">
