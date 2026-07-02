@@ -1,4 +1,3 @@
-import SubscribeBanner from "@/components/SubscribeBanner";
 import { Button } from "@/components/ui/button";
 import { Wand, MapPin, CreditCard, Repeat, HelpCircle, ShieldCheck } from "lucide-react";
 import Link from "next/link";
@@ -102,8 +101,6 @@ export default function WelcomePage() {
           </div>
         </div>
       </section>
-
-      <SubscribeBanner />
     </>
   );
 }
