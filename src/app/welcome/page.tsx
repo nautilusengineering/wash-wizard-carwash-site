@@ -1,5 +1,13 @@
 import { Button } from "@/components/ui/button";
-import { Wand, MapPin, CreditCard, Repeat, HelpCircle, ShieldCheck } from "lucide-react";
+import {
+  Wand,
+  MapPin,
+  CreditCard,
+  Repeat,
+  HelpCircle,
+  ShieldCheck,
+  ArrowRight,
+} from "lucide-react";
 import Link from "next/link";
 import { MANAGE_ACCOUNT_URL } from "@/lib/utils";
 
@@ -9,7 +17,14 @@ export const metadata = {
     "Welcome new Unlimited Wash Club members! Learn how to use your plan, manage your account, and add vehicles.",
 };
 
-const steps = [
+type Step = {
+  icon: typeof MapPin;
+  title: string;
+  body: string;
+  link?: { href: string; label: string };
+};
+
+const steps: Step[] = [
   {
     icon: MapPin,
     title: "Pull Into The Member Only Lane",
@@ -46,61 +61,71 @@ const steps = [
 
 export default function WelcomePage() {
   return (
-    <>
-      <section className="bg-background pt-32 lg:pt-40 pb-16 lg:pb-24">
-        <div className="mx-auto max-w-5xl px-4 lg:px-6">
-          <div className="text-center mb-10 lg:mb-14">
-            <h1 className="font-heading font-bold uppercase text-4xl lg:text-5xl text-primary leading-[0.95]">
-              Welcome To <span className="text-accent">The Club.</span>
-            </h1>
-            <p className="mt-4 text-base sm:text-lg text-muted-foreground max-w-xl mx-auto">
-              You&apos;re now part of the Lowcountry&apos;s most magical car-wash family. Here&apos;s how to make the most of your membership.
-            </p>
-          </div>
+    <section className="bg-background pt-32 lg:pt-40 pb-16 lg:pb-24">
+      <div className="mx-auto max-w-4xl px-4 lg:px-6">
+        <div className="text-center mb-10 lg:mb-14">
+          <p className="font-heading uppercase tracking-[0.28em] text-xs text-accent mb-3">
+            You&apos;re in
+          </p>
+          <h1 className="font-heading font-bold uppercase text-4xl lg:text-5xl text-primary leading-[0.95]">
+            Welcome To <span className="text-accent">The Club.</span>
+          </h1>
+          <p className="mt-4 text-base sm:text-lg text-muted-foreground max-w-xl mx-auto">
+            You&apos;re now part of the Lowcountry&apos;s most magical car-wash
+            family. Here&apos;s how to make the most of your membership.
+          </p>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {steps.map((s, i) => {
-              const Icon = s.icon;
-              return (
-                <div
-                  key={s.title}
-                  className="relative p-6 sm:p-7 rounded-2xl bg-background border border-border hover:border-accent/40 hover:shadow-lg transition-all"
-                >
-                  <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-accent text-accent-foreground grid place-items-center font-heading font-bold shadow-lg">
-                    0{i + 1}
+        <ol className="divide-y divide-primary/10">
+          {steps.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <li
+                key={s.title}
+                className="grid grid-cols-[auto_1fr] gap-6 lg:gap-10 py-8 lg:py-10 first:pt-0 last:pb-0 items-start"
+              >
+                <div className="font-heading font-bold tabular-nums text-6xl lg:text-7xl leading-none text-magic">
+                  {String(i + 1).padStart(2, "0")}
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <Icon className="w-6 h-6 text-magic" />
+                    <span className="font-heading uppercase tracking-[0.22em] text-[0.65rem] text-accent">
+                      Step {i + 1} of {steps.length}
+                    </span>
                   </div>
-                  <Icon className="w-9 h-9 text-magic mb-4" />
-                  <h3 className="font-card font-bold uppercase text-xl text-primary mb-2 leading-tight">
+                  <h3 className="font-card font-bold text-2xl lg:text-3xl text-primary mb-2 leading-tight">
                     {s.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-base text-foreground/75 leading-relaxed">
                     {s.body}
                   </p>
                   {s.link && (
                     <Link
                       href={s.link.href}
-                      className="inline-block mt-3 text-sm font-heading font-bold uppercase tracking-wide text-secondary hover:text-primary transition-colors"
+                      className="inline-flex items-center gap-1.5 mt-3 text-sm font-heading font-bold uppercase tracking-wide text-magic hover:text-primary transition-colors"
                     >
                       {s.link.label}
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                   )}
                 </div>
-              );
-            })}
-          </div>
+              </li>
+            );
+          })}
+        </ol>
 
-          <div className="mt-12 flex flex-col sm:flex-row gap-3 justify-center">
-            <a href={MANAGE_ACCOUNT_URL} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="default">
-                Manage My Membership
-              </Button>
-            </a>
-            <Button asChild size="lg" variant="ghost">
-              <Link href="/faq">Membership FAQ &rarr;</Link>
+        <div className="mt-12 flex flex-col sm:flex-row gap-3 justify-center">
+          <a href={MANAGE_ACCOUNT_URL} target="_blank" rel="noopener noreferrer">
+            <Button size="lg" variant="default">
+              Manage My Membership
             </Button>
-          </div>
+          </a>
+          <Button asChild size="lg" variant="outline">
+            <Link href="/faq">Membership FAQ &rarr;</Link>
+          </Button>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
