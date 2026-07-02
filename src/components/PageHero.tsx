@@ -13,7 +13,7 @@ export default function PageHero({
   showMascot = true,
 }: PageHeroProps) {
   return (
-    <section className="relative pt-24 lg:pt-28 pb-10 lg:pb-14 bg-background overflow-hidden">
+    <section className="relative pt-20 lg:pt-24 pb-10 lg:pb-14 bg-background overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
         <div className="relative rounded-[2rem] overflow-hidden bg-wizard-night text-white shadow-xl ring-1 ring-white/10">
           <Image

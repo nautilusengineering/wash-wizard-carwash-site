@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import IframeDrawer from "./IframeDrawer";
+import LocationPickerModal from "./LocationPickerModal";
 import { Button } from "@/components/ui/button";
-import { type TierKey } from "@/lib/utils";
+import { getSalesItemId, type TierKey } from "@/lib/utils";
 
 interface Tier {
   key: TierKey;
@@ -30,7 +31,7 @@ const tiers: Tier[] = [
     key: "magic",
     name: "Magic Wash",
     tagline: "The Everyday Clean & Dry Spell",
-    icon: "✦",
+    icon: "◈",
     singlePrice: "$10",
     clubPrice: "$14.99",
     features: [
@@ -94,7 +95,7 @@ function SpellCard({
 }: {
   tier: Tier;
   isMonthly: boolean;
-  onSubscribe: () => void;
+  onSubscribe: (tier: Tier) => void;
 }) {
   const price = isMonthly ? tier.clubPrice : tier.singlePrice;
   const priceLabel = isMonthly ? "/ month" : "single wash";
@@ -200,7 +201,7 @@ function SpellCard({
                 style={{ color: bulletColor, flexShrink: 0 }}
                 aria-hidden="true"
               >
-                ✦
+                •
               </span>
               {f}
             </li>
@@ -210,7 +211,7 @@ function SpellCard({
 
       <Button
         size="lg"
-        onClick={() => onSubscribe()}
+        onClick={() => onSubscribe(tier)}
         className="w-full text-sm font-heading font-bold uppercase tracking-widest"
         style={{ background: "#FFB800", borderColor: "#FFB800", color: "#1a1428" }}
       >
@@ -222,9 +223,27 @@ function SpellCard({
 
 export default function Pricing() {
   const [isMonthly, setIsMonthly] = useState(true);
+  const [pendingTier, setPendingTier] = useState<Tier | null>(null);
+  const [drawerProductId, setDrawerProductId] = useState<string | undefined>();
+  const [drawerLocationId, setDrawerLocationId] = useState<string | undefined>();
   const [showDrawer, setShowDrawer] = useState(false);
-  const openPurchaseDrawer = () => {
+
+  const openPurchaseDrawer = (tier: Tier) => setPendingTier(tier);
+
+  const handleLocationSelected = (locationId: string) => {
+    if (!pendingTier) return;
+    const variant = isMonthly ? "club" : "single";
+    const productId = getSalesItemId(locationId, pendingTier.key, variant);
+    setDrawerLocationId(locationId);
+    setDrawerProductId(productId);
+    setPendingTier(null);
     setShowDrawer(true);
+  };
+
+  const handleDrawerClose = () => {
+    setShowDrawer(false);
+    setDrawerProductId(undefined);
+    setDrawerLocationId(undefined);
   };
 
   return (
@@ -310,9 +329,20 @@ export default function Pricing() {
         </div>
       </section>
 
+      {pendingTier && (
+        <LocationPickerModal
+          onClose={() => setPendingTier(null)}
+          onSelect={handleLocationSelected}
+          title={`${pendingTier.name} — pick a location`}
+          subtitle="Choose which Wash Wizard should open your wash."
+        />
+      )}
+
       {showDrawer && (
         <IframeDrawer
-          onClose={() => setShowDrawer(false)}
+          onClose={handleDrawerClose}
+          productId={drawerProductId}
+          locationId={drawerLocationId}
           title="Get Your Wash Wizard Membership"
         />
       )}

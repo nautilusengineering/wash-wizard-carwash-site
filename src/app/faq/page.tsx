@@ -161,7 +161,7 @@ const groups: { title: string; items: FAQ[] }[] = [
     items: [
       {
         q: "Can I come work for Wash Wizard?",
-        a: <span>We are always accepting applications. Please fill out our <a href="https://washwizardcarwash.com/employment/" target="_blank" rel="noopener noreferrer" className="text-secondary underline hover:text-primary transition-colors">Employment Application Form</a>.</span>,
+        a: <span>We are always accepting applications. Please fill out our <a href="/employment" className="text-secondary underline hover:text-primary transition-colors">Employment Application Form</a>.</span>,
       },
     ],
   },
@@ -175,7 +175,10 @@ export default function FAQPage() {
       <section className="bg-background py-16 lg:py-20">
         <div className="mx-auto max-w-3xl px-4 lg:px-6">
           <div className="mb-12">
-            <h1 className="font-card font-bold text-4xl sm:text-5xl lg:text-6xl text-primary leading-[1.05]">
+            <h1
+              className="text-5xl sm:text-6xl lg:text-7xl text-primary leading-[1.05] italic"
+              style={{ fontFamily: "var(--font-im-fell), 'IM Fell English', Georgia, serif" }}
+            >
               You ask, the wizard{" "}
               <span className="text-accent">shall answer.</span>
             </h1>

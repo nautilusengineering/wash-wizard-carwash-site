@@ -1,4 +1,4 @@
-import { Droplets, Sparkles, ArrowRight } from "lucide-react";
+import { Droplets, Gift, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import RewardsNautilusForm from "./nautilus-form";
 
@@ -17,7 +17,7 @@ const rewards = [
     accent: "#41a1d3",
   },
   {
-    icon: Sparkles,
+    icon: Gift,
     tag: "Reward 2",
     title: "$100 Spent = Free Air Freshener",
     body: "Every $100 you spend at Wash Wizard earns you a complimentary premium air freshener, hand-picked from our vending selection.",

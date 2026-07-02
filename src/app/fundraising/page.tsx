@@ -6,7 +6,7 @@ import {
   Tickets,
   Megaphone,
   TrendingUp,
-  Sparkles,
+  Wand,
   Volleyball,
   ArrowRight,
 } from "lucide-react";
@@ -80,7 +80,7 @@ function WashCardMockup({ tilt = -6 }: { tilt?: number }) {
         <div className="font-heading uppercase tracking-widest text-[0.6rem] text-accent">
           Wash Wizard · Fundraiser Card
         </div>
-        <Sparkles className="w-4 h-4 text-accent" />
+        <Wand className="w-4 h-4 text-accent" />
       </div>
       <div className="relative">
         <div className="font-heading uppercase text-xs text-accent/70 tracking-widest mb-1">

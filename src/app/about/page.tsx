@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Wand, MapPin, Users, Wrench, Zap, Shield, Sparkles } from "lucide-react";
+import { Wand, MapPin, Users, Wrench, Zap, Shield } from "lucide-react";
 
 export const metadata = {
   title: "About | Wash Wizard Car Wash",
@@ -125,7 +125,7 @@ export default function AboutPage() {
               >
                 {ROMAN[0]}
               </span>
-              <Sparkles className="absolute top-6 right-6 w-5 h-5 text-accent/60" />
+              <Wand className="absolute top-6 right-6 w-5 h-5 text-accent/60" />
               <Wand
                 className="absolute top-16 right-14 w-3 h-3 text-white/40"
                 style={{ transform: "rotate(20deg)" }}
@@ -218,7 +218,7 @@ export default function AboutPage() {
               >
                 {ROMAN[3]}
               </span>
-              <Sparkles
+              <Wand
                 className="absolute top-6 right-6 w-5 h-5"
                 style={{ color: "#7A5CFF", opacity: 0.5 }}
               />
