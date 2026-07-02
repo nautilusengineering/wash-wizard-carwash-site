@@ -1,5 +1,6 @@
 import { Droplets, Sparkles, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import RewardsNautilusForm from "./nautilus-form";
 
 export const metadata = {
   title: "Wash Rewards | Wash Wizard Car Wash",
@@ -103,25 +104,8 @@ export default function RewardsPage() {
             </p>
           </div>
 
-          {/* TODO: enrollment form pending. Create the Wash Rewards Nautilus form
-              (fields: name, phone as primary id, optional email, preferred
-              location) and drop it in here as a per-page nautilus-form.tsx
-              following the pattern in employment/nautilus-form.tsx. */}
-          <div
-            className="rounded-2xl bg-white/[0.04] border-2 border-dashed border-white/30 p-8 sm:p-12 text-center"
-            role="note"
-            aria-label="Rewards enrollment form placeholder"
-          >
-            <p className="font-heading uppercase tracking-[0.22em] text-xs text-accent mb-2">
-              Coming Soon
-            </p>
-            <p className="text-white text-base sm:text-lg mb-2">
-              Wash Rewards enrollment opens shortly.
-            </p>
-            <p className="text-white/70 text-sm">
-              In the meantime, ask a team member on your next visit and we&apos;ll
-              link your rewards to your phone number.
-            </p>
+          <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-sm overflow-hidden">
+            <RewardsNautilusForm />
           </div>
         </div>
       </section>
