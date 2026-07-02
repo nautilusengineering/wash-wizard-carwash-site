@@ -24,7 +24,7 @@
 
     --font-sans:
         var(--font-sans), "Nunito", ui-sans-serif, system-ui, sans-serif;
-    --font-heading: var(--font-heading), "Fredoka One", system-ui, sans-serif;
+    --font-heading: var(--font-heading), "Luckiest Guy", cursive;
     --font-script: var(--font-cinzel), "Cinzel", "Trajan Pro", serif;
     --font-fell: var(--font-im-fell), "IM Fell English", Georgia, serif;
 
@@ -190,6 +190,63 @@ body {
     scroll-behavior: smooth;
 }
 
+/* Skip-to-content link — visible only when focused via keyboard */
+.skip-link {
+    position: fixed;
+    top: -48px;
+    left: 16px;
+    z-index: 100;
+    padding: 12px 20px;
+    background: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+    border-radius: 8px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transition: top 0.2s ease-out;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+    top: 16px;
+    outline: 3px solid hsl(var(--primary));
+    outline-offset: 2px;
+}
+
+/* Consistent keyboard focus ring across interactive elements */
+:focus-visible {
+    outline: 3px solid hsl(var(--accent));
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid hsl(var(--accent));
+    outline-offset: 2px;
+}
+
+/* Respect reduced-motion preference — disable animations, transitions, and smooth scroll */
+@media (prefers-reduced-motion: reduce) {
+    html,
+    body {
+        scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
 body {
     background: hsl(var(--background));
     color: hsl(var(--foreground));
@@ -197,7 +254,7 @@ body {
     -webkit-font-smoothing: antialiased;
     cursor:
         url("data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjRkZENzAwIiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0cm9rZT0iI0ZGRDcwMCIgc3Ryb2tlLXdpZHRoPSIwIj48cGF0aCBkPSJNMzEuODkxIDEzLjQxOGwtMy4yMTItNC44MDIgMS41OTktNS41ODhjMC4wOTktMC4zNSAwLjAwMi0wLjcyOC0wLjI1Ny0wLjk4NS0wLjI1OC0wLjI1OC0wLjYzMy0wLjM1My0wLjk4Ni0wLjI1MWwtNS41NzggMS42MjktNC44MjItMy4yNDdjLTAuMzAzLTAuMjA0LTAuNjkyLTAuMjI5LTEuMDE0LTAuMDYxLTAuMzI0IDAuMTY2LTAuNTMyIDAuNDk2LTAuNTQ0IDAuODU5bC0wLjE3MyA1LjgxMS00LjU3OCAzLjU4MWMtMC4yODcgMC4yMjUtMC40MjggMC41ODgtMC4zNzEgMC45NDdzMC4zMDYgMC42NTkgMC42NSAwLjc4Mmw0LjI5NiAxLjU0Yy0wLjAyOSAwLjAyMy0wLjA1OSAwLjA0NC0wLjA4NyAwLjA3MWwtMTYuNTg2IDE2LjU4NmMtMC4zOTEgMC4zOS0wLjM5MSAxLjAyMyAwIDEuNDE0IDAuMTk2IDAuMTk1IDAuNDUxIDAuMjkzIDAuNzA3IDAuMjkzczAuNTExLTAuMDk4IDAuNzA3LTAuMjkzbDE2LjU4Ni0xNi41ODZjMC4wNjQtMC4wNjUgMC4xMTQtMC4xMzcgMC4xNTctMC4yMTNsMS42ODEgNC42MTFjMC4xMjUgMC4zNDIgMC40MjYgMC41ODkgMC43ODYgMC42NDUgMC4wNTEgMC4wMDggMC4xMDIgMC4wMTIgMC4xNTQgMC4wMTIgMC4zMDYgMCAwLjU5OS0wLjE0MiAwLjc5MS0wLjM4OWwzLjU1NS00LjU5OSA1Ljc0Ny0wLjIwNWMwLjM2NC0wLjAxMiAwLjY5Mi0wLjIyMyAwLjg1OC0wLjU0OHMwLjEzOS0wLjcxNC0wLjA2Ni0xLjAxNXpNMjQuODE0IDEzLjIwNWMtMC4yOTcgMC4wMTAtMC41NzQgMC4xNTMtMC43NTYgMC4zODhsLTIuNzMzIDMuNTM1LTEuNTMtNC4xOTdjLTAuMTAyLTAuMjgtMC4zMjMtMC40OTgtMC42MDItMC41OThsLTQuMjA2LTEuNTA4IDMuNTItMi43NTJjMC4yMzUtMC4xODQgMC4zNzQtMC40NjEgMC4zODQtMC43NThsMC4xMzMtNC40NjcgMy43MDYgMi40OTZjMC4yNDcgMC4xNjYgMC41NTUgMC4yMTMgMC44MzkgMC4xMzFsNC4yODktMS4yNTMtMS4yMyA0LjI5NmMtMC4wODEgMC4yODYtMC4wMzIgMC41OTMgMC4xMzYgMC44MzlsMi41MTcgMy42OTF6Ii8+PC9zdmc+")
-            0 32,
+            24 4,
         auto;
 }
 
@@ -208,7 +265,7 @@ input[type="submit"],
 input[type="button"] {
     cursor:
         url("data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjRkZENzAwIiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0cm9rZT0iI0ZGRDcwMCIgc3Ryb2tlLXdpZHRoPSIwIj48cGF0aCBkPSJNMzEuODkxIDEzLjQxOGwtMy4yMTItNC44MDIgMS41OTktNS41ODhjMC4wOTktMC4zNSAwLjAwMi0wLjcyOC0wLjI1Ny0wLjk4NS0wLjI1OC0wLjI1OC0wLjYzMy0wLjM1My0wLjk4Ni0wLjI1MWwtNS41NzggMS42MjktNC44MjItMy4yNDdjLTAuMzAzLTAuMjA0LTAuNjkyLTAuMjI5LTEuMDE0LTAuMDYxLTAuMzI0IDAuMTY2LTAuNTMyIDAuNDk2LTAuNTQ0IDAuODU5bC0wLjE3MyA1LjgxMS00LjU3OCAzLjU4MWMtMC4yODcgMC4yMjUtMC40MjggMC41ODgtMC4zNzEgMC45NDdzMC4zMDYgMC42NTkgMC42NSAwLjc4Mmw0LjI5NiAxLjU0Yy0wLjAyOSAwLjAyMy0wLjA1OSAwLjA0NC0wLjA4NyAwLjA3MWwtMTYuNTg2IDE2LjU4NmMtMC4zOTEgMC4zOS0wLjM5MSAxLjAyMyAwIDEuNDE0IDAuMTk2IDAuMTk1IDAuNDUxIDAuMjkzIDAuNzA3IDAuMjkzczAuNTExLTAuMDk4IDAuNzA3LTAuMjkzbDE2LjU4Ni0xNi41ODZjMC4wNjQtMC4wNjUgMC4xMTQtMC4xMzcgMC4xNTctMC4yMTNsMS42ODEgNC42MTFjMC4xMjUgMC4zNDIgMC40MjYgMC41ODkgMC43ODYgMC42NDUgMC4wNTEgMC4wMDggMC4xMDIgMC4wMTIgMC4xNTQgMC4wMTIgMC4zMDYgMCAwLjU5OS0wLjE0MiAwLjc5MS0wLjM4OWwzLjU1NS00LjU5OSA1Ljc0Ny0wLjIwNWMwLjM2NC0wLjAxMiAwLjY5Mi0wLjIyMyAwLjg1OC0wLjU0OHMwLjEzOS0wLjcxNC0wLjA2Ni0xLjAxNXpNMjQuODE0IDEzLjIwNWMtMC4yOTcgMC4wMTAtMC41NzQgMC4xNTMtMC43NTYgMC4zODhsLTIuNzMzIDMuNTM1LTEuNTMtNC4xOTdjLTAuMTAyLTAuMjgtMC4zMjMtMC40OTgtMC42MDItMC41OThsLTQuMjA2LTEuNTA4IDMuNTItMi43NTJjMC4yMzUtMC4xODQgMC4zNzQtMC40NjEgMC4zODQtMC43NThsMC4xMzMtNC40NjcgMy43MDYgMi40OTZjMC4yNDcgMC4xNjYgMC41NTUgMC4yMTMgMC44MzkgMC4xMzFsNC4yODktMS4yNTMtMS4yMyA0LjI5NmMtMC4wODEgMC4yODYtMC4wMzIgMC41OTMgMC4xMzYgMC44MzlsMi41MTcgMy42OTF6Ii8+PC9zdmc+")
-            0 32,
+            24 4,
         pointer;
 }
 
@@ -219,7 +276,7 @@ input[type="submit"]:active,
 input[type="button"]:active {
     cursor:
         url("data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjRkZENzAwIiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0cm9rZT0iI0ZGRDcwMCIgc3Ryb2tlLXdpZHRoPSIwIj48cGF0aCBkPSJNMzEuODkxIDEzLjQxOGwtMy4yMTItNC44MDIgMS41OTktNS41ODhjMC4wOTktMC4zNSAwLjAwMi0wLjcyOC0wLjI1Ny0wLjk4NS0wLjI1OC0wLjI1OC0wLjYzMy0wLjM1My0wLjk4Ni0wLjI1MWwtNS41NzggMS42MjktNC44MjItMy4yNDdjLTAuMzAzLTAuMjA0LTAuNjkyLTAuMjI5LTEuMDE0LTAuMDYxLTAuMzI0IDAuMTY2LTAuNTMyIDAuNDk2LTAuNTQ0IDAuODU5bC0wLjE3MyA1LjgxMS00LjU3OCAzLjU4MWMtMC4yODcgMC4yMjUtMC40MjggMC41ODgtMC4zNzEgMC45NDdzMC4zMDYgMC42NTkgMC42NSAwLjc4Mmw0LjI5NiAxLjU0Yy0wLjAyOSAwLjAyMy0wLjA1OSAwLjA0NC0wLjA4NyAwLjA3MWwtMTYuNTg2IDE2LjU4NmMtMC4zOTEgMC4zOS0wLjM5MSAxLjAyMyAwIDEuNDE0IDAuMTk2IDAuMTk1IDAuNDUxIDAuMjkzIDAuNzA3IDAuMjkzczAuNTExLTAuMDk4IDAuNzA3LTAuMjkzbDE2LjU4Ni0xNi41ODZjMC4wNjQtMC4wNjUgMC4xMTQtMC4xMzcgMC4xNTctMC4yMTNsMS42ODEgNC42MTFjMC4xMjUgMC4zNDIgMC40MjYgMC41ODkgMC43ODYgMC42NDUgMC4wNTEgMC4wMDggMC4xMDIgMC4wMTIgMC4xNTQgMC4wMTIgMC4zMDYgMCAwLjU5OS0wLjE0MiAwLjc5MS0wLjM4OWwzLjU1NS00LjU5OSA1Ljc0Ny0wLjIwNWMwLjM2NC0wLjAxMiAwLjY5Mi0wLjIyMyAwLjg1OC0wLjU0OHMwLjEzOS0wLjcxNC0wLjA2Ni0xLjAxNXpNMjQuODE0IDEzLjIwNWMtMC4yOTcgMC4wMTAtMC41NzQgMC4xNTMtMC43NTYgMC4zODhsLTIuNzMzIDMuNTM1LTEuNTMtNC4xOTdjLTAuMTAyLTAuMjgtMC4zMjMtMC40OTgtMC42MDItMC41OThsLTQuMjA2LTEuNTA4IDMuNTItMi43NTJjMC4yMzUtMC4xODQgMC4zNzQtMC40NjEgMC4zODQtMC43NThsMC4xMzMtNC40NjcgMy43MDYgMi40OTZjMC4yNDcgMC4xNjYgMC41NTUgMC4yMTMgMC44MzkgMC4xMzFsNC4yODktMS4yNTMtMS4yMyA0LjI5NmMtMC4wODEgMC4yODYtMC4wMzIgMC41OTMgMC4xMzYgMC44MzlsMi41MTcgMy42OTF6Ii8+PC9zdmc+")
-            0 32,
+            24 4,
         pointer;
 }
 
@@ -236,6 +293,10 @@ h6 {
 
 .font-heading {
     font-family: var(--font-heading);
+}
+.font-card {
+    font-family: var(--font-fredoka), "Fredoka", "Fredoka One", ui-sans-serif, sans-serif;
+    letter-spacing: 0;
 }
 .font-script {
     font-family: var(--font-script);
