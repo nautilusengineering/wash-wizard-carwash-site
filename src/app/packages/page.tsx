@@ -20,7 +20,7 @@ const allIncluded = [
 export default function PackagesPage() {
   return (
     <>
-      <div className="pt-32 lg:pt-36" />
+      <div className="pt-20 lg:pt-24" />
       <Pricing />
       <section className="relative bg-background py-16 lg:py-24 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">

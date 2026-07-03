@@ -23,7 +23,7 @@ export default function DifferencePage() {
   return (
     <>
       <section
-        className="pt-32 lg:pt-40 pb-20 lg:pb-28"
+        className="pt-20 lg:pt-24 pb-20 lg:pb-28"
         style={{ background: "linear-gradient(160deg, #0d1124 0%, #1a1040 60%, #0a0d1e 100%)" }}
       >
         <div className="mx-auto max-w-6xl px-4 lg:px-6">

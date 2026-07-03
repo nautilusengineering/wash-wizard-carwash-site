@@ -61,7 +61,7 @@ const steps: Step[] = [
 
 export default function WelcomePage() {
   return (
-    <section className="bg-background pt-32 lg:pt-40 pb-16 lg:pb-24">
+    <section className="bg-background pt-20 lg:pt-24 pb-16 lg:pb-24">
       <div className="mx-auto max-w-4xl px-4 lg:px-6">
         <div className="text-center mb-10 lg:mb-14">
           <p className="font-heading uppercase tracking-[0.28em] text-xs text-accent mb-3">

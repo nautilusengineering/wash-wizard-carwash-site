@@ -14,6 +14,8 @@ const routes: { path: string; changeFrequency: MetadataRoute.Sitemap[number]["ch
   { path: "/tale-of-the-wash-wizard", changeFrequency: "yearly", priority: 0.5 },
   { path: "/fundraising", changeFrequency: "monthly", priority: 0.6 },
   { path: "/employment", changeFrequency: "monthly", priority: 0.6 },
+  { path: "/contact-us", changeFrequency: "yearly", priority: 0.5 },
+  { path: "/report-issue", changeFrequency: "yearly", priority: 0.5 },
   { path: "/welcome", changeFrequency: "yearly", priority: 0.5 },
   { path: "/disclaimer", changeFrequency: "yearly", priority: 0.3 },
 ];

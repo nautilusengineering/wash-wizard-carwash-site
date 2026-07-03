@@ -13,7 +13,7 @@ interface FAQ {
 const faqs: FAQ[] = [
   {
     q: "How do I cancel my Unlimited Wash Club membership?",
-    a: "You can cancel any time from your account dashboard at washwizard.mywashaccount.com/login — no calls, no hold music. Memberships stay active through the end of the billing cycle.",
+    a: "You can cancel any time from your Manage My Membership portal — no calls, no hold music. Memberships stay active through the end of the billing cycle.",
   },
   {
     q: "Can my whole family use my membership?",
@@ -41,7 +41,7 @@ export default function HomeFAQ() {
   const [open, setOpen] = useState<number | null>(0);
   return (
     <section className="relative bg-background py-16 lg:py-24">
-      <div className="mx-auto max-w-3xl px-4 lg:px-6">
+      <div className="mx-auto max-w-6xl px-4 lg:px-6">
         <div className="mb-10 lg:mb-12">
           <h2 className="font-heading font-semibold uppercase text-4xl sm:text-5xl text-primary text-balance">
             Frequently asked <span className="text-accent">questions</span>

@@ -18,6 +18,8 @@ const aboutLinks = [
 
 const supportLinks = [
   { label: "FAQ", href: "/faq" },
+  { label: "Contact Us", href: "/contact-us" },
+  { label: "Report an Issue", href: "/report-issue" },
   { label: "Member Welcome", href: "/welcome" },
   { label: "Fundraising", href: "/fundraising" },
   { label: "Employment", href: "/employment" },

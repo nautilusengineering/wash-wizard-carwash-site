@@ -29,7 +29,7 @@ export default function AboutPage() {
     <>
       {/* Hero pull-quote */}
       <section
-        className="relative overflow-hidden text-white pt-32 lg:pt-40 pb-20 lg:pb-28"
+        className="relative overflow-hidden text-white h-screen pt-20 lg:pt-24 pb-6 lg:pb-8 flex flex-col justify-center"
         style={{ background: PURPLE_DARK }}
       >
         <div className="hidden md:block absolute -bottom-6 right-6 lg:right-16 w-56 lg:w-72 opacity-30 pointer-events-none">

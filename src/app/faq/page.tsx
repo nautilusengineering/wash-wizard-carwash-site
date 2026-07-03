@@ -171,14 +171,11 @@ export default function FAQPage() {
   const [open, setOpen] = useState<string | null>("Membership-0");
   return (
     <>
-      <div className="pt-32 lg:pt-36" />
+      <div className="pt-20 lg:pt-24" />
       <section className="bg-background py-16 lg:py-20">
-        <div className="mx-auto max-w-3xl px-4 lg:px-6">
+        <div className="mx-auto max-w-6xl px-4 lg:px-6">
           <div className="mb-12">
-            <h1
-              className="text-5xl sm:text-6xl lg:text-7xl text-primary leading-[1.05] italic"
-              style={{ fontFamily: "var(--font-im-fell), 'IM Fell English', Georgia, serif" }}
-            >
+            <h1 className="font-heading font-bold uppercase text-4xl sm:text-5xl lg:text-6xl text-primary leading-[0.95]">
               You ask, the wizard{" "}
               <span className="text-accent">shall answer.</span>
             </h1>
@@ -202,7 +199,7 @@ export default function FAQPage() {
                         className="w-full flex items-center justify-between gap-4 py-5 text-left group"
                         aria-expanded={isOpen}
                       >
-                        <span className="font-heading font-bold uppercase text-base text-primary tracking-wide group-hover:text-secondary transition-colors">
+                        <span className="font-card font-bold uppercase text-base text-primary tracking-wide group-hover:text-secondary transition-colors">
                           {faq.q}
                         </span>
                         <ChevronDown

@@ -419,7 +419,7 @@ export default function Hero() {
     phase === "reveal" || phase === "wizard-out" || phase === "done";
 
   return (
-    <section className="relative pt-28 sm:pt-32 lg:pt-40 pb-12 lg:pb-16 bg-white overflow-hidden">
+    <section className="relative h-screen pt-20 lg:pt-24 pb-4 lg:pb-6 bg-white overflow-hidden flex flex-col">
       <style>{`
         @keyframes wizardSlideIn {
           0%   { transform: translateX(-200px) scale(0.7); opacity: 0; }
@@ -450,10 +450,10 @@ export default function Hero() {
         }
       `}</style>
 
-      <div className="mx-auto max-w-7xl px-4 lg:px-6">
+      <div className="mx-auto w-full max-w-7xl px-4 lg:px-6 flex-1 min-h-0 flex flex-col">
         {/* ── Video card ── */}
         <div
-          className="relative rounded-[2rem] overflow-hidden text-white shadow-2xl"
+          className="relative rounded-[2rem] overflow-hidden text-white shadow-2xl flex-1 min-h-0 flex flex-col"
           style={{
             boxShadow: "0 0 0 1px rgba(180,160,220,0.12)",
           }}
@@ -556,7 +556,7 @@ export default function Hero() {
 
           {/* Centered headline + CTAs — appear after zap */}
           <div
-            className="relative flex flex-col items-center justify-center py-20 sm:py-32 lg:py-40 px-4"
+            className="relative flex-1 min-h-0 flex flex-col items-center justify-center px-4"
             style={{ zIndex: 20 }}
           >
             <h1
@@ -615,7 +615,7 @@ export default function Hero() {
           </div>
 
           {/* Bottom ribbon */}
-          <div className="relative z-20 border-t border-white/10 bg-deep/50 backdrop-blur-sm">
+          <div className="relative z-20 shrink-0 border-t border-white/10 bg-deep/50 backdrop-blur-sm">
             <div className="px-4 sm:px-10 lg:px-14 py-3 flex flex-col sm:flex-row sm:flex-wrap items-center justify-between gap-2 sm:gap-3 text-sm font-heading uppercase tracking-widest text-center sm:text-left">
               <span style={{ color: GOLD }}>
                 ★ Unlimited Wash Club from $14.99 a month

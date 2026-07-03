@@ -30,7 +30,7 @@ export default function EmploymentPage() {
     <>
       {/* Dark editorial hero with employee testimonial */}
       <section
-        className="pt-32 lg:pt-40 pb-16 lg:pb-24 overflow-hidden text-white relative"
+        className="h-screen pt-20 lg:pt-24 pb-6 lg:pb-8 overflow-hidden text-white relative flex flex-col justify-center"
         style={{ background: PURPLE_DARK }}
       >
         <div
