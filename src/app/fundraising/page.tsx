@@ -107,7 +107,7 @@ export default function FundraisingPage() {
   return (
     <>
       {/* Hero — split with wash card mockup */}
-      <section className="bg-background h-screen pt-20 lg:pt-24 pb-6 lg:pb-8 overflow-hidden flex flex-col justify-center">
+      <section className="bg-background h-screen lg:h-auto lg:min-h-[70vh] pt-20 lg:pt-24 pb-6 lg:pb-8 overflow-hidden flex flex-col justify-center">
         <div className="mx-auto max-w-6xl px-4 lg:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
@@ -158,7 +158,7 @@ export default function FundraisingPage() {
       </section>
 
       {/* Ticket-strip how-it-works */}
-      <section className="bg-cream py-16 lg:py-20">
+      <section className="bg-primary/5 py-16 lg:py-20">
         <div className="mx-auto max-w-6xl px-4 lg:px-6">
           <div className="text-center mb-12">
             <p className="font-heading uppercase tracking-[0.28em] text-xs text-accent mb-2">
@@ -202,7 +202,7 @@ export default function FundraisingPage() {
       </section>
 
       {/* Application form — embedded, no redirect */}
-      <section id="apply" className="bg-cream py-16 lg:py-24 scroll-mt-24">
+      <section id="apply" className="bg-primary/5 py-16 lg:py-24 scroll-mt-24">
         <div className="mx-auto max-w-3xl px-4 lg:px-6">
           <div className="text-center mb-8 lg:mb-10">
             <p className="font-heading uppercase tracking-[0.28em] text-xs text-accent mb-2">

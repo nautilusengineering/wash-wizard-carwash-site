@@ -29,7 +29,7 @@ export default function RewardsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-primary h-screen pt-20 lg:pt-24 pb-6 lg:pb-8 overflow-hidden flex flex-col justify-center">
+      <section className="relative bg-primary h-screen lg:h-auto lg:min-h-[70vh] pt-20 lg:pt-24 pb-6 lg:pb-8 overflow-hidden flex flex-col justify-center">
         <div className="mx-auto max-w-5xl px-4 lg:px-6 text-center">
           <p className="font-heading uppercase tracking-[0.28em] text-sm text-accent mb-4">
             Wash Rewards

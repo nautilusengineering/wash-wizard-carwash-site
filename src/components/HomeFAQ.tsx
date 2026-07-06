@@ -56,7 +56,7 @@ export default function HomeFAQ() {
                 className="w-full flex items-center justify-between gap-4 py-5 text-left group"
                 aria-expanded={open === i}
               >
-                <span className="font-heading font-semibold uppercase text-base sm:text-lg text-primary tracking-wide group-hover:text-secondary">
+                <span className="font-card font-bold uppercase text-base text-primary tracking-wide group-hover:text-secondary transition-colors">
                   {faq.q}
                 </span>
                 <ChevronDown

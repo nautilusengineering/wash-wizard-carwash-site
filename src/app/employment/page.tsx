@@ -30,7 +30,7 @@ export default function EmploymentPage() {
     <>
       {/* Dark editorial hero with employee testimonial */}
       <section
-        className="h-screen pt-20 lg:pt-24 pb-6 lg:pb-8 overflow-hidden text-white relative flex flex-col justify-center"
+        className="h-screen lg:h-auto lg:min-h-[70vh] pt-20 lg:pt-24 pb-6 lg:pb-8 overflow-hidden text-white relative flex flex-col justify-center"
         style={{ background: PURPLE_DARK }}
       >
         <div
@@ -89,7 +89,7 @@ export default function EmploymentPage() {
                   className={`rounded-2xl p-6 lg:p-7 min-h-[180px] flex flex-col justify-between ${
                     isDark
                       ? "text-white"
-                      : "bg-cream text-primary border border-accent/20"
+                      : "bg-primary/5 text-primary border border-accent/20"
                   }`}
                   style={isDark ? { background: PURPLE_DARK } : undefined}
                 >
@@ -124,7 +124,7 @@ export default function EmploymentPage() {
       {/* Application form — embedded Nautilus form, full height */}
       <section
         id="apply"
-        className="bg-cream py-16 lg:py-24 scroll-mt-24"
+        className="bg-primary/5 py-16 lg:py-24 scroll-mt-24"
       >
         <div className="mx-auto max-w-3xl px-4 lg:px-6">
           <div className="text-center mb-8 lg:mb-10">

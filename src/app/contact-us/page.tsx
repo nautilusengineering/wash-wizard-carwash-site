@@ -39,7 +39,7 @@ export default function ContactUsPage() {
     <>
       {/* Dark hero */}
       <section
-        className="h-screen pt-20 lg:pt-24 pb-6 lg:pb-8 overflow-hidden text-white relative flex flex-col justify-center"
+        className="h-screen lg:h-auto lg:min-h-[70vh] pt-20 lg:pt-24 pb-6 lg:pb-8 overflow-hidden text-white relative flex flex-col justify-center"
         style={{ background: PURPLE_DARK }}
       >
         <div
@@ -129,7 +129,7 @@ export default function ContactUsPage() {
       </section>
 
       {/* Alt contact block */}
-      <section className="bg-cream py-16 lg:py-20">
+      <section className="bg-primary/5 py-16 lg:py-20">
         <div className="mx-auto max-w-3xl px-4 lg:px-6 text-center">
           <MessageSquare className="w-10 h-10 text-accent mx-auto mb-4" />
           <h2 className="font-heading font-bold uppercase text-3xl sm:text-4xl text-primary leading-[0.95] mb-3">

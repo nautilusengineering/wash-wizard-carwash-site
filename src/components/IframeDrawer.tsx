@@ -51,7 +51,13 @@ export default function IframeDrawer({
       body.style.left = '';
       body.style.right = '';
       body.style.overflow = '';
+      // Restore the scroll position instantly — bypass the global
+      // `scroll-behavior: smooth` so closing the drawer doesn't animate a
+      // jump-to-top-then-scroll-back.
+      const prevScrollBehavior = html.style.scrollBehavior;
+      html.style.scrollBehavior = 'auto';
       window.scrollTo(0, scrollY);
+      html.style.scrollBehavior = prevScrollBehavior;
     };
   }, []);
 

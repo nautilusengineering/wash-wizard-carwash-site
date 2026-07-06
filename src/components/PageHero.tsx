@@ -13,7 +13,7 @@ export default function PageHero({
   showMascot = true,
 }: PageHeroProps) {
   return (
-    <section className="relative h-screen pt-20 lg:pt-24 pb-4 lg:pb-6 bg-background overflow-hidden flex flex-col">
+    <section className="relative h-screen lg:h-auto lg:min-h-[70vh] pt-20 lg:pt-24 pb-4 lg:pb-6 bg-background overflow-hidden flex flex-col">
       <div className="mx-auto w-full max-w-7xl px-4 lg:px-6 flex-1 min-h-0 flex flex-col">
         <div className="relative rounded-[2rem] overflow-hidden bg-wizard-night text-white shadow-xl ring-1 ring-white/10 flex-1 min-h-0 flex flex-col">
           <Image

@@ -79,7 +79,14 @@ export default function LocationPickerModal({
       body.style.left = "";
       body.style.right = "";
       body.style.overflow = "";
+      // Restore the scroll position instantly. The global `scroll-behavior:
+      // smooth` would otherwise animate this jump, and the checkout drawer that
+      // opens right after a location is picked would read a mid-animation scroll
+      // position and lock the page at the top.
+      const prevScrollBehavior = html.style.scrollBehavior;
+      html.style.scrollBehavior = "auto";
       window.scrollTo(0, scrollY);
+      html.style.scrollBehavior = prevScrollBehavior;
     };
   }, []);
 
