@@ -419,7 +419,7 @@ export default function Hero() {
     phase === "reveal" || phase === "wizard-out" || phase === "done";
 
   return (
-    <section className="relative h-[80vh] lg:h-auto lg:min-h-[70vh] pt-20 lg:pt-24 pb-4 lg:pb-6 bg-white overflow-hidden flex flex-col">
+    <section className="relative h-[80vh] lg:h-screen pt-20 lg:pt-24 pb-4 lg:pb-6 bg-white overflow-hidden flex flex-col">
       <style>{`
         @keyframes wizardSlideIn {
           0%   { transform: translateX(-200px) scale(0.7); opacity: 0; }
