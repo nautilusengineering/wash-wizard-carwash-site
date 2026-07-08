@@ -11,9 +11,9 @@ const driveAllAddr = encodeURIComponent(
 );
 const GOLD = "#FFB800";
 const HERO_VIDEO_URL =
-  "https://ucarecdn.com/425184dd-9f77-49ff-8adb-5e3e3003e0e3/wash-wizard-hero-trimmed.mp4";
+  "https://ucarecdn.com/ba5f02c9-3c83-49f4-8228-e4cac6d62ccd/wash-wizard-hero-trimmed.mp4";
 const HERO_POSTER_URL =
-  "https://ucarecdn.com/d9bfcc15-77bb-4338-a40c-cc63a51e48f9/wash-wizard-hero-trimmed-poster.jpg";
+  "https://ucarecdn.com/0862b729-9db0-4564-9359-459688284bb4/wash-wizard-hero-trimmed-poster.jpg";
 
 type Phase = "wizard-in" | "zap" | "reveal" | "wizard-out" | "done";
 
