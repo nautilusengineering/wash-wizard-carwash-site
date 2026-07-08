@@ -10,10 +10,6 @@ const driveAllAddr = encodeURIComponent(
   "Wash Wizard Car Wash, Summerville, SC",
 );
 const GOLD = "#FFB800";
-const HERO_VIDEO_URL =
-  "https://ucarecdn.com/6f36dbfa-c090-4851-9c25-404a68b78eb7/wash-wizard-hero-2026-july.mp4";
-const HERO_POSTER_URL =
-  "https://ucarecdn.com/4fe9ffe4-d6ef-4827-9bf1-2e6bd66e282b/wash-wizard-hero-2026-july-poster.jpg";
 
 type Phase = "wizard-in" | "zap" | "reveal" | "wizard-out" | "done";
 
@@ -462,24 +458,19 @@ export default function Hero() {
             boxShadow: "0 0 0 1px rgba(180,160,220,0.12)",
           }}
         >
-          {/* Uploadcare hero video background */}
+          {/* YouTube video background */}
           <div
-            className="absolute inset-0 pointer-events-none overflow-hidden bg-deep"
+            className="absolute inset-0 pointer-events-none overflow-hidden"
             style={{ zIndex: 1 }}
           >
-            <video
-              className="absolute inset-0 h-full w-full object-cover"
-              style={{ objectPosition: "center center" }}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              poster={HERO_POSTER_URL}
+            <iframe
+              src="https://www.youtube.com/embed/_NSsCicryZE?autoplay=1&mute=1&loop=1&playlist=_NSsCicryZE&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&disablekb=1&start=13&end=33"
+              allow="autoplay; encrypted-media"
+              className="absolute top-1/2 left-1/2 min-w-[140%] min-h-[140%] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+              style={{ border: 0, aspectRatio: "16/9" }}
+              tabIndex={-1}
               aria-hidden="true"
-            >
-              <source src={HERO_VIDEO_URL} type="video/mp4" />
-            </video>
+            />
           </div>
 
           {/* Dark overlay — covers video until zap reveals it */}
