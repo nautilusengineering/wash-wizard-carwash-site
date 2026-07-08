@@ -158,7 +158,7 @@ export default function Locations() {
       <div className="relative mx-auto max-w-7xl px-4 lg:px-6" style={{ zIndex: 2 }}>
         <div className="mb-10 lg:mb-14">
           <h2 className="font-heading font-semibold uppercase text-4xl sm:text-5xl text-balance text-primary">
-            Find your <span className="text-accent">Wash Wizard.</span>
+            Find your <span className="text-accent">Wash Wizard</span>
           </h2>
 
           <div className="mt-7 inline-flex flex-wrap items-center gap-x-6 gap-y-2 px-5 sm:px-6 py-4 rounded-2xl bg-white/85 ring-1 ring-black/5 text-base sm:text-sm w-full sm:w-auto">

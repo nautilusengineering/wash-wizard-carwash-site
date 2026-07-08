@@ -31,12 +31,19 @@ const navItems: NavItem[] = [
         href: "/the-wash-wizard-difference",
       },
       { label: "Tale of the Wash Wizard", href: "/tale-of-the-wash-wizard" },
+    ],
+  },
+  {
+    label: "Resources",
+    children: [
+      { label: "FAQ", href: "/faq" },
+      { label: "Contact Us", href: "/contact-us" },
+      { label: "Report an Issue", href: "/report-issue" },
       { label: "Member Welcome", href: "/welcome" },
       { label: "Fundraising", href: "/fundraising" },
       { label: "Employment", href: "/employment" },
     ],
   },
-  { label: "FAQ", href: "/faq" },
 ];
 
 export default function Header() {
@@ -58,14 +65,19 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled
-          ? "bg-primary/95 backdrop-blur-md shadow-xl"
-          : "bg-primary/85 backdrop-blur-sm",
+        "fixed top-0 left-0 right-0 z-50 transition-shadow duration-300",
+        scrolled ? "shadow-xl" : "",
       )}
     >
+      {/* Blur layer — isolated from text so backdrop-filter doesn't soften nav copy */}
+      <div
+        className={cn(
+          "absolute inset-0 -z-10 transition-colors duration-300",
+          scrolled ? "bg-primary/95 backdrop-blur-md" : "bg-primary/85 backdrop-blur-sm",
+        )}
+      />
       {/* Main nav */}
-      <div className="mx-auto max-w-7xl px-4 lg:px-6">
+      <div className="relative mx-auto max-w-7xl px-4 lg:px-6">
         <div className="flex items-center justify-between h-16 lg:h-18 gap-6">
           {/* Logo */}
           <Link

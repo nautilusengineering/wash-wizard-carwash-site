@@ -67,7 +67,7 @@ export default function FontsPage() {
             Internal reference
           </p>
           <h1 className="font-heading font-bold uppercase text-4xl sm:text-5xl text-primary leading-[0.95] mb-4">
-            Wash Wizard <span className="text-accent">type system.</span>
+            Wash Wizard <span className="text-accent">type system</span>
           </h1>
           <p className="text-base text-foreground/75 max-w-2xl">
             The four Google fonts wired into <code className="font-mono text-sm text-primary bg-primary/[0.05] px-1.5 py-0.5 rounded">app/layout.tsx</code>.

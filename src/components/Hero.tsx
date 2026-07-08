@@ -464,7 +464,7 @@ export default function Hero() {
         >
           {/* Uploadcare hero video background */}
           <div
-            className="absolute inset-0 pointer-events-none overflow-hidden bg-deep"
+            className="absolute inset-0 pointer-events-none overflow-hidden bg-black"
             style={{ zIndex: 1 }}
           >
             <video
@@ -477,6 +477,14 @@ export default function Hero() {
               preload="metadata"
               poster={HERO_POSTER_URL}
               aria-hidden="true"
+              onLoadedMetadata={(e) => {
+                e.currentTarget.currentTime = 0.5;
+              }}
+              onTimeUpdate={(e) => {
+                if (e.currentTarget.currentTime < 0.5) {
+                  e.currentTarget.currentTime = 0.5;
+                }
+              }}
             >
               <source src={HERO_VIDEO_URL} type="video/mp4" />
             </video>

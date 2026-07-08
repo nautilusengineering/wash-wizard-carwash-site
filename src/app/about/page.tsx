@@ -4,7 +4,7 @@ import { MapPin, Users, Wrench } from "lucide-react";
 export const metadata = {
   title: "About | Wash Wizard Car Wash",
   description:
-    "Greetings, fellow seekers of car-wash magic. The mission, values, and craft behind Charleston's friendliest tunnel wash.",
+    "Greetings, fellow seekers of car-wash magic. The mission, values, and craft behind Summerville's friendliest tunnel wash.",
 };
 
 const values = [

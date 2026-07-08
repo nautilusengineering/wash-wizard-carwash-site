@@ -19,7 +19,7 @@ const PURPLE_DARK =
   "linear-gradient(160deg, #1E1832 0%, #2A2050 60%, #1A1428 100%)";
 
 const perks = [
-  { icon: DollarSign, title: "Competitive Pay", body: "Hourly base + tips + bonuses." },
+  { icon: DollarSign, title: "Competitive Pay", body: "3-Month Pay Review, PTO After 12 Months." },
   { icon: Clock, title: "Flexible Hours", body: "Mornings, evenings, weekends." },
   { icon: Users, title: "Great Team", body: "Family-owned. Friendly crews." },
   { icon: Heart, title: "Free Washes", body: "Yes, you can keep your car spotless too." },
@@ -45,14 +45,14 @@ export default function EmploymentPage() {
             Now Hiring · Summerville &amp; Ladson
           </p>
           <h1 className="font-heading font-bold uppercase text-5xl sm:text-6xl lg:text-7xl text-white leading-[0.95] mb-8">
-            We&apos;re hiring <span className="text-accent">wizards.</span>
+            We&apos;re hiring <span className="text-accent">wizards</span>
           </h1>
           <blockquote
             className="mt-6 text-xl sm:text-2xl text-white/85 max-w-2xl mx-auto italic leading-relaxed"
             style={{ fontFamily: "var(--font-script), serif" }}
           >
             &ldquo;Best job I&apos;ve had. Family vibe, real hours, and I go
-            home with a clean car every day.&rdquo;
+            home with a clean car.&rdquo;
           </blockquote>
           <p className="mt-4 text-sm font-heading uppercase tracking-widest text-accent">
             — Jamie, Loader · Summerville
@@ -76,7 +76,7 @@ export default function EmploymentPage() {
               Why join the crew
             </p>
             <h2 className="font-heading font-bold uppercase text-3xl sm:text-4xl text-primary leading-[0.95]">
-              Perks with <span className="text-accent">real weight.</span>
+              Perks with <span className="text-accent">real weight</span>
             </h2>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -132,7 +132,7 @@ export default function EmploymentPage() {
               Apply today
             </p>
             <h2 className="font-heading font-bold uppercase text-3xl sm:text-4xl text-primary leading-[0.95] mb-3">
-              Send us your <span className="text-accent">details.</span>
+              Send us your <span className="text-accent">details</span>
             </h2>
             <p className="text-lg lg:text-xl text-foreground/80 max-w-xl mx-auto">
               Pick the location closest to you, tell us the hours you prefer,

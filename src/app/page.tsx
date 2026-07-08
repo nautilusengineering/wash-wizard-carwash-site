@@ -10,7 +10,7 @@ import SubscribeBanner from "@/components/SubscribeBanner";
 export const metadata: Metadata = {
   title: "Wash Wizard Car Wash | Summerville & Ladson, SC",
   description:
-    "Wash Wizard — Charleston's magical car wash. Unlimited Wash Club memberships, a 180-foot tunnel, free vacuums, and three locations across Summerville & Ladson, SC.",
+    "Wash Wizard — Summerville's magical car wash. Unlimited Wash Club memberships, a 180-foot tunnel, free vacuums, and three locations across Summerville & Ladson, SC.",
   alternates: { canonical: "/" },
 };
 

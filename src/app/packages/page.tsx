@@ -29,7 +29,7 @@ export default function PackagesPage() {
               <h2 className="font-heading font-bold uppercase text-4xl lg:text-5xl text-primary leading-[0.95] mb-5">
                 The basics
                 <br />
-                done <span className="text-accent">brilliantly.</span>
+                done <span className="text-accent">brilliantly</span>
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed">
                 No matter which package you pick, every wash includes the Wash
