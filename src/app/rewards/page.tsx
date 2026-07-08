@@ -36,7 +36,7 @@ export default function RewardsPage() {
           </p>
           <h1 className="font-heading font-bold uppercase text-4xl sm:text-5xl lg:text-6xl text-white leading-[0.95] mb-5">
             Get rewarded for{" "}
-            <span className="text-accent">every wash.</span>
+            <span className="text-accent">every wash</span>
           </h1>
           <p className="text-lg lg:text-xl text-white/85 max-w-2xl mx-auto text-pretty">
             Not ready for a monthly Unlimited plan? No problem. Wash Rewards is
@@ -96,7 +96,7 @@ export default function RewardsPage() {
         <div className="mx-auto max-w-3xl px-4 lg:px-6">
           <div className="text-center mb-8 lg:mb-10">
             <h2 className="font-heading font-bold uppercase text-3xl sm:text-4xl text-white leading-[0.95] mb-3">
-              Enroll for <span className="text-accent">free.</span>
+              Enroll for <span className="text-accent">free</span>
             </h2>
             <p className="text-lg lg:text-xl text-white/85 max-w-xl mx-auto">
               One-time signup. We&apos;ll link your rewards to your phone number

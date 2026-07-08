@@ -1,14 +1,13 @@
-import Link from "next/link";
 import {
   Phone,
   AlertTriangle,
   Camera,
   Clock,
   MapPin,
-  ArrowRight,
+  PenLine,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { PHONE, PHONE_HREF } from "@/lib/utils";
+import { PHONE, PHONE_HREF, CONTACT_FORM_URL } from "@/lib/utils";
 
 export const metadata = {
   title: "Report an Issue",
@@ -39,7 +38,7 @@ const steps = [
   {
     icon: Camera,
     title: "Photos, if any",
-    body: "A picture of any damage or debris helps us investigate and respond faster.",
+    body: "A picture that may help us investigate and respond faster.",
   },
 ];
 
@@ -63,7 +62,7 @@ export default function ReportIssuePage() {
             Your feedback matters
           </p>
           <h1 className="font-heading font-bold uppercase text-5xl sm:text-6xl lg:text-7xl text-white leading-[0.95] mb-6">
-            Something off? <span className="text-accent">Let us know.</span>
+            Something off? <span className="text-accent">Let us know</span>
           </h1>
           <p className="text-lg lg:text-xl text-white/85 max-w-2xl mx-auto text-pretty">
             We&apos;re always striving to improve the services we offer and
@@ -72,16 +71,17 @@ export default function ReportIssuePage() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Button asChild size="lg">
-              <a href={PHONE_HREF}>
-                <Phone className="size-4" />
-                Call {PHONE}
+              <a href={CONTACT_FORM_URL}>
+                <PenLine className="size-4" />
+                Contact Us Form
               </a>
             </Button>
-            <Button asChild variant="outline" size="lg">
-              <Link href="/contact-us">
-                Or contact us
-                <ArrowRight className="size-4" />
-              </Link>
+            <Button asChild size="lg">
+              <a href={PHONE_HREF}>
+                <Phone className="size-4" />
+                Callback Requests
+                <span className="opacity-80">{PHONE}</span>
+              </a>
             </Button>
           </div>
         </div>
@@ -95,7 +95,7 @@ export default function ReportIssuePage() {
               What to include
             </p>
             <h2 className="font-heading font-bold uppercase text-3xl sm:text-4xl text-primary leading-[0.95]">
-              A few <span className="text-accent">quick details.</span>
+              A few <span className="text-accent">quick details</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
@@ -145,16 +145,17 @@ export default function ReportIssuePage() {
         <div className="mx-auto max-w-3xl px-4 lg:px-6 text-center">
           <AlertTriangle className="w-10 h-10 text-accent mx-auto mb-4" />
           <h2 className="font-heading font-bold uppercase text-3xl sm:text-4xl text-primary leading-[0.95] mb-3">
-            Urgent? <span className="text-accent">Call us.</span>
+            Urgent? <span className="text-accent">Complete Contact Us Form Now!</span>
           </h2>
           <p className="text-lg text-foreground/80 max-w-xl mx-auto mb-6">
-            If you&apos;re still on-site or your vehicle needs attention right
-            now, please see a manager before you leave or call us directly.
+            All contact us form submissions forward immediately to the
+            manager. If you&apos;re still on-site or your vehicle needs
+            attention right now, please see the manager before you leave.
           </p>
           <Button asChild size="lg">
-            <a href={PHONE_HREF}>
-              <Phone className="size-4" />
-              Call {PHONE}
+            <a href={CONTACT_FORM_URL}>
+              <PenLine className="size-4" />
+              Contact Us Form
             </a>
           </Button>
         </div>

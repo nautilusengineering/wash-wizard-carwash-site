@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     template: "%s | Wash Wizard Car Wash",
   },
   description:
-    "Wash Wizard — Charleston's magical car wash. Three locations across Summerville & Ladson, SC. Unlimited Wash Club, fast tunnel, free vacuums, and a sparkling clean ride every time.",
+    "Wash Wizard — Summerville's magical car wash. Three locations across Summerville & Ladson, SC. Unlimited Wash Club, fast tunnel, free vacuums, and a sparkling clean ride every time.",
   metadataBase: new URL("https://washwizardcarwash.com"),
   applicationName: "Wash Wizard Car Wash",
   keywords: [
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
     siteName: "Wash Wizard Car Wash",
     title: "Wash Wizard Car Wash | Summerville & Ladson, SC",
     description:
-      "Charleston's magical car wash. Unlimited Wash Club, fast tunnel, free vacuums, and a sparkling clean ride every time.",
+      "Summerville's magical car wash. Unlimited Wash Club, fast tunnel, free vacuums, and a sparkling clean ride every time.",
     images: [
       {
         url: "https://ucarecdn.com/5cadb1ef-9189-413a-9de0-234cab570451/logo.png",
@@ -97,7 +97,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Wash Wizard Car Wash | Summerville & Ladson, SC",
     description:
-      "Charleston's magical car wash. Unlimited Wash Club, free vacuums, sparkling clean ride every time.",
+      "Summerville's magical car wash. Unlimited Wash Club, free vacuums, sparkling clean ride every time.",
     images: [
       "https://ucarecdn.com/5cadb1ef-9189-413a-9de0-234cab570451/logo.png",
     ],

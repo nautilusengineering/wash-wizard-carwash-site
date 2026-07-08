@@ -41,7 +41,7 @@ export default function Footer() {
               className="h-10 w-auto mb-5"
             />
             <p className="text-base sm:text-sm text-white/70 leading-relaxed mb-4">
-              Charleston&apos;s magical car wash. Three Lowcountry locations,
+              Summerville&apos;s magical car wash. Three Lowcountry locations,
               one unlimited club, infinite shine.
             </p>
             <a

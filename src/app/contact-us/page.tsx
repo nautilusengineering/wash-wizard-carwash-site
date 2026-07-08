@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { Phone, MapPin, MessageSquare, ArrowRight } from "lucide-react";
+import { Phone, MapPin, MessageSquare, ArrowRight, PenLine } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { PHONE, PHONE_HREF } from "@/lib/utils";
+import { PHONE, PHONE_HREF, CONTACT_FORM_URL } from "@/lib/utils";
 
 export const metadata = {
   title: "Contact Us",
@@ -54,18 +54,26 @@ export default function ContactUsPage() {
             We&apos;re here to help
           </p>
           <h1 className="font-heading font-bold uppercase text-5xl sm:text-6xl lg:text-7xl text-white leading-[0.95] mb-6">
-            Have a question? <span className="text-accent">Ask the wizard.</span>
+            Have a question? <span className="text-accent">Ask the wizard</span>
           </h1>
           <p className="text-lg lg:text-xl text-white/85 max-w-2xl mx-auto text-pretty">
             We&apos;re always striving to improve our service and earn your
-            business again and again. Reach us the fastest way — by phone, or
-            drop by any of our three locations.
+            business again and again. Reach us the fastest way — by web form,
+            requesting a manager call back, or drop by any of our three
+            locations.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Button asChild size="lg">
+              <a href={CONTACT_FORM_URL}>
+                <PenLine className="size-4" />
+                Contact Us Form
+              </a>
+            </Button>
+            <Button asChild size="lg">
               <a href={PHONE_HREF}>
                 <Phone className="size-4" />
-                Call {PHONE}
+                Callback Requests
+                <span className="opacity-80">{PHONE}</span>
               </a>
             </Button>
             <Button asChild variant="outline" size="lg">
@@ -86,7 +94,7 @@ export default function ContactUsPage() {
               Three Lowcountry locations
             </p>
             <h2 className="font-heading font-bold uppercase text-3xl sm:text-4xl text-primary leading-[0.95]">
-              Come <span className="text-accent">say hi.</span>
+              Come <span className="text-accent">say hi</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
