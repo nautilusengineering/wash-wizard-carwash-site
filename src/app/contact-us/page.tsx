@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Phone, MapPin, MessageSquare, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PHONE, PHONE_HREF } from "@/lib/utils";
+import ContactNautilusForm from "./nautilus-form";
 
 export const metadata = {
   title: "Contact Us",
@@ -58,8 +59,8 @@ export default function ContactUsPage() {
           </h1>
           <p className="text-lg lg:text-xl text-white/85 max-w-2xl mx-auto text-pretty">
             We&apos;re always striving to improve our service and earn your
-            business again and again. Reach us the fastest way — by phone, or
-            drop by any of our three locations.
+            business again and again. Call us, send a message below, or drop by
+            any of our three locations.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Button asChild size="lg">
@@ -69,11 +70,35 @@ export default function ContactUsPage() {
               </a>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link href="/faq">
-                Browse the FAQ
+              <a href="#contact-form">
+                Send a Message
                 <ArrowRight className="size-4" />
-              </Link>
+              </a>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact form */}
+      <section
+        id="contact-form"
+        className="bg-primary/5 py-16 lg:py-24 scroll-mt-24"
+      >
+        <div className="mx-auto max-w-3xl px-4 lg:px-6">
+          <div className="text-center mb-8 lg:mb-10">
+            <p className="font-heading uppercase tracking-[0.28em] text-xs text-accent mb-2">
+              Contact Us
+            </p>
+            <h2 className="font-heading font-bold uppercase text-3xl sm:text-4xl text-primary leading-[0.95] mb-3">
+              Send the wizard <span className="text-accent">a message.</span>
+            </h2>
+            <p className="text-lg lg:text-xl text-foreground/80 max-w-xl mx-auto">
+              Share your contact info, visit details, vehicle description, and
+              any photos that help our team look into it.
+            </p>
+          </div>
+          <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-sm overflow-hidden">
+            <ContactNautilusForm />
           </div>
         </div>
       </section>
