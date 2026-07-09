@@ -96,7 +96,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-7 xl:gap-9 mx-auto">
+          <nav className="hidden xl:flex items-center gap-5 2xl:gap-7 mx-auto">
             {navItems.map((item) =>
               "children" in item ? (
                 <div key={item.label} className="relative group">
@@ -134,8 +134,8 @@ export default function Header() {
           </nav>
 
           {/* Desktop CTAs */}
-          <div className="hidden lg:flex items-center gap-3">
-            <Button asChild size="default">
+          <div className="hidden xl:flex items-center gap-2">
+            <Button asChild size="default" className="px-4 2xl:px-6">
               <Link href={JOIN_URL}>Join the Club</Link>
             </Button>
             <a
@@ -143,7 +143,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="outline" size="default">
+              <Button variant="outline" size="default" className="px-4 2xl:px-6 text-sm">
                 Manage My Membership
               </Button>
             </a>
@@ -151,7 +151,7 @@ export default function Header() {
 
           {/* Mobile hamburger */}
           <button
-            className="lg:hidden text-white p-2 ml-auto"
+            className="xl:hidden text-white p-2 ml-auto"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -163,7 +163,7 @@ export default function Header() {
       {/* Mobile menu */}
       <div
         className={cn(
-          "lg:hidden transition-all duration-300 bg-primary/97 backdrop-blur-md overflow-y-auto overscroll-contain",
+          "xl:hidden transition-all duration-300 bg-primary/97 backdrop-blur-md overflow-y-auto overscroll-contain",
           mobileOpen
             ? "max-h-[calc(100dvh-4rem)] opacity-100"
             : "max-h-0 opacity-0 overflow-hidden",

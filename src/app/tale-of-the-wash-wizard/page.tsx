@@ -12,7 +12,7 @@ export default function TalePage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-background h-screen lg:h-auto lg:min-h-[70vh] pt-20 lg:pt-24 pb-6 lg:pb-8 flex flex-col justify-center overflow-hidden">
+      <section className="bg-background h-screen lg:h-auto lg:min-h-[70vh] pt-24 lg:pt-28 pb-6 lg:pb-8 flex flex-col justify-center overflow-hidden">
         <div className="mx-auto max-w-5xl px-4 lg:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Text */}
