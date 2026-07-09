@@ -31,12 +31,19 @@ const navItems: NavItem[] = [
         href: "/the-wash-wizard-difference",
       },
       { label: "Tale of the Wash Wizard", href: "/tale-of-the-wash-wizard" },
+    ],
+  },
+  {
+    label: "Resources",
+    children: [
+      { label: "FAQ", href: "/faq" },
+      { label: "Contact Us", href: "/contact-us" },
+      { label: "Report an Issue", href: "/report-issue" },
       { label: "Member Welcome", href: "/welcome" },
       { label: "Fundraising", href: "/fundraising" },
       { label: "Employment", href: "/employment" },
     ],
   },
-  { label: "FAQ", href: "/faq" },
 ];
 
 export default function Header() {
@@ -58,14 +65,19 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled
-          ? "bg-primary/95 backdrop-blur-md shadow-xl"
-          : "bg-primary/85 backdrop-blur-sm",
+        "fixed top-0 left-0 right-0 z-50 transition-shadow duration-300",
+        scrolled ? "shadow-xl" : "",
       )}
     >
+      {/* Blur layer — isolated from text so backdrop-filter doesn't soften nav copy */}
+      <div
+        className={cn(
+          "absolute inset-0 -z-10 transition-colors duration-300",
+          scrolled ? "bg-primary/95 backdrop-blur-md" : "bg-primary/85 backdrop-blur-sm",
+        )}
+      />
       {/* Main nav */}
-      <div className="mx-auto max-w-7xl px-4 lg:px-6">
+      <div className="relative mx-auto max-w-7xl px-4 lg:px-6">
         <div className="flex items-center justify-between h-16 lg:h-18 gap-6">
           {/* Logo */}
           <Link
@@ -84,7 +96,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-7 xl:gap-9 mx-auto">
+          <nav className="hidden xl:flex items-center gap-5 2xl:gap-7 mx-auto">
             {navItems.map((item) =>
               "children" in item ? (
                 <div key={item.label} className="relative group">
@@ -122,8 +134,8 @@ export default function Header() {
           </nav>
 
           {/* Desktop CTAs */}
-          <div className="hidden lg:flex items-center gap-3">
-            <Button asChild size="default">
+          <div className="hidden xl:flex items-center gap-2">
+            <Button asChild size="default" className="px-4 2xl:px-6">
               <Link href={JOIN_URL}>Join the Club</Link>
             </Button>
             <a
@@ -131,7 +143,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="outline" size="default">
+              <Button variant="outline" size="default" className="px-4 2xl:px-6 text-sm">
                 Manage My Membership
               </Button>
             </a>
@@ -139,7 +151,7 @@ export default function Header() {
 
           {/* Mobile hamburger */}
           <button
-            className="lg:hidden text-white p-2 ml-auto"
+            className="xl:hidden text-white p-2 ml-auto"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -151,7 +163,7 @@ export default function Header() {
       {/* Mobile menu */}
       <div
         className={cn(
-          "lg:hidden transition-all duration-300 bg-primary/97 backdrop-blur-md overflow-y-auto overscroll-contain",
+          "xl:hidden transition-all duration-300 bg-primary/97 backdrop-blur-md overflow-y-auto overscroll-contain",
           mobileOpen
             ? "max-h-[calc(100dvh-4rem)] opacity-100"
             : "max-h-0 opacity-0 overflow-hidden",

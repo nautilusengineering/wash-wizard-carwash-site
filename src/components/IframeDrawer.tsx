@@ -21,7 +21,9 @@ export default function IframeDrawer({
   const [isClosing, setIsClosing] = useState(false);
   const [iframeLoaded, setIframeLoaded] = useState(false);
   const [isKeyboardVisible, setIsKeyboardVisible] = useState(false);
-  const [viewportHeight, setViewportHeight] = useState(0);
+  const [viewportHeight, setViewportHeight] = useState(() =>
+    typeof window === 'undefined' ? 0 : window.innerHeight
+  );
 
   const locId = locationId;
   const embedUrl = `https://www.nautilus-app.com/c/storefront/${NAUTILUS_ORG_SLUG}${locId ? `?locationId=${locId}` : '?'}${
@@ -63,7 +65,7 @@ export default function IframeDrawer({
 
   useEffect(() => {
     const initialHeight = window.innerHeight;
-    setViewportHeight(initialHeight);
+    document.documentElement.style.setProperty('--app-height', `${initialHeight}px`);
 
     const updateHeight = () => {
       const currentHeight = window.innerHeight;

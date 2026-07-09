@@ -12,7 +12,7 @@ const steps = [
   {
     num: "02",
     title: "180 Feet of Wizardry",
-    body: "180 feet of pure wizardry. An extra long wash tunnel and amazing LED light show your kids will beg to repeat.",
+    body: "An extra long wash tunnel and amazing LED light show your kids will beg to repeat.",
   },
   {
     num: "03",
@@ -164,7 +164,7 @@ export default function Amenities() {
         {/* Header */}
         <div className="max-w-2xl mb-12 lg:mb-16">
           <h2 className="font-heading font-bold uppercase text-4xl lg:text-5xl xl:text-6xl text-primary leading-[0.95] mb-5">
-            How the <span className="text-accent">magic</span> happens.
+            How the <span className="text-accent">magic</span> happens
           </h2>
           <p className="text-lg lg:text-xl text-foreground leading-relaxed max-w-[48ch]">
             Every location engineered for a fast, flawless clean — from the

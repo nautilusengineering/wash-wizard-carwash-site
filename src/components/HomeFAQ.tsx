@@ -17,23 +17,23 @@ const faqs: FAQ[] = [
   },
   {
     q: "Can my whole family use my membership?",
-    a: "Each Unlimited Wash Club membership covers one vehicle. We do offer family plans for additional vehicles at a heavily discounted rate — see the Family Plan section on our Packages page.",
+    a: "Each Unlimited Wash Club membership covers one vehicle. We do offer family clubs for additional vehicles at a heavily discounted rate — see the Family Club section on our Packages page.",
   },
   {
     q: "How long does a single wash take?",
-    a: "The tunnel itself takes about three minutes — from pulling up to the pay station to rolling out clean is usually under seven. Free vacuums are yours for as long as you like.",
+    a: "The tunnel itself takes about 4 minutes. From pulling up to rolling out clean is usually under 10 minutes.",
   },
   {
     q: "Do you wash trucks, SUVs, and oversized vehicles?",
-    a: "Yes — our 26-foot-wide tunnel comfortably handles full-size trucks, SUVs, and most lifted vehicles. Dual-rear-wheel trucks may incur a small upcharge.",
+    a: "Our wash can safely accommodate 2.5-ton trucks and oversized SUVs, with a maximum height clearance of 7'2\". Squatted vehicles are not permitted. Because of width limitations in our conveyor system, Ford Raptors and dual-rear-wheel trucks cannot be washed, as their wheel width does not fit within the track. Factory trucks with positive offsets between +10 mm and +44 mm fit properly, while aggressive negative offsets—such as –44 mm—push wheels outward and increase the risk of contact with wash equipment. Standard single-rear-wheel trucks must also remain under a maximum tire width of 12.5\". If you are unsure whether your vehicle meets these requirements, please stop by the wash and we can measure it using a marked fixture to confirm feasibility.",
   },
   {
     q: "What if I'm not happy with my wash?",
-    a: "Pull around and we'll re-wash your vehicle, no questions asked. The wizard's word is gold.",
+    a: "If you are not satisfied, please see a manager before you leave and we will address your concerns immediately, including rewashing the vehicle if needed.",
   },
   {
     q: "Are you open on holidays?",
-    a: "We're open 7 days a week. Closed Thanksgiving & Christmas. Closing early at 6 PM on 4th of July, Christmas Eve, and New Year's Eve.",
+    a: "We're open 7 days a week (Summer · 8 AM – 8 PM, Winter · 8 AM – 7 PM). Closed Thanksgiving & Christmas. Closing early at 6 PM on 4th of July, Christmas Eve, and New Year's Eve.",
   },
 ];
 

@@ -27,7 +27,7 @@ const groups: { title: string; items: FAQ[] }[] = [
       },
       {
         q: "Can my whole family use my membership?",
-        a: "Each Unlimited Wash Club membership covers one vehicle. We do offer family membership clubs for additional vehicles at a heavily discounted rate — see the Family Wash Club page on our website.",
+        a: <span>Each Unlimited Wash Club membership covers one vehicle. We do offer family clubs for additional vehicles at a heavily discounted rate — see the Family Club section on our <a href="/packages" className="text-secondary underline hover:text-primary transition-colors">Packages page</a>.</span>,
       },
       {
         q: "Do Unlimited Wash Club memberships work at all locations?",
@@ -47,20 +47,16 @@ const groups: { title: string; items: FAQ[] }[] = [
     title: "At the Wash",
     items: [
       {
-        q: "How long does a wash take?",
+        q: "How long does a single wash take?",
         a: "The tunnel itself takes about 4 minutes. From pulling up to rolling out clean is usually under 10 minutes.",
       },
       {
         q: "What if I'm not happy with my wash?",
-        a: "If you are ever not satisfied, please see a manager before you leave and we will address your concerns immediately, including rewashing the vehicle if needed.",
+        a: "If you are not satisfied, please see a manager before you leave and we will address your concerns immediately, including rewashing the vehicle if needed.",
       },
       {
-        q: "Does the tunnel have any height restrictions?",
-        a: 'Yes it does. Our maximum height is 7\'2".',
-      },
-      {
-        q: "Can you wash dual wheel trucks (dually)?",
-        a: "Unfortunately, our equipment CANNOT handle dual rear wheel vehicles as they are too wide for our tunnel and conveyor equipment.",
+        q: "Do you wash trucks, SUVs, and oversized vehicles?",
+        a: "Our wash can safely accommodate 2.5-ton trucks and oversized SUVs, with a maximum height clearance of 7'2\". Squatted vehicles are not permitted. Because of width limitations in our conveyor system, Ford Raptors and dual-rear-wheel trucks cannot be washed, as their wheel width does not fit within the track. Factory trucks with positive offsets between +10 mm and +44 mm fit properly, while aggressive negative offsets—such as –44 mm—push wheels outward and increase the risk of contact with wash equipment. Standard single-rear-wheel trucks must also remain under a maximum tire width of 12.5\". If you are unsure whether your vehicle meets these requirements, please stop by the wash and we can measure it using a marked fixture to confirm feasibility.",
       },
       {
         q: "Can soft and hard top convertibles go through the wash?",
@@ -72,11 +68,11 @@ const groups: { title: string; items: FAQ[] }[] = [
       },
       {
         q: "Is the wash safe to use with a truck bed cover?",
-        a: "Many customers with truck bed covers use our wash. It is, however, the customer's responsibility to know the condition of the cover and if it is properly installed. If it is not in good condition or properly installed, it may blow in from the force of the blowers. We recommend reviewing our Disclaimer Policy before visiting the car wash.",
+        a: <span>Many customers with truck bed covers use our wash. It is, however, the customer&apos;s responsibility to know the condition of the cover and if it is properly installed. If it is not in good condition or properly installed, it may blow in from the force of the blowers. We recommend reviewing our <a href="/disclaimer" className="text-secondary underline hover:text-primary transition-colors">Disclaimer Policy</a> before visiting the car wash.</span>,
       },
       {
         q: "Is the car wash safe for plastic wind screens and visors?",
-        a: "Many customers with plastic visors and windscreens use our wash. It is the customer's responsibility to know the condition of these accessories and if they are properly installed. These materials and adhesives weaken and become brittle over time. If not in good condition or properly installed, they may blow off or crack from the force of the blowers. Wash Wizard recommends reviewing our Disclaimer Policy before visiting.",
+        a: <span>Many customers with plastic visors and windscreens use our wash. It is the customer&apos;s responsibility to know the condition of these accessories and if they are properly installed. These materials and adhesives weaken and become brittle over time. If not in good condition or properly installed, they may blow off or crack from the force of the blowers. Wash Wizard recommends reviewing our <a href="/disclaimer" className="text-secondary underline hover:text-primary transition-colors">Disclaimer Policy</a> before visiting.</span>,
       },
       {
         q: "What type of wash process do you use?",
@@ -88,7 +84,7 @@ const groups: { title: string; items: FAQ[] }[] = [
       },
       {
         q: "What is your disclaimer & damage policy?",
-        a: "Our process includes light touch from spinning neoprene brushes and high-power blowers producing wind speeds approaching 90 MPH. If you are uncertain about your vehicle's ability to handle our wash, do not enter. Vehicle materials and adhesives weaken over time. We only take responsibility for equipment malfunctions. We are NOT responsible for: wipers, antennas, side mirrors, roof racks, bug shields, sun visors, rain deflectors, loose chrome/moldings, running boards, any accessories or aftermarket parts, vehicles over 5 years old, or loose parts blown off by blowers. DO NOT USE our wash if your vehicle has body damage, peeling paint, loose chrome, or non-factory accessories.",
+        a: <span>Our process includes light touch from spinning neoprene brushes and high-power blowers producing wind speeds approaching 90 MPH. If you are uncertain about your vehicle&apos;s ability to handle our wash, do not enter. Vehicle materials and adhesives weaken over time. We only take responsibility for equipment malfunctions. We are NOT responsible for: wipers, antennas, side mirrors, roof racks, bug shields, sun visors, rain deflectors, loose chrome/moldings, running boards, any accessories or aftermarket parts, vehicles over 5 years old, or loose parts blown off by blowers. DO NOT USE our wash if your vehicle has body damage, peeling paint, loose chrome, or non-factory accessories. See our full <a href="/disclaimer" className="text-secondary underline hover:text-primary transition-colors">Disclaimer & Customer Responsibility Policy</a> for details.</span>,
       },
     ],
   },
@@ -117,8 +113,8 @@ const groups: { title: string; items: FAQ[] }[] = [
     title: "Hours & Locations",
     items: [
       {
-        q: "What are your holiday hours?",
-        a: "Open 7 days a week. Closed Thanksgiving and Christmas. Closing early at 6 PM on July 4th, Christmas Eve, and New Year's Eve.",
+        q: "Are you open on holidays?",
+        a: "We're open 7 days a week (Summer · 8 AM – 8 PM, Winter · 8 AM – 7 PM). Closed Thanksgiving & Christmas. Closing early at 6 PM on 4th of July, Christmas Eve, and New Year's Eve.",
       },
       {
         q: "What are your summer and winter operating hours?",
@@ -171,13 +167,13 @@ export default function FAQPage() {
   const [open, setOpen] = useState<string | null>("Membership-0");
   return (
     <>
-      <div className="pt-20 lg:pt-24" />
+      <div className="pt-24 lg:pt-28" />
       <section className="bg-background py-16 lg:py-20">
         <div className="mx-auto max-w-6xl px-4 lg:px-6">
           <div className="mb-12">
             <h1 className="font-heading font-bold uppercase text-4xl sm:text-5xl lg:text-6xl text-primary leading-[0.95]">
               You ask, the wizard{" "}
-              <span className="text-accent">shall answer.</span>
+              <span className="text-accent">shall answer</span>
             </h1>
           </div>
           {groups.map((group) => (

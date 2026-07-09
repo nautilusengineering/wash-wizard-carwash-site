@@ -55,3 +55,5 @@ export const MANAGE_ACCOUNT_URL =
   "https://www.nautilus-app.com/c/washwizard/portal";
 export const PHONE = "1-843-900-3234";
 export const PHONE_HREF = "tel:+18439003234";
+export const CONTACT_FORM_URL =
+  "https://www.nautilus-app.com/c/form/f4de3710-5942-4147-97ab-0d01a81bad89";

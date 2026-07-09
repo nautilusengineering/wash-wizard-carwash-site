@@ -36,7 +36,7 @@ const steps = [
     step: "01",
     Icon: Ticket,
     title: "Claim Your Free Cards",
-    body: "Stop by our lobby and pick up 5 FREE $30 wash cards to jumpstart your goals.",
+    body: "Complete the Fundraiser Request Form to apply for 5 FREE $30 wash cards to jumpstart your goals.",
   },
   {
     step: "02",
@@ -107,13 +107,13 @@ export default function FundraisingPage() {
   return (
     <>
       {/* Hero — split with wash card mockup */}
-      <section className="bg-background h-screen lg:h-auto lg:min-h-[70vh] pt-20 lg:pt-24 pb-6 lg:pb-8 overflow-hidden flex flex-col justify-center">
+      <section className="bg-background h-screen lg:h-auto lg:min-h-[70vh] pt-24 lg:pt-28 pb-6 lg:pb-8 overflow-hidden flex flex-col justify-center">
         <div className="mx-auto max-w-6xl px-4 lg:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
               <h1 className="font-heading font-bold uppercase text-4xl sm:text-5xl lg:text-6xl text-primary leading-[0.95] mb-6">
-                Sell $30 wash cards.{" "}
-                <span className="text-accent">Keep every dollar.</span>
+                Sell $30 wash cards{" "}
+                <span className="text-accent">Keep every dollar</span>
               </h1>
               <p className="text-lg lg:text-xl text-foreground/80 leading-relaxed mb-8 max-w-xl">
                 Physical wash cards your supporters will actually use.
@@ -166,7 +166,7 @@ export default function FundraisingPage() {
             </p>
             <h2 className="font-heading font-bold uppercase text-3xl sm:text-4xl text-primary">
               Tear here to raise{" "}
-              <span className="text-accent">real money.</span>
+              <span className="text-accent">real money</span>
             </h2>
           </div>
           <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -209,7 +209,7 @@ export default function FundraisingPage() {
               Ready to start?
             </p>
             <h2 className="font-heading font-bold uppercase text-3xl sm:text-4xl text-primary leading-[0.95]">
-              Fundraiser <span className="text-accent">request form.</span>
+              Fundraiser <span className="text-accent">request form</span>
             </h2>
             <p className="mt-4 text-lg lg:text-xl text-muted-foreground max-w-xl mx-auto">
               Fill this out and a Wash Wizard team member will follow up to

@@ -1,11 +1,11 @@
-import { Droplets, Gift, ArrowRight } from "lucide-react";
+import { Droplets, Gift, Cake, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import RewardsNautilusForm from "./nautilus-form";
 
 export const metadata = {
   title: "Wash Rewards | Wash Wizard Car Wash",
   description:
-    "Wash Rewards — earn free washes and free air fresheners just for keeping your ride clean. Free to join for any Wash Wizard customer.",
+    "Wash Rewards — earn free washes, a free birthday wash, and free air fresheners just for keeping your ride clean. Free to join for any Wash Wizard customer.",
 };
 
 const rewards = [
@@ -23,25 +23,32 @@ const rewards = [
     body: "Every $100 you spend at Wash Wizard earns you a complimentary premium air freshener, hand-picked from our vending selection.",
     accent: "#FFB800",
   },
+  {
+    icon: Cake,
+    tag: "Reward 3",
+    title: "Free Wash On Your Birthday",
+    body: "It's your day — let us handle the car. Every enrolled member gets a free wash during their birthday month, on us.",
+    accent: "#EC4899",
+  },
 ];
 
 export default function RewardsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-primary h-screen lg:h-auto lg:min-h-[70vh] pt-20 lg:pt-24 pb-6 lg:pb-8 overflow-hidden flex flex-col justify-center">
+      <section className="relative bg-primary h-screen lg:h-auto lg:min-h-[70vh] pt-24 lg:pt-28 pb-6 lg:pb-8 overflow-hidden flex flex-col justify-center">
         <div className="mx-auto max-w-5xl px-4 lg:px-6 text-center">
           <p className="font-heading uppercase tracking-[0.28em] text-sm text-accent mb-4">
             Wash Rewards
           </p>
           <h1 className="font-heading font-bold uppercase text-4xl sm:text-5xl lg:text-6xl text-white leading-[0.95] mb-5">
             Get rewarded for{" "}
-            <span className="text-accent">every wash.</span>
+            <span className="text-accent">every wash</span>
           </h1>
           <p className="text-lg lg:text-xl text-white/85 max-w-2xl mx-auto text-pretty">
             Not ready for a monthly Unlimited plan? No problem. Wash Rewards is
-            our free loyalty program for retail washers — earn free washes and
-            free air fresheners just for stopping in.
+            our free loyalty program for retail washers — earn free washes, a
+            free birthday wash, and free air fresheners just for stopping in.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Button asChild size="lg">
@@ -57,7 +64,7 @@ export default function RewardsPage() {
       {/* Reward tiers */}
       <section className="bg-background py-16 lg:py-24">
         <div className="mx-auto max-w-5xl px-4 lg:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {rewards.map((r) => {
               const Icon = r.icon;
               return (
@@ -96,7 +103,7 @@ export default function RewardsPage() {
         <div className="mx-auto max-w-3xl px-4 lg:px-6">
           <div className="text-center mb-8 lg:mb-10">
             <h2 className="font-heading font-bold uppercase text-3xl sm:text-4xl text-white leading-[0.95] mb-3">
-              Enroll for <span className="text-accent">free.</span>
+              Enroll for <span className="text-accent">free</span>
             </h2>
             <p className="text-lg lg:text-xl text-white/85 max-w-xl mx-auto">
               One-time signup. We&apos;ll link your rewards to your phone number

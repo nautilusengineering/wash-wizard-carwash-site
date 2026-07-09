@@ -4,13 +4,14 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import IframeDrawer from "./IframeDrawer";
 
 const GOLD = "#FFB800";
 const PURPLE_DARK =
   "linear-gradient(160deg, #1E1832 0%, #2A2050 60%, #1A1428 100%)";
 
-const FAMILY_URL = "https://washwizardcarwash.com/unlimited-club-plan-help/";
+const FAMILY_URL = "https://www.nautilus-app.com/c/washwizard/p/";
 
 interface Deal {
   name: string;
@@ -56,8 +57,8 @@ const deals: Deal[] = [
     price: "$25",
     cadence: "/ month",
     description:
-      "Add family members to your Monthly Unlimited plan for just $25/month. Magic Wash Monthly Unlimited family pricing is just $13/month per added member.",
-    cta: "Get Your Deal Now",
+      "Add family members to your Monthly Unlimited club for just $25/month. Magic Wash Monthly Unlimited family pricing is just $13/month per added member.",
+    cta: "Manage Your Membership Now – Add Vehicles",
     href: FAMILY_URL,
     accent: "#22C55E",
   },
@@ -66,7 +67,7 @@ const deals: Deal[] = [
     price: "$135",
     cadence: "/ year",
     description:
-      "Our lowest unlimited pricing ever. Abracadabra — it’s just like getting three months free, with annual plans starting at $135/year.",
+      "Our lowest unlimited pricing ever. Abracadabra — it’s just like getting three months free, with annual clubs starting at $135/year.",
     cta: "Get Your Deal Now",
     accent: "#F97316",
   },
@@ -94,10 +95,10 @@ function DealCTA({
 }) {
   if (deal.href) {
     return (
-      <Button asChild size={size} className={className}>
-        <Link href={deal.href}>
+      <Button asChild size={size} className={cn("whitespace-normal", className)}>
+        <Link href={deal.href} className="flex-wrap justify-center text-center">
           {deal.cta}
-          <ArrowRight className="size-4" />
+          <ArrowRight className="size-4 shrink-0" />
         </Link>
       </Button>
     );
@@ -108,10 +109,10 @@ function DealCTA({
       type="button"
       size={size}
       onClick={onOpenDrawer}
-      className={className}
+      className={cn("whitespace-normal flex-wrap text-center", className)}
     >
       {deal.cta}
-      <ArrowRight className="size-4" />
+      <ArrowRight className="size-4 shrink-0" />
     </Button>
   );
 }
@@ -131,7 +132,7 @@ export default function Promos() {
           {/* Header */}
           <div className="mb-10 lg:mb-14 max-w-3xl">
             <h2 className="font-heading font-semibold uppercase text-4xl sm:text-5xl text-primary text-balance">
-              Make your ride <span className="text-accent">shine for less.</span>
+              Make your ride <span className="text-accent">shine for less</span>
             </h2>
             <p className="mt-4 text-lg lg:text-xl text-foreground max-w-[58ch] text-pretty">
               Welcome to the enchanted realm of savings. These Wash Wizard deals
@@ -164,7 +165,7 @@ export default function Promos() {
                 <div className="mt-auto flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5">
                   <div className="flex flex-col">
                     <span
-                      className="font-heading font-bold tabular-nums text-5xl sm:text-6xl leading-none"
+                      className="font-heading font-bold tabular-nums text-3xl sm:text-4xl leading-none"
                       style={{ color: GOLD }}
                     >
                       {heroDeal.price}

@@ -61,14 +61,14 @@ const steps: Step[] = [
 
 export default function WelcomePage() {
   return (
-    <section className="bg-background pt-20 lg:pt-24 pb-16 lg:pb-24">
+    <section className="bg-background pt-24 lg:pt-28 pb-16 lg:pb-24">
       <div className="mx-auto max-w-4xl px-4 lg:px-6">
         <div className="text-center mb-10 lg:mb-14">
           <p className="font-heading uppercase tracking-[0.28em] text-xs text-accent mb-3">
             You&apos;re in
           </p>
           <h1 className="font-heading font-bold uppercase text-4xl lg:text-5xl text-primary leading-[0.95]">
-            Welcome To <span className="text-accent">The Club.</span>
+            Welcome To <span className="text-accent">The Club</span>
           </h1>
           <p className="mt-4 text-base sm:text-lg text-muted-foreground max-w-xl mx-auto">
             You&apos;re now part of the Lowcountry&apos;s most magical car-wash
