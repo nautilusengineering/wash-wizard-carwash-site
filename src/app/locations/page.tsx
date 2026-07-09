@@ -11,7 +11,7 @@ export const metadata = {
 export default function LocationsPage() {
   return (
     <>
-      <div className="pt-20 lg:pt-24" />
+      <div className="pt-24 lg:pt-28" />
       <Locations />
       <SubscribeBanner />
     </>

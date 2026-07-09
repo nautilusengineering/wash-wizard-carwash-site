@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import IframeDrawer from "./IframeDrawer";
 
 const GOLD = "#FFB800";
@@ -94,10 +95,10 @@ function DealCTA({
 }) {
   if (deal.href) {
     return (
-      <Button asChild size={size} className={className}>
-        <Link href={deal.href}>
+      <Button asChild size={size} className={cn("whitespace-normal", className)}>
+        <Link href={deal.href} className="flex-wrap justify-center text-center">
           {deal.cta}
-          <ArrowRight className="size-4" />
+          <ArrowRight className="size-4 shrink-0" />
         </Link>
       </Button>
     );
@@ -108,10 +109,10 @@ function DealCTA({
       type="button"
       size={size}
       onClick={onOpenDrawer}
-      className={className}
+      className={cn("whitespace-normal flex-wrap text-center", className)}
     >
       {deal.cta}
-      <ArrowRight className="size-4" />
+      <ArrowRight className="size-4 shrink-0" />
     </Button>
   );
 }

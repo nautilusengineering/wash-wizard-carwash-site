@@ -16,7 +16,7 @@ export default function PageHero({
   centered = false,
 }: PageHeroProps) {
   return (
-    <section className="relative h-[65vh] lg:h-auto lg:min-h-[52vh] pt-20 lg:pt-24 pb-4 lg:pb-6 bg-background overflow-hidden flex flex-col">
+    <section className="relative h-[65vh] lg:h-auto lg:min-h-[52vh] pt-24 lg:pt-28 pb-4 lg:pb-6 bg-background overflow-hidden flex flex-col">
       <div className="mx-auto w-full max-w-7xl px-4 lg:px-6 flex-1 min-h-0 flex flex-col">
         <div className="relative rounded-[2rem] overflow-hidden bg-wizard-night text-white shadow-xl ring-1 ring-white/10 flex-1 min-h-0 flex flex-col">
           <Image

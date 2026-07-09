@@ -47,7 +47,7 @@ export default function ReportIssuePage() {
     <>
       {/* Dark hero */}
       <section
-        className="h-screen lg:h-auto lg:min-h-[70vh] pt-20 lg:pt-24 pb-6 lg:pb-8 overflow-hidden text-white relative flex flex-col justify-center"
+        className="h-screen lg:h-auto lg:min-h-[70vh] pt-24 lg:pt-28 pb-6 lg:pb-8 overflow-hidden text-white relative flex flex-col justify-center"
         style={{ background: PURPLE_DARK }}
       >
         <div
@@ -76,9 +76,9 @@ export default function ReportIssuePage() {
                 Contact Us Form
               </a>
             </Button>
-            <Button asChild size="lg">
-              <a href={PHONE_HREF}>
-                <Phone className="size-4" />
+            <Button asChild size="lg" className="whitespace-normal">
+              <a href={PHONE_HREF} className="flex-wrap">
+                <Phone className="size-4 shrink-0" />
                 Callback Requests
                 <span className="opacity-80">{PHONE}</span>
               </a>

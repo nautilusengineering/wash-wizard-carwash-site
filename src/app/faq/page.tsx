@@ -167,7 +167,7 @@ export default function FAQPage() {
   const [open, setOpen] = useState<string | null>("Membership-0");
   return (
     <>
-      <div className="pt-20 lg:pt-24" />
+      <div className="pt-24 lg:pt-28" />
       <section className="bg-background py-16 lg:py-20">
         <div className="mx-auto max-w-6xl px-4 lg:px-6">
           <div className="mb-12">
