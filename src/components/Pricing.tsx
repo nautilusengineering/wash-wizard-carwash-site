@@ -63,7 +63,7 @@ const tiers: Tier[] = [
   {
     key: "shining",
     name: "Shining Knight",
-    tagline: "Outstanding Shine!",
+    tagline: "Outstanding\nShine!",
     icon: "⚜",
     singlePrice: "$25",
     clubPrice: "$42.99",
@@ -106,7 +106,7 @@ const tiers: Tier[] = [
   {
     key: "magic",
     name: "Magic Wash",
-    tagline: "The Everyday Clean & Dry Spell",
+    tagline: "The Everyday Clean &\nDry Spell",
     icon: "◈",
     singlePrice: "$10",
     clubPrice: "$14.99",
@@ -210,7 +210,7 @@ function SpellCard({
             </h3>
             <p
               className="text-center text-sm mt-1"
-              style={{ color: "rgba(255,255,255,0.85)", fontStyle: "italic" }}
+              style={{ color: "rgba(255,255,255,0.85)", fontStyle: "italic", whiteSpace: "pre-line" }}
             >
               {tier.tagline}
             </p>
@@ -333,19 +333,36 @@ function SpellCard({
             </thead>
             <tbody>
               <tr style={{ borderBottom: `1px solid ${dividerColor}` }}>
-                <td className="py-1.5">2 Veh</td>
+                <td className="py-1.5">2 Vehicles</td>
                 <td className="text-right py-1.5 font-semibold">{tier.family.veh2}</td>
               </tr>
               <tr style={{ borderBottom: `1px solid ${dividerColor}` }}>
-                <td className="py-1.5">3 Veh</td>
+                <td className="py-1.5">3 Vehicles</td>
                 <td className="text-right py-1.5 font-semibold">{tier.family.veh3}</td>
               </tr>
               <tr>
-                <td className="py-1.5">4 Veh</td>
+                <td className="py-1.5">4 Vehicles</td>
                 <td className="text-right py-1.5 font-semibold">{tier.family.veh4}</td>
               </tr>
             </tbody>
           </table>
+
+          <p
+            className="text-center text-xs mb-4"
+            style={{ color: "rgba(255,255,255,0.75)" }}
+          >
+            Add a family member for {tier.family.addOnPrice}/mo — save{" "}
+            {tier.family.addOnSavePct}
+          </p>
+
+          <Button
+            size="lg"
+            onClick={() => onSubscribe(tier)}
+            className="w-full mt-auto text-sm font-heading font-bold uppercase tracking-widest"
+            style={{ background: "#FFB800", borderColor: "#FFB800", color: "#1a1428" }}
+          >
+            Add Family Member
+          </Button>
         </div>
       </div>
     </div>
