@@ -285,7 +285,7 @@ function SpellCard({
               + Best Value
             </div>
           )}
-          <div className="text-center mb-1">
+          <div className="text-center mb-1 flex flex-col items-center justify-start" style={{ minHeight: 150 }}>
             <div style={{ fontSize: 28, lineHeight: 1, color: "#fff", opacity: 0.9 }} aria-hidden="true">
               {tier.icon}
             </div>
@@ -297,7 +297,7 @@ function SpellCard({
             </h3>
             <p
               className="text-sm mt-1"
-              style={{ color: "rgba(255,255,255,0.85)", fontStyle: "italic" }}
+              style={{ color: "rgba(255,255,255,0.85)", fontStyle: "italic", whiteSpace: "pre-line" }}
             >
               {tier.tagline}
             </p>
