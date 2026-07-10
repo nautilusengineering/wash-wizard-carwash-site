@@ -427,7 +427,7 @@ export default function Pricing() {
                 <button
                   type="button"
                   onClick={() => setIsMonthly(true)}
-                  className={`px-5 py-2.5 rounded-full text-sm sm:text-xs font-heading font-semibold uppercase tracking-widest transition-all ${
+                  className={`whitespace-nowrap px-3 py-2 sm:px-5 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-heading font-semibold uppercase tracking-wide sm:tracking-widest transition-all ${
                     isMonthly
                       ? "bg-primary text-white shadow-md"
                       : "text-muted-foreground hover:text-primary"
@@ -441,7 +441,7 @@ export default function Pricing() {
                     setIsMonthly(false);
                     setShowFamily(false);
                   }}
-                  className={`px-5 py-2.5 rounded-full text-sm sm:text-xs font-heading font-semibold uppercase tracking-widest transition-all ${
+                  className={`whitespace-nowrap px-3 py-2 sm:px-5 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-heading font-semibold uppercase tracking-wide sm:tracking-widest transition-all ${
                     !isMonthly
                       ? "bg-primary text-white shadow-md"
                       : "text-muted-foreground hover:text-primary"
