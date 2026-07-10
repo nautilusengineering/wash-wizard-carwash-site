@@ -119,7 +119,7 @@ export default function DisclaimerPage() {
             <p className="text-sm sm:text-base text-foreground/80 leading-relaxed text-center">
               For the full SMS and privacy policy, please refer to our{" "}
               <a
-                href="https://washwizardcarwash.com/wp-content/uploads/2026/03/Wash-Wizard-Car-Wash-Privacy-Policy-With-SMS.pdf"
+                href="/documents/wash-wizard-privacy-policy.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-secondary font-semibold underline hover:text-primary"
