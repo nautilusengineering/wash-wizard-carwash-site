@@ -433,7 +433,7 @@ export default function Pricing() {
                       : "text-muted-foreground hover:text-primary"
                   }`}
                 >
-                  Unlimited Club
+                  Unlimited Washes
                 </button>
                 <button
                   type="button"
@@ -480,7 +480,7 @@ export default function Pricing() {
                   onClick={() => setShowFamily((v) => !v)}
                   className="text-sm font-heading font-bold uppercase tracking-widest"
                 >
-                  {showFamily ? "Back to Single Vehicle Plans" : "See Family Plans"}
+                  {showFamily ? "Back to Single Vehicle Clubs" : "See Family Clubs"}
                 </Button>
               </div>
             )}
