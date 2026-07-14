@@ -32,6 +32,7 @@ const notCovered: Section = {
     "Plastic Visors & Bug Shields: These components become brittle over time, and their adhesives weaken with exposure.",
     "Non-Factory Parts: Aftermarket additions or uniquely shaped components are not covered due to the risk of entanglement with brushes.",
     "Parts Blown Off During Drying: Forced-air drying may dislodge parts with weakened adhesives or aged plastic. This is typically due to pre-existing wear, not the wash process.",
+    "Windshield Cracks: Windshield cracks that show up after a wash almost always trace back to tiny pre-existing chips or hairline fractures. High-pressure water can reveal these weakened spots, but it cannot break a structurally sound windshield. Independent testing consistently shows that professional car wash equipment doesn’t produce enough force to crack automotive glass.",
   ],
 };
 

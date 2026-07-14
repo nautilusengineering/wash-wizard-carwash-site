@@ -7,6 +7,10 @@ export function cn(...inputs: ClassValue[]) {
 
 export const NAUTILUS_ORG_SLUG = "washwizard";
 
+export function getCheckoutLinkUrl(checkoutLinkId: string): string {
+  return `https://www.nautilus-app.com/c/checkout/${checkoutLinkId}`;
+}
+
 export const LOCATION_IDS = {
   northMain: "63afa600-3191-41a1-8224-189b7f13879b",
   ladsonRoad: "9f38c5c4-2c21-4832-97a7-53b97559626e",

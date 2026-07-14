@@ -20,8 +20,15 @@ interface Deal {
   description: string;
   cta: string;
   href?: string;
+  checkoutLinkId?: string;
   accent: string;
 }
+
+const CHECKOUT_LINK_IDS = {
+  twiceMonthly: "fada4edb-ce37-49c6-9738-da532de4c3e6",
+  washBooks: "654e6b03-4a25-43df-be85-7ab36a3be5c0",
+  annual: "3e449952-e0ca-4864-aa18-203246245adc",
+} as const;
 
 const heroDeal: Deal = {
   name: "The Chivalrous Unlimited Wash Club",
@@ -41,6 +48,7 @@ const deals: Deal[] = [
     description:
       "Don't need full unlimited? Join the royal ranks and wash twice a month for only $30/month. Not unlimited — just smart.",
     cta: "Get Your Deal Now",
+    checkoutLinkId: CHECKOUT_LINK_IDS.twiceMonthly,
     accent: "#7A5CFF",
   },
   {
@@ -58,7 +66,7 @@ const deals: Deal[] = [
     cadence: "/ month",
     description:
       "Add family members to your Monthly Unlimited club for just $25/month. Magic Wash Monthly Unlimited family pricing is just $13/month per added member.",
-    cta: "Manage Your Membership Now – Add Vehicles",
+    cta: "Add Family Member",
     href: FAMILY_URL,
     accent: "#22C55E",
   },
@@ -69,6 +77,7 @@ const deals: Deal[] = [
     description:
       "Our lowest unlimited pricing ever. Abracadabra — it’s just like getting three months free, with annual clubs starting at $135/year.",
     cta: "Get Your Deal Now",
+    checkoutLinkId: CHECKOUT_LINK_IDS.annual,
     accent: "#F97316",
   },
   {
@@ -78,6 +87,7 @@ const deals: Deal[] = [
     description:
       "Get rewarded for staying clean. Buy five washes and your sixth wash is on us — Magic Wash bundles start at $50, all the way up to our top-tier King's Graphene pack.",
     cta: "Get Your Deal Now",
+    checkoutLinkId: CHECKOUT_LINK_IDS.washBooks,
     accent: "#EC4899",
   },
 ];
@@ -89,7 +99,7 @@ function DealCTA({
   className,
 }: {
   deal: Deal;
-  onOpenDrawer: () => void;
+  onOpenDrawer: (deal: Deal) => void;
   size?: "default" | "lg";
   className?: string;
 }) {
@@ -108,7 +118,7 @@ function DealCTA({
     <Button
       type="button"
       size={size}
-      onClick={onOpenDrawer}
+      onClick={() => onOpenDrawer(deal)}
       className={cn("whitespace-normal flex-wrap text-center", className)}
     >
       {deal.cta}
@@ -118,9 +128,9 @@ function DealCTA({
 }
 
 export default function Promos() {
-  const [showDrawer, setShowDrawer] = useState(false);
-  const openDrawer = () => setShowDrawer(true);
-  const closeDrawer = () => setShowDrawer(false);
+  const [activeDeal, setActiveDeal] = useState<Deal | null>(null);
+  const openDrawer = (deal: Deal) => setActiveDeal(deal);
+  const closeDrawer = () => setActiveDeal(null);
 
   const wideDeals = deals.slice(0, 2);
   const compactDeals = deals.slice(2, 5);
@@ -255,10 +265,11 @@ export default function Promos() {
         </div>
       </section>
 
-      {showDrawer && (
+      {activeDeal && (
         <IframeDrawer
           onClose={closeDrawer}
-          title="Get Your Wash Wizard Membership"
+          checkoutLinkId={activeDeal.checkoutLinkId}
+          title={activeDeal.name}
         />
       )}
     </>

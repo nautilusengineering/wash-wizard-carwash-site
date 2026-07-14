@@ -1,12 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { NAUTILUS_ORG_SLUG } from '@/lib/utils';
+import { getCheckoutLinkUrl, NAUTILUS_ORG_SLUG } from '@/lib/utils';
 
 const ANIMATION_DURATION = 500;
 
 interface IframeDrawerProps {
   onClose: () => void;
+  checkoutLinkId?: string;
   productId?: string;
   locationId?: string;
   title?: string;
@@ -14,6 +15,7 @@ interface IframeDrawerProps {
 
 export default function IframeDrawer({
   onClose,
+  checkoutLinkId,
   productId,
   locationId,
   title = 'Checkout',
@@ -26,9 +28,13 @@ export default function IframeDrawer({
   );
 
   const locId = locationId;
-  const embedUrl = `https://www.nautilus-app.com/c/storefront/${NAUTILUS_ORG_SLUG}${locId ? `?locationId=${locId}` : '?'}${
+  const storefrontUrl = `https://www.nautilus-app.com/c/storefront/${NAUTILUS_ORG_SLUG}${locId ? `?locationId=${locId}` : '?'}${
     productId ? `&productId=${productId}` : ''
-  }&embedded=true`;
+  }`;
+  const checkoutUrl = checkoutLinkId
+    ? getCheckoutLinkUrl(checkoutLinkId)
+    : storefrontUrl;
+  const embedUrl = `${checkoutUrl}${checkoutUrl.includes('?') ? '&' : '?'}embedded=true`;
 
   const handleClose = () => {
     setIsClosing(true);
