@@ -48,6 +48,36 @@ export function getSalesItemId(
   return SALES_ITEM_IDS[locationId]?.[tier]?.[variant];
 }
 
+// Deals-page products that live outside the 4-tier club/single grid. `annualMagic`
+// and `bookMagic` are the entry-price tiers the deal cards advertise ($135/yr, $50);
+// the storefront's "Other Packages" link lets a customer step up from there.
+export type DealItemKey = "twiceMonth" | "annualMagic" | "bookMagic";
+
+export const DEAL_ITEM_IDS: Record<string, Record<DealItemKey, string>> = {
+  [LOCATION_IDS.northMain]: {
+    twiceMonth:  "c43e36c6-8812-4d6b-abe8-344868c6d883",
+    annualMagic: "8e3d8ed4-8425-459e-b43e-6bdf000adf11",
+    bookMagic:   "e4053b2b-81eb-4072-9440-52c8d66cd38a",
+  },
+  [LOCATION_IDS.ladsonRoad]: {
+    twiceMonth:  "74b9add0-ff26-4317-bb66-e043df62b15b",
+    annualMagic: "1fbf8338-4f7a-4770-9ddb-e4693be0277e",
+    bookMagic:   "3ee98525-9f18-4e50-bd3f-ac3acce2eeb2",
+  },
+  [LOCATION_IDS.baconsBridge]: {
+    twiceMonth:  "6e735b15-9b90-4f02-a2de-98d97f05bfc8",
+    annualMagic: "f07d4030-c0ee-4d07-b923-7d4077ff7d31",
+    bookMagic:   "6475a755-bb26-474c-844b-bbb948d9c99a",
+  },
+};
+
+export function getDealItemId(
+  locationId: string,
+  key: DealItemKey,
+): string | undefined {
+  return DEAL_ITEM_IDS[locationId]?.[key];
+}
+
 // Join (new member) → internal wash package selection (drawer-based Nautilus checkout)
 export const JOIN_URL = "/packages";
 // Manage existing membership → Nautilus customer portal

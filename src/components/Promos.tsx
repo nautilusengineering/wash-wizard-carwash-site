@@ -4,8 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { cn, getDealItemId, getSalesItemId } from "@/lib/utils";
 import IframeDrawer from "./IframeDrawer";
+import LocationPickerModal from "./LocationPickerModal";
 
 const GOLD = "#FFB800";
 const PURPLE_DARK =
@@ -21,6 +22,9 @@ interface Deal {
   cta: string;
   href?: string;
   accent: string;
+  /** Deep-links the checkout drawer straight to this product. Omit to open the
+   *  storefront's package tabs instead (the hero's 3-month trial spans all 4 clubs). */
+  resolveProductId?: (locationId: string) => string | undefined;
 }
 
 const heroDeal: Deal = {
@@ -42,6 +46,7 @@ const deals: Deal[] = [
       "Don't need full unlimited? Join the royal ranks and wash twice a month for only $30/month. Not unlimited — just smart.",
     cta: "Get Your Deal Now",
     accent: "#7A5CFF",
+    resolveProductId: (loc) => getDealItemId(loc, "twiceMonth"),
   },
   {
     name: "The New Magic Wash À La Carte Unlimited",
@@ -51,6 +56,7 @@ const deals: Deal[] = [
       "Enjoy unlimited Magic Washes at a super low price, with the freedom to add optional services whenever you need them.",
     cta: "Get Your Deal Now",
     accent: "#00AEEF",
+    resolveProductId: (loc) => getSalesItemId(loc, "magic", "club"),
   },
   {
     name: "Monthly Unlimited Added Family Members",
@@ -58,7 +64,7 @@ const deals: Deal[] = [
     cadence: "/ month",
     description:
       "Add family members to your Monthly Unlimited club for just $25/month. Magic Wash Monthly Unlimited family pricing is just $13/month per added member.",
-    cta: "Manage Your Membership Now – Add Vehicles",
+    cta: "Add Family Member",
     href: FAMILY_URL,
     accent: "#22C55E",
   },
@@ -70,6 +76,7 @@ const deals: Deal[] = [
       "Our lowest unlimited pricing ever. Abracadabra — it’s just like getting three months free, with annual clubs starting at $135/year.",
     cta: "Get Your Deal Now",
     accent: "#F97316",
+    resolveProductId: (loc) => getDealItemId(loc, "annualMagic"),
   },
   {
     name: "Buy 5 Washes, Get 1 Free",
@@ -79,6 +86,7 @@ const deals: Deal[] = [
       "Get rewarded for staying clean. Buy five washes and your sixth wash is on us — Magic Wash bundles start at $50, all the way up to our top-tier King's Graphene pack.",
     cta: "Get Your Deal Now",
     accent: "#EC4899",
+    resolveProductId: (loc) => getDealItemId(loc, "bookMagic"),
   },
 ];
 
@@ -89,7 +97,7 @@ function DealCTA({
   className,
 }: {
   deal: Deal;
-  onOpenDrawer: () => void;
+  onOpenDrawer: (deal: Deal) => void;
   size?: "default" | "lg";
   className?: string;
 }) {
@@ -108,7 +116,7 @@ function DealCTA({
     <Button
       type="button"
       size={size}
-      onClick={onOpenDrawer}
+      onClick={() => onOpenDrawer(deal)}
       className={cn("whitespace-normal flex-wrap text-center", className)}
     >
       {deal.cta}
@@ -118,9 +126,26 @@ function DealCTA({
 }
 
 export default function Promos() {
+  const [pendingDeal, setPendingDeal] = useState<Deal | null>(null);
+  const [drawerProductId, setDrawerProductId] = useState<string | undefined>();
+  const [drawerLocationId, setDrawerLocationId] = useState<string | undefined>();
   const [showDrawer, setShowDrawer] = useState(false);
-  const openDrawer = () => setShowDrawer(true);
-  const closeDrawer = () => setShowDrawer(false);
+
+  const openDrawer = (deal: Deal) => setPendingDeal(deal);
+
+  const handleLocationSelected = (locationId: string) => {
+    if (!pendingDeal) return;
+    setDrawerLocationId(locationId);
+    setDrawerProductId(pendingDeal.resolveProductId?.(locationId));
+    setPendingDeal(null);
+    setShowDrawer(true);
+  };
+
+  const closeDrawer = () => {
+    setShowDrawer(false);
+    setDrawerProductId(undefined);
+    setDrawerLocationId(undefined);
+  };
 
   const wideDeals = deals.slice(0, 2);
   const compactDeals = deals.slice(2, 5);
@@ -255,10 +280,21 @@ export default function Promos() {
         </div>
       </section>
 
+      {pendingDeal && (
+        <LocationPickerModal
+          onClose={() => setPendingDeal(null)}
+          onSelect={handleLocationSelected}
+          title={`${pendingDeal.name} — pick a location`}
+          subtitle="Choose which Wash Wizard should open your wash."
+        />
+      )}
+
       {showDrawer && (
         <IframeDrawer
           onClose={closeDrawer}
-          title="Get Your Wash Wizard Membership"
+          productId={drawerProductId}
+          locationId={drawerLocationId}
+          title="Get Your Wash Wizard Deal"
         />
       )}
     </>
