@@ -1,12 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Phone, MapPin, Wand } from "lucide-react";
-import { JOIN_URL, MANAGE_ACCOUNT_URL, PHONE, PHONE_HREF } from "@/lib/utils";
+import PackageLink from "@/components/PackageLink";
+import { BUY_ONLINE_URL, MANAGE_ACCOUNT_URL, PHONE, PHONE_HREF } from "@/lib/utils";
 
-const shopLinks = [
+const shopLinks: { label: string; href: string; external?: boolean }[] = [
   { label: "Wash Packages", href: "/packages" },
+  { label: "Buy Online", href: BUY_ONLINE_URL, external: true },
   { label: "Deals", href: "/washwizard-deals" },
-  { label: "Join the Club", href: JOIN_URL },
+  { label: "Join the Club", href: "/packages" },
   { label: "Manage Membership", href: MANAGE_ACCOUNT_URL },
 ];
 
@@ -57,16 +59,30 @@ export default function Footer() {
               Shop
             </h4>
             <ul className="space-y-2.5">
-              {shopLinks.map((l) => (
-                <li key={l.label}>
-                  <Link
-                    href={l.href}
-                    className="text-base sm:text-sm text-white/70 hover:text-white transition-colors"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
+              {shopLinks.map((l) => {
+                const linkClass =
+                  "text-base sm:text-sm text-white/70 hover:text-white transition-colors";
+                return (
+                  <li key={l.label}>
+                    {l.external ? (
+                      <a
+                        href={l.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={linkClass}
+                      >
+                        {l.label}
+                      </a>
+                    ) : l.href === "/packages" ? (
+                      <PackageLink className={linkClass}>{l.label}</PackageLink>
+                    ) : (
+                      <Link href={l.href} className={linkClass}>
+                        {l.label}
+                      </Link>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -158,6 +174,14 @@ export default function Footer() {
             <Link href="/disclaimer" className="hover:text-accent transition-colors">
               Disclaimer
             </Link>
+            <a
+              href="/documents/wash-wizard-privacy-policy.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent transition-colors"
+            >
+              Privacy Policy
+            </a>
           </div>
         </div>
       </div>
