@@ -5,17 +5,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import PackageLink from "@/components/PackageLink";
 import {
   cn,
-  JOIN_URL,
+  BUY_ONLINE_URL,
   MANAGE_ACCOUNT_URL,
   PHONE,
   PHONE_HREF,
 } from "@/lib/utils";
 
-type NavItem =
-  | { label: string; href: string }
-  | { label: string; children: { label: string; href: string }[] };
+type NavLeaf = { label: string; href: string };
+type NavItem = NavLeaf | { label: string; children: NavLeaf[] };
 
 const navItems: NavItem[] = [
   { label: "Locations", href: "/locations" },
@@ -122,6 +122,13 @@ export default function Header() {
                     </div>
                   </div>
                 </div>
+              ) : item.href === "/packages" ? (
+                <PackageLink
+                  key={item.label}
+                  className="text-base font-heading font-bold uppercase tracking-wider text-white hover:text-accent"
+                >
+                  {item.label}
+                </PackageLink>
               ) : (
                 <Link
                   key={item.label}
@@ -137,7 +144,9 @@ export default function Header() {
           {/* Desktop CTAs */}
           <div className="hidden xl:flex items-center gap-2">
             <Button asChild size="default" className="px-4 2xl:px-6">
-              <Link href={JOIN_URL}>Join the Club</Link>
+              <a href={BUY_ONLINE_URL} target="_blank" rel="noopener noreferrer">
+                Buy Online
+              </a>
             </Button>
             <a
               href={MANAGE_ACCOUNT_URL}
@@ -216,6 +225,14 @@ export default function Header() {
                   </div>
                 </div>
               </div>
+            ) : item.href === "/packages" ? (
+              <PackageLink
+                key={item.label}
+                onClick={closeMobile}
+                className="text-lg font-heading font-semibold uppercase tracking-wider text-white/90 hover:text-accent py-2"
+              >
+                {item.label}
+              </PackageLink>
             ) : (
               <Link
                 key={item.label}
@@ -236,9 +253,14 @@ export default function Header() {
           </a>
           <div className="flex flex-col gap-3 mt-4">
             <Button asChild className="w-full">
-              <Link href={JOIN_URL} onClick={closeMobile}>
-                Join the Club
-              </Link>
+              <a
+                href={BUY_ONLINE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeMobile}
+              >
+                Buy Online
+              </a>
             </Button>
             <a
               href={MANAGE_ACCOUNT_URL}

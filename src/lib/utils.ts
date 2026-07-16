@@ -80,6 +80,9 @@ export function getDealItemId(
 
 // Join (new member) → internal wash package selection (drawer-based Nautilus checkout)
 export const JOIN_URL = "/packages";
+// Buy Online → full Nautilus storefront catalog (memberships, single washes, gift cards)
+export const BUY_ONLINE_URL =
+  "https://www.nautilus-app.com/c/storefront/washwizard";
 // Manage existing membership → Nautilus customer portal
 export const MANAGE_ACCOUNT_URL =
   "https://www.nautilus-app.com/c/washwizard/portal";

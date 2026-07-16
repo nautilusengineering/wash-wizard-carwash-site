@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import PackageLink from "@/components/PackageLink";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { MapPin } from "lucide-react";
@@ -626,7 +626,7 @@ export default function Hero() {
                 </a>
               </Button>
               <Button asChild size="lg" className="w-full sm:w-auto">
-                <Link href="/packages">See Wash Packages</Link>
+                <PackageLink>See Wash Packages</PackageLink>
               </Button>
             </div>
           </div>

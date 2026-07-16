@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import PackageLink from "@/components/PackageLink";
 import { Wand } from "lucide-react";
-import { JOIN_URL, MANAGE_ACCOUNT_URL } from "@/lib/utils";
+import { MANAGE_ACCOUNT_URL } from "@/lib/utils";
 
 export default function SubscribeBanner() {
   return (
@@ -52,7 +52,7 @@ export default function SubscribeBanner() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Button asChild size="lg" className="w-full sm:w-auto text-base">
-                <Link href={JOIN_URL}>See Wash Packages</Link>
+                <PackageLink>See Wash Packages</PackageLink>
               </Button>
               <a
                 href={MANAGE_ACCOUNT_URL}
