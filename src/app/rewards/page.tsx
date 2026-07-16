@@ -15,6 +15,7 @@ const rewards = [
     title: "Every 5th Wash Is Free",
     body: "Wash with us five times and your sixth wash is on the house — no membership required. Reset the counter and start earning again.",
     accent: "#41a1d3",
+    comingSoon: false,
   },
   {
     icon: Gift,
@@ -22,6 +23,7 @@ const rewards = [
     title: "$100 Spent = Free Air Freshener",
     body: "Every $100 you spend at Wash Wizard earns you a complimentary premium air freshener, hand-picked from our vending selection.",
     accent: "#FFB800",
+    comingSoon: true,
   },
   {
     icon: Cake,
@@ -29,6 +31,7 @@ const rewards = [
     title: "Free Wash On Your Birthday",
     body: "It's your day — let us handle the car. Every enrolled member gets a free wash during their birthday month, on us.",
     accent: "#EC4899",
+    comingSoon: true,
   },
 ];
 
@@ -74,11 +77,16 @@ export default function RewardsPage() {
                 >
                   <div
                     className="absolute inset-x-0 top-0 h-1"
-                    style={{ background: r.accent }}
+                    style={{ background: r.accent, opacity: r.comingSoon ? 0.5 : 1 }}
                   />
+                  {r.comingSoon && (
+                    <span className="absolute top-4 right-4 z-10 rounded-full bg-primary px-3 py-1 text-[10px] font-heading font-bold uppercase tracking-widest text-white shadow-sm">
+                      Coming Soon
+                    </span>
+                  )}
                   <div
                     className="w-14 h-14 rounded-xl grid place-items-center mb-5 shadow-sm"
-                    style={{ background: r.accent }}
+                    style={{ background: r.accent, opacity: r.comingSoon ? 0.55 : 1 }}
                   >
                     <Icon className="w-7 h-7 text-white" />
                   </div>
