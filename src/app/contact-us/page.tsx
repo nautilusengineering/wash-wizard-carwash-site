@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Phone, MapPin, MessageSquare, ArrowRight, PenLine } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { PHONE, PHONE_HREF, CONTACT_FORM_URL } from "@/lib/utils";
+import { PHONE, PHONE_HREF } from "@/lib/utils";
+import ContactNautilusForm from "./nautilus-form";
 
 export const metadata = {
   title: "Contact Us",
@@ -64,7 +65,7 @@ export default function ContactUsPage() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Button asChild size="lg">
-              <a href={CONTACT_FORM_URL}>
+              <a href="#contact-form">
                 <PenLine className="size-4" />
                 Contact Us Form
               </a>
@@ -82,6 +83,30 @@ export default function ContactUsPage() {
                 <ArrowRight className="size-4" />
               </Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact form */}
+      <section
+        id="contact-form"
+        className="bg-primary/5 py-16 lg:py-24 scroll-mt-24"
+      >
+        <div className="mx-auto max-w-3xl px-4 lg:px-6">
+          <div className="text-center mb-8 lg:mb-10">
+            <p className="font-heading uppercase tracking-[0.28em] text-xs text-accent mb-2">
+              Contact Us
+            </p>
+            <h2 className="font-heading font-bold uppercase text-3xl sm:text-4xl text-primary leading-[0.95] mb-3">
+              Send the wizard <span className="text-accent">a message.</span>
+            </h2>
+            <p className="text-lg lg:text-xl text-foreground/80 max-w-xl mx-auto">
+              Share your contact info, visit details, vehicle description, and
+              any photos that help our team look into it.
+            </p>
+          </div>
+          <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-sm overflow-hidden">
+            <ContactNautilusForm />
           </div>
         </div>
       </section>
