@@ -21,7 +21,6 @@ const navItems: NavItem[] = [
   { label: "Locations", href: "/locations" },
   { label: "Packages", href: "/packages" },
   { label: "Deals", href: "/washwizard-deals" },
-  { label: "Rewards", href: "/rewards" },
   {
     label: "About",
     children: [
