@@ -158,6 +158,14 @@ export default function Footer() {
             <Link href="/disclaimer" className="hover:text-accent transition-colors">
               Disclaimer
             </Link>
+            <a
+              href="/documents/wash-wizard-privacy-policy.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent transition-colors"
+            >
+              Privacy Policy
+            </a>
           </div>
         </div>
       </div>
