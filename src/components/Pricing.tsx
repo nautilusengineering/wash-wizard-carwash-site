@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Crown } from "lucide-react";
+import { Crown, TreePine, Star } from "lucide-react";
 import IframeDrawer from "./IframeDrawer";
 import LocationPickerModal from "./LocationPickerModal";
 import { Button } from "@/components/ui/button";
@@ -50,7 +50,7 @@ const tiers: Tier[] = [
       "Buffing and Extra Drying",
       "Our Best Light Show!",
       "Light Hand Prep Process",
-      "Free Air Freshener",
+      "Free Monthly Air Freshener",
       "9th Month Free",
     ],
     isBest: true,
@@ -74,7 +74,7 @@ const tiers: Tier[] = [
       "Magic Potion Foam",
       "Ceramic Shine Coating",
       "Light Hand Prep Process",
-      "Free Air Freshener",
+      "Free Monthly Air Freshener",
     ],
     family: {
       veh2: "$67.99",
@@ -241,19 +241,35 @@ function SpellCard({
           <ul className="flex-1 mb-7 space-y-3 sm:space-y-2.5" role="list">
             {tier.features.map((f) => {
               const isInheritLine = f.startsWith("Everything");
+              const isAirFreshener = f.includes("Air Freshener");
+              const isMonthFree = f.includes("Month Free");
               return (
                 <li
                   key={f}
                   className={`flex items-center gap-2.5 leading-snug ${isInheritLine ? "font-sans uppercase tracking-wide text-sm font-bold" : "text-base sm:text-[15px]"}`}
                   style={{ color: textColor }}
                 >
-                  <span
-                    className="text-xs sm:text-[11px]"
-                    style={{ color: bulletColor, flexShrink: 0 }}
-                    aria-hidden="true"
-                  >
-                    •
-                  </span>
+                  {isAirFreshener ? (
+                    <TreePine
+                      className="size-4 shrink-0"
+                      style={{ color: bulletColor }}
+                      aria-hidden="true"
+                    />
+                  ) : isMonthFree ? (
+                    <Star
+                      className="size-4 shrink-0"
+                      style={{ color: bulletColor, fill: bulletColor }}
+                      aria-hidden="true"
+                    />
+                  ) : (
+                    <span
+                      className="text-xs sm:text-[11px]"
+                      style={{ color: bulletColor, flexShrink: 0 }}
+                      aria-hidden="true"
+                    >
+                      •
+                    </span>
+                  )}
                   {f}
                 </li>
               );
