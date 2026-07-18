@@ -144,7 +144,7 @@ export default function Header() {
               rel="noopener noreferrer"
             >
               <Button variant="outline" size="default" className="px-4 2xl:px-6 text-sm">
-                Manage My Membership
+                Manage My Account
               </Button>
             </a>
           </div>
@@ -246,7 +246,7 @@ export default function Header() {
               onClick={closeMobile}
             >
               <Button variant="outline" className="w-full">
-                Manage My Membership
+                Manage My Account
               </Button>
             </a>
           </div>

@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { MapPin } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type RefObject } from "react";
 
 const driveAllAddr = encodeURIComponent(
   "Wash Wizard Car Wash, Summerville, SC",
@@ -280,7 +280,13 @@ function SparkleCanvas() {
 }
 
 /* ─── Magic zap canvas ─────────────────────────────────── */
-function ZapCanvas({ active }: { active: boolean }) {
+function ZapCanvas({
+  active,
+  wizardRef,
+}: {
+  active: boolean;
+  wizardRef: RefObject<HTMLDivElement | null>;
+}) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -292,9 +298,20 @@ function ZapCanvas({ active }: { active: boolean }) {
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
 
-    // Adjusted to match wand tip position (higher up on the wizard)
-    const startX = canvas.width * 0.2;
-    const startY = canvas.height * 0.7;
+    // Origin = the wizard's wand tip. The mascot art is mirrored
+    // (scaleX(-1)), so the wand — near the source image's lower-left at
+    // ~(0.10, 0.40) — renders at ~(0.90, 0.40) of the wizard's box.
+    const WAND_TIP_X = 0.9;
+    const WAND_TIP_Y = 0.4;
+    let startX = canvas.width * 0.29;
+    let startY = canvas.height * 0.68;
+    const wizardEl = wizardRef.current;
+    if (wizardEl) {
+      const wr = wizardEl.getBoundingClientRect();
+      const cr = canvas.getBoundingClientRect();
+      startX = wr.left - cr.left + wr.width * WAND_TIP_X;
+      startY = wr.top - cr.top + wr.height * WAND_TIP_Y;
+    }
     const endX = canvas.width * 0.5;
     const endY = canvas.height * 0.5;
 
@@ -405,6 +422,7 @@ function ZapCanvas({ active }: { active: boolean }) {
 /* ─── Hero ──────────────────────────────────────────────── */
 export default function Hero() {
   const [phase, setPhase] = useState<Phase>("wizard-in");
+  const wizardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const timers = [
@@ -538,7 +556,7 @@ export default function Hero() {
           />
 
           {/* Zap lightning */}
-          <ZapCanvas active={phase === "zap"} />
+          <ZapCanvas active={phase === "zap"} wizardRef={wizardRef} />
 
           {/* Bubble canvas */}
           <BubbleCanvas />
@@ -546,6 +564,7 @@ export default function Hero() {
           {/* Wizard mascot */}
           {wizardVisible && (
             <div
+              ref={wizardRef}
               className="absolute bottom-0 left-2 sm:left-8 lg:left-12 pointer-events-none"
               style={{
                 zIndex: 30,

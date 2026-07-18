@@ -61,7 +61,7 @@ export default function SubscribeBanner() {
                 className="w-full sm:w-auto"
               >
                 <Button variant="outline" size="lg" className="w-full sm:w-auto text-base">
-                  Manage Membership
+                  Manage Account
                 </Button>
               </a>
             </div>

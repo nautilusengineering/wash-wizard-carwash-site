@@ -170,7 +170,7 @@ export default function ContactUsPage() {
           </h2>
           <p className="text-lg text-foreground/80 max-w-xl mx-auto mb-6">
             For membership changes, cancellations, or account questions, visit
-            our Manage My Membership portal — no calls, no hold music.
+            our Manage My Account portal — no calls, no hold music.
           </p>
           <Button asChild size="lg">
             <Link href="/faq">

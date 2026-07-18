@@ -211,8 +211,8 @@ export default function Amenities() {
 
         {/* Free vacuums callout */}
         <div className="mt-8 flex justify-center">
-          <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-accent/20 bg-white/70 backdrop-blur-sm text-primary font-heading font-bold uppercase tracking-widest text-sm sm:text-xs">
-            <Wand className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-accent" />
+          <div className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full border border-accent/20 bg-white/70 backdrop-blur-sm text-primary font-heading font-extrabold uppercase tracking-widest text-base sm:text-lg">
+            <Wand className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
             Vacuums Included With The Wash Package
           </div>
         </div>

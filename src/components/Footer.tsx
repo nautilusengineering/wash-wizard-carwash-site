@@ -7,7 +7,7 @@ const shopLinks = [
   { label: "Wash Packages", href: "/packages" },
   { label: "Deals", href: "/washwizard-deals" },
   { label: "Join the Club", href: JOIN_URL },
-  { label: "Manage Membership", href: MANAGE_ACCOUNT_URL },
+  { label: "Manage Account", href: MANAGE_ACCOUNT_URL },
 ];
 
 const aboutLinks = [

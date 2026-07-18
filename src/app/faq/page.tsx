@@ -15,15 +15,15 @@ const groups: { title: string; items: FAQ[] }[] = [
     items: [
       {
         q: "How do I cancel my Unlimited Wash Club membership?",
-        a: "You may cancel any time from our online Manage Membership portal. No calls, no hold music. Memberships stay active through the end of the billing cycle.",
+        a: "You may cancel any time from our online Manage Account portal. No calls, no hold music. Memberships stay active through the end of the billing cycle.",
       },
       {
         q: "How do I make changes to my Unlimited Wash Club membership account?",
-        a: "You have several options: (1) Use our online Manage Membership portal with the phone number or email address associated with your account. (2) Utilize our Unlimited Wash Club Membership Assistance Form and we can look up your account and make changes on your behalf. (3) Call us at 843-900-3234 to leave a voice message — please include your contact details and license plate number. (4) Come into our office on site with your license plate number.",
+        a: "You have several options: (1) Use our online Manage Account portal with the phone number or email address associated with your account. (2) Utilize our Unlimited Wash Club Membership Assistance Form and we can look up your account and make changes on your behalf. (3) Call us at 843-900-3234 to leave a voice message — please include your contact details and license plate number. (4) Come into our office on site with your license plate number.",
       },
       {
         q: "How can I change the license plate on my Unlimited Wash Club account?",
-        a: "You can change your license plate number via our online Manage Membership portal once per year at no cost. Additional changes are $10 each. You may also use our Unlimited Wash Club Membership Assistance Form, call us at 843-900-3234, or come into our office on site with your license plate number.",
+        a: "You can change your license plate number via our online Manage Account portal once per year at no cost. Additional changes are $10 each. You may also use our Unlimited Wash Club Membership Assistance Form, call us at 843-900-3234, or come into our office on site with your license plate number.",
       },
       {
         q: "Can my whole family use my membership?",
@@ -39,7 +39,7 @@ const groups: { title: string; items: FAQ[] }[] = [
       },
       {
         q: "Can I pause my membership?",
-        a: "Yes — log in to your account online via our Manage Membership portal and select Pause. We won't charge you while paused and you can resume any time.",
+        a: "Yes — log in to your account online via our Manage Account portal and select Pause. We won't charge you while paused and you can resume any time.",
       },
     ],
   },

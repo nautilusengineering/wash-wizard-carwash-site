@@ -118,7 +118,7 @@ export default function WelcomePage() {
         <div className="mt-12 flex flex-col sm:flex-row gap-3 justify-center">
           <a href={MANAGE_ACCOUNT_URL} target="_blank" rel="noopener noreferrer">
             <Button size="lg" variant="default">
-              Manage My Membership
+              Manage My Account
             </Button>
           </a>
           <Button asChild size="lg" variant="outline">

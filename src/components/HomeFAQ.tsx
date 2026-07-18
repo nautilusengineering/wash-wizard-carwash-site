@@ -13,7 +13,7 @@ interface FAQ {
 const faqs: FAQ[] = [
   {
     q: "How do I cancel my Unlimited Wash Club membership?",
-    a: "You can cancel any time from your Manage My Membership portal — no calls, no hold music. Memberships stay active through the end of the billing cycle.",
+    a: "You can cancel any time from your Manage My Account portal — no calls, no hold music. Memberships stay active through the end of the billing cycle.",
   },
   {
     q: "Can my whole family use my membership?",
