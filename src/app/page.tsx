@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Pricing from "@/components/Pricing";
 import Amenities from "@/components/Amenities";
 import Promos from "@/components/Promos";
+import GiftCards from "@/components/GiftCards";
 import Locations from "@/components/Locations";
 import HomeFAQ from "@/components/HomeFAQ";
 import SubscribeBanner from "@/components/SubscribeBanner";
@@ -21,6 +22,7 @@ export default function Home() {
       <Pricing />
       <Amenities />
       <Promos />
+      <GiftCards />
       <Locations />
       <HomeFAQ />
       <SubscribeBanner />

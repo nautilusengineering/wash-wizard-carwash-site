@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Phone, MapPin, Wand } from "lucide-react";
-import { JOIN_URL, MANAGE_ACCOUNT_URL, PHONE, PHONE_HREF } from "@/lib/utils";
+import { STOREFRONT_URL, MANAGE_ACCOUNT_URL, PHONE, PHONE_HREF } from "@/lib/utils";
 
 const shopLinks = [
   { label: "Wash Packages", href: "/packages" },
   { label: "Deals", href: "/washwizard-deals" },
-  { label: "Join the Club", href: JOIN_URL },
+  { label: "Join the Club", href: STOREFRONT_URL },
   { label: "Manage Account", href: MANAGE_ACCOUNT_URL },
 ];
 

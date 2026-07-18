@@ -7,7 +7,7 @@ import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   cn,
-  JOIN_URL,
+  STOREFRONT_URL,
   MANAGE_ACCOUNT_URL,
   PHONE,
   PHONE_HREF,
@@ -21,6 +21,7 @@ const navItems: NavItem[] = [
   { label: "Locations", href: "/locations" },
   { label: "Packages", href: "/packages" },
   { label: "Deals", href: "/washwizard-deals" },
+  { label: "Rewards", href: "/rewards" },
   {
     label: "About",
     children: [
@@ -136,7 +137,9 @@ export default function Header() {
           {/* Desktop CTAs */}
           <div className="hidden xl:flex items-center gap-2">
             <Button asChild size="default" className="px-4 2xl:px-6">
-              <Link href={JOIN_URL}>Join the Club</Link>
+              <a href={STOREFRONT_URL} target="_blank" rel="noopener noreferrer">
+                Join the Club
+              </a>
             </Button>
             <a
               href={MANAGE_ACCOUNT_URL}
@@ -235,9 +238,14 @@ export default function Header() {
           </a>
           <div className="flex flex-col gap-3 mt-4">
             <Button asChild className="w-full">
-              <Link href={JOIN_URL} onClick={closeMobile}>
+              <a
+                href={STOREFRONT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeMobile}
+              >
                 Join the Club
-              </Link>
+              </a>
             </Button>
             <a
               href={MANAGE_ACCOUNT_URL}

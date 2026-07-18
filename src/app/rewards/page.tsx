@@ -1,11 +1,11 @@
-import { Droplets, Gift, Cake, ArrowRight } from "lucide-react";
+import { Droplets, Gift, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import RewardsNautilusForm from "./nautilus-form";
 
 export const metadata = {
   title: "Wash Rewards | Wash Wizard Car Wash",
   description:
-    "Wash Rewards — earn free washes, a free birthday wash, and free air fresheners just for keeping your ride clean. Free to join for any Wash Wizard customer.",
+    "Wash Rewards — earn free washes and free air fresheners just for keeping your ride clean. Free to join for any Wash Wizard customer.",
 };
 
 const rewards = [
@@ -22,13 +22,6 @@ const rewards = [
     title: "$100 Spent = Free Air Freshener",
     body: "Every $100 you spend at Wash Wizard earns you a complimentary premium air freshener, hand-picked from our vending selection.",
     accent: "#FFB800",
-  },
-  {
-    icon: Cake,
-    tag: "Reward 3",
-    title: "Free Wash On Your Birthday",
-    body: "It's your day — let us handle the car. Every enrolled member gets a free wash during their birthday month, on us.",
-    accent: "#EC4899",
   },
 ];
 
@@ -47,8 +40,8 @@ export default function RewardsPage() {
           </h1>
           <p className="text-lg lg:text-xl text-white/85 max-w-2xl mx-auto text-pretty">
             Not ready for a monthly Unlimited plan? No problem. Wash Rewards is
-            our free loyalty program for retail washers — earn free washes, a
-            free birthday wash, and free air fresheners just for stopping in.
+            our free loyalty program for retail washers — earn free washes and
+            free air fresheners just for stopping in.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Button asChild size="lg">

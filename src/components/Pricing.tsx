@@ -145,6 +145,14 @@ function SpellCard({
   const price = isMonthly ? tier.clubPrice : tier.singlePrice;
   const priceLabel = isMonthly ? "/ month" : "single wash";
 
+  // Single washes don't include the membership-only perks (monthly air
+  // freshener, 9th-month-free billing) — show those on the Unlimited Club only.
+  const displayedFeatures = isMonthly
+    ? tier.features
+    : tier.features.filter(
+        (f) => !f.includes("Air Freshener") && !f.includes("Month Free"),
+      );
+
   const borderColor =
     tier.key === "magic"
       ? "#151b41"
@@ -239,7 +247,7 @@ function SpellCard({
           <div className="mb-5" style={{ height: 1, background: dividerColor }} />
 
           <ul className="flex-1 mb-7 space-y-3 sm:space-y-2.5" role="list">
-            {tier.features.map((f) => {
+            {displayedFeatures.map((f) => {
               const isInheritLine = f.startsWith("Everything");
               const isAirFreshener = f.includes("Air Freshener");
               const isMonthFree = f.includes("Month Free");

@@ -80,6 +80,10 @@ export function getDealItemId(
 
 // Join (new member) → internal wash package selection (drawer-based Nautilus checkout)
 export const JOIN_URL = "/packages";
+// "Join the Club" CTAs → hosted Nautilus storefront (customer picks location + membership)
+export const STOREFRONT_URL = `https://www.nautilus-app.com/c/storefront/${NAUTILUS_ORG_SLUG}`;
+// Gift cards → hosted Nautilus gift-card builder
+export const GIFTCARD_URL = `https://www.nautilus-app.com/c/giftcard-builder/${NAUTILUS_ORG_SLUG}`;
 // Manage existing membership → Nautilus customer portal
 export const MANAGE_ACCOUNT_URL =
   "https://www.nautilus-app.com/c/washwizard/portal";
