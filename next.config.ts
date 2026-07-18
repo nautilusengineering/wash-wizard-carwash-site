@@ -12,6 +12,17 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      // Temporarily hide the Rewards page. Remove this entry (and restore the
+      // Rewards nav link in Header.tsx + the /rewards sitemap entry) to re-enable it.
+      {
+        source: "/rewards",
+        destination: "/",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
