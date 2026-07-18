@@ -57,7 +57,7 @@ export default function RewardsPage() {
       {/* Reward tiers */}
       <section className="bg-background py-16 lg:py-24">
         <div className="mx-auto max-w-5xl px-4 lg:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-3xl mx-auto">
             {rewards.map((r) => {
               const Icon = r.icon;
               return (

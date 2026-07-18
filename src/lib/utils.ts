@@ -82,8 +82,9 @@ export function getDealItemId(
 export const JOIN_URL = "/packages";
 // "Join the Club" CTAs → hosted Nautilus storefront (customer picks location + membership)
 export const STOREFRONT_URL = `https://www.nautilus-app.com/c/storefront/${NAUTILUS_ORG_SLUG}`;
-// Gift cards → hosted Nautilus gift-card builder
-export const GIFTCARD_URL = `https://www.nautilus-app.com/c/giftcard-builder/${NAUTILUS_ORG_SLUG}`;
+// Gift cards → hosted Nautilus gift-card checkout page
+export const GIFTCARD_URL =
+  "https://www.nautilus-app.com/c/checkout/df07e434-c136-4592-ac61-29fa1d67f95f";
 // Manage existing membership → Nautilus customer portal
 export const MANAGE_ACCOUNT_URL =
   "https://www.nautilus-app.com/c/washwizard/portal";
