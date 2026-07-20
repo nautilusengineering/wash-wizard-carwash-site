@@ -12,7 +12,7 @@ const rewards = [
   {
     icon: Droplets,
     tag: "Reward 1",
-    title: "Every 5th Wash Is Free",
+    title: "Every 6th Wash Is Free",
     body: "Wash with us five times and your sixth wash is on the house — no membership required. Reset the counter and start earning again.",
     accent: "#41a1d3",
   },
