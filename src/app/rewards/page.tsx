@@ -12,15 +12,15 @@ const rewards = [
   {
     icon: Droplets,
     tag: "Reward 1",
-    title: "Every 6th Wash Is Free",
-    body: "Wash with us five times and your sixth wash is on the house — no membership required. Reset the counter and start earning again.",
+    title: "Every 6th Top 3 Wash Is Free",
+    body: "Every 6th Top 3 wash package purchase is FREE! Wash with us five times and your next one is a $30 King Graphene wash on the house. No membership needed — just rinse, repeat, and earn again.",
     accent: "#41a1d3",
   },
   {
     icon: Gift,
     tag: "Reward 2",
     title: "$100 Spent = Free Air Freshener",
-    body: "Every $100 you spend at Wash Wizard earns you a complimentary premium air freshener, hand-picked from our vending selection.",
+    body: "Spend $100 on Top 3 wash packages and snag a premium air freshener, hand-picked from our treasure chest.",
     accent: "#FFB800",
   },
 ];
@@ -88,6 +88,10 @@ export default function RewardsPage() {
               );
             })}
           </div>
+          <p className="mt-8 lg:mt-10 max-w-3xl mx-auto text-center text-sm text-muted-foreground">
+            Magic Wash packages aren&apos;t eligible for rewards — they&apos;re
+            magical, but not that magical.
+          </p>
         </div>
       </section>
 
