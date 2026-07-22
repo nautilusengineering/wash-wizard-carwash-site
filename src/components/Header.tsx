@@ -79,8 +79,8 @@ export default function Header() {
         )}
       />
       {/* Main nav */}
-      <div className="relative mx-auto max-w-7xl px-4 lg:px-6">
-        <div className="flex items-center justify-between h-16 lg:h-18 gap-6">
+      <div className="relative mx-auto max-w-[1440px] px-4 lg:px-6">
+        <div className="flex items-center justify-between h-16 lg:h-18 gap-3 2xl:gap-6">
           {/* Logo */}
           <Link
             href="/"
@@ -92,19 +92,19 @@ export default function Header() {
               alt="Wash Wizard Car Wash"
               width={220}
               height={64}
-              className="h-9 lg:h-11 w-auto"
+              className="h-9 xl:h-10 2xl:h-11 w-auto"
               priority
             />
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden xl:flex items-center gap-4 2xl:gap-6 mx-auto">
+          <nav className="hidden xl:flex items-center gap-3 2xl:gap-6 mx-auto whitespace-nowrap">
             {navItems.map((item) =>
               "children" in item ? (
                 <div key={item.label} className="relative group">
                   <button
                     type="button"
-                    className="flex items-center gap-1.5 text-base font-heading font-bold uppercase tracking-wider text-white hover:text-accent py-2"
+                    className="flex items-center gap-1 text-sm 2xl:text-base font-heading font-bold uppercase tracking-wide 2xl:tracking-wider text-white hover:text-accent py-2"
                   >
                     {item.label}
                     <ChevronDown className="size-4 shrink-0 transition-transform group-hover:rotate-180" />
@@ -127,7 +127,7 @@ export default function Header() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-base font-heading font-bold uppercase tracking-wider text-white hover:text-accent"
+                  className="text-sm 2xl:text-base font-heading font-bold uppercase tracking-wide 2xl:tracking-wider text-white hover:text-accent"
                 >
                   {item.label}
                 </Link>
@@ -136,7 +136,7 @@ export default function Header() {
           </nav>
 
           {/* Desktop CTAs */}
-          <div className="hidden xl:flex items-center gap-2">
+          <div className="hidden xl:flex shrink-0 items-center gap-2">
             <Button asChild size="default" className="px-4 2xl:px-5">
               <a href={STOREFRONT_URL} target="_blank" rel="noopener noreferrer">
                 Join the Club
