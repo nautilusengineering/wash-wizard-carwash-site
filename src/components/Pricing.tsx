@@ -36,6 +36,9 @@ const amenityPills = [
   "Floor Mat Cleaners",
 ];
 
+const newMemberBenefit =
+  "Online membership purchases include a complimentary $30 King Graphene wash to share with a friend. Redemption details are provided after purchase.";
+
 const tiers: Tier[] = [
   {
     key: "kings",
@@ -492,6 +495,20 @@ export default function Pricing() {
               />
             ))}
           </div>
+
+          {isMonthly && (
+            <div className="mt-8 rounded-2xl border border-accent/35 bg-accent/10 px-5 py-5 sm:px-7 sm:py-6 text-center shadow-sm">
+              <div className="flex items-center justify-center gap-2 text-primary mb-2">
+                <Star className="size-5 fill-accent text-accent" aria-hidden="true" />
+                <p className="font-heading font-bold uppercase tracking-wider text-base sm:text-lg">
+                  New online member benefit
+                </p>
+              </div>
+              <p className="text-foreground/80 max-w-3xl mx-auto leading-relaxed">
+                {newMemberBenefit}
+              </p>
+            </div>
+          )}
 
           <div className="mt-8 flex justify-center">
             {isMonthly && (

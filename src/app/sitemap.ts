@@ -8,6 +8,7 @@ const routes: { path: string; changeFrequency: MetadataRoute.Sitemap[number]["ch
   { path: "/washwizard-deals", changeFrequency: "weekly", priority: 0.9 },
   { path: "/locations", changeFrequency: "monthly", priority: 0.9 },
   { path: "/rewards", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/free-wash-offer", changeFrequency: "monthly", priority: 0.8 },
   { path: "/faq", changeFrequency: "monthly", priority: 0.7 },
   { path: "/about", changeFrequency: "yearly", priority: 0.6 },
   { path: "/the-wash-wizard-difference", changeFrequency: "yearly", priority: 0.6 },

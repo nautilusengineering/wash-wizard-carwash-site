@@ -22,6 +22,7 @@ const navItems: NavItem[] = [
   { label: "Packages", href: "/packages" },
   { label: "Deals", href: "/washwizard-deals" },
   { label: "Rewards", href: "/rewards" },
+  { label: "Buy Online", href: STOREFRONT_URL },
   {
     label: "About",
     children: [
@@ -97,7 +98,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden xl:flex items-center gap-5 2xl:gap-7 mx-auto">
+          <nav className="hidden xl:flex items-center gap-4 2xl:gap-6 mx-auto">
             {navItems.map((item) =>
               "children" in item ? (
                 <div key={item.label} className="relative group">
@@ -136,7 +137,7 @@ export default function Header() {
 
           {/* Desktop CTAs */}
           <div className="hidden xl:flex items-center gap-2">
-            <Button asChild size="default" className="px-4 2xl:px-6">
+            <Button asChild size="default" className="px-4 2xl:px-5">
               <a href={STOREFRONT_URL} target="_blank" rel="noopener noreferrer">
                 Join the Club
               </a>
@@ -146,7 +147,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="outline" size="default" className="px-4 2xl:px-6 text-sm">
+              <Button variant="outline" size="default" className="px-4 2xl:px-5 text-sm">
                 Manage My Account
               </Button>
             </a>
