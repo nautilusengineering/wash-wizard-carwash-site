@@ -30,15 +30,15 @@ export default function GiftCards() {
               Give the gift of <span className="text-accent">magic</span>
             </h2>
             <p className="text-lg lg:text-xl text-white/85 max-w-xl text-pretty mb-4">
-              The perfect present for anyone who loves a spotless ride — and
-              right now every card comes with bonus value baked in. Buy more,
-              get more.
+              The perfect gift for anyone who loves a gleaming, wizard-clean
+              ride! Many of our cards come packed with bonus value—buy more, get
+              more.
             </p>
             <p className="text-base text-white/65 max-w-xl mb-8">
-              Buy online in seconds and we&apos;ll send a printable barcode, or
-              grab a plastic card in any lobby. Redeemable for washes,
-              memberships, and amenities at all three Wash Wizard locations.
-              Smaller amounts and custom values available too.
+              Grab one online in seconds and we&apos;ll send you a printable barcode
+              or stop by any lobby to pick up a classic plastic card. Redeemable
+              for washes (with all included amenities) at all three Wash Wizard
+              locations. Smaller amounts available too.
             </p>
             <Button asChild size="lg">
               <a href={GIFTCARD_URL} target="_blank" rel="noopener noreferrer">
