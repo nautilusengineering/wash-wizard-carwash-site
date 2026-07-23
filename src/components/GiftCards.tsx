@@ -30,7 +30,7 @@ export default function GiftCards() {
               Give the gift of <span className="text-accent">magic</span>
             </h2>
             <p className="text-lg lg:text-xl text-white/85 max-w-xl text-pretty mb-4">
-              The perfect gift for anyone who loves a gleaming, wizard-clean
+              The perfect gift for anyone who loves a gleaming, wizard‑clean
               ride! Many of our cards come packed with bonus value—buy more, get
               more.
             </p>
