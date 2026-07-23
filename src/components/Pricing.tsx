@@ -241,6 +241,14 @@ function SpellCard({
             >
               {priceLabel}
             </span>
+            {tier.key !== "magic" && (
+              <span
+                className="block mt-2 text-xs font-heading font-bold uppercase tracking-widest"
+                style={{ color: bulletColor }}
+              >
+                Wash Rewards Eligible
+              </span>
+            )}
           </div>
 
           <div className="mb-5" style={{ height: 1, background: dividerColor }} />
