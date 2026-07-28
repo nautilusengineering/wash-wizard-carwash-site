@@ -1,4 +1,4 @@
-import { Droplets, Gift, ArrowRight } from "lucide-react";
+import { Droplets, Gift, ArrowRight, TicketPercent } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import RewardsNautilusForm from "./nautilus-form";
 
@@ -9,6 +9,13 @@ export const metadata = {
 };
 
 const rewards = [
+  {
+    icon: TicketPercent,
+    tag: "Signup Reward",
+    title: "$10 Off King Graphene",
+    body: "Sign up for Wash Rewards on site and instantly score a $10 OFF coupon toward your next premium King Graphene Wash — the perfect way to kick off your rewards journey with magical shine and long‑lasting protection!",
+    accent: "#FFB800",
+  },
   {
     icon: Droplets,
     tag: "Reward 1",
@@ -57,7 +64,7 @@ export default function RewardsPage() {
       {/* Reward tiers */}
       <section className="bg-background py-16 lg:py-24">
         <div className="mx-auto max-w-5xl px-4 lg:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
             {rewards.map((r) => {
               const Icon = r.icon;
               return (
