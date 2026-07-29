@@ -51,6 +51,7 @@ const tiers: Tier[] = [
       "Our Best Light Show!",
       "Light Hand Prep Process",
       "Free Monthly Air Freshener",
+      "9th Month Free",
     ],
     isBest: true,
     family: {
@@ -241,7 +242,7 @@ function SpellCard({
             >
               {priceLabel}
             </span>
-            {tier.key !== "magic" && (
+            {!isMonthly && tier.key !== "magic" && (
               <span
                 className="block mt-2 text-xs font-heading font-bold uppercase tracking-widest"
                 style={{ color: bulletColor }}
