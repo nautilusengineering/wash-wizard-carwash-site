@@ -50,7 +50,7 @@ const rewards = [
         glowing.
       </>
     ),
-    cta: "Open Manage My Account",
+    cta: "Manage My Account",
     href: MANAGE_ACCOUNT_URL,
     accent: "#7C3AED",
   },
