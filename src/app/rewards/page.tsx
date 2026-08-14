@@ -116,7 +116,7 @@ export default function RewardsPage() {
                     {r.body}
                   </p>
                   {r.href && r.cta ? (
-                    <Button asChild variant="outline" className="mt-6 self-start">
+                    <Button asChild variant="outlineDark" className="mt-6 self-start">
                       <a href={r.href} target="_blank" rel="noopener noreferrer">
                         {r.cta}
                         <ArrowRight className="size-4" />
