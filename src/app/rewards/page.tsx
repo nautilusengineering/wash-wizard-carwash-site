@@ -117,10 +117,14 @@ export default function RewardsPage() {
                   </p>
                   {r.href && r.cta ? (
                     <div className="mt-auto pt-6">
-                      <Button asChild variant="outlineDark" className="w-full">
+                      <Button
+                        asChild
+                        variant="outlineDark"
+                        className="h-auto min-h-11 w-full whitespace-normal px-3 py-2 text-center text-xs leading-tight tracking-normal"
+                      >
                         <a href={r.href} target="_blank" rel="noopener noreferrer">
-                          {r.cta}
-                          <ArrowRight className="size-4" />
+                          <span>{r.cta}</span>
+                          <ArrowRight className="size-4 shrink-0" />
                         </a>
                       </Button>
                     </div>
