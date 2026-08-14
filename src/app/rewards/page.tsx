@@ -1,27 +1,58 @@
-import { Droplets, Gift, ArrowRight } from "lucide-react";
+import { ArrowRight, Coins, Gauge, TicketPercent } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { MANAGE_ACCOUNT_URL } from "@/lib/utils";
 import RewardsNautilusForm from "./nautilus-form";
 
 export const metadata = {
   title: "Wash Rewards | Wash Wizard Car Wash",
   description:
-    "Wash Rewards — earn free washes and free air fresheners just for keeping your ride clean. Free to join for any Wash Wizard customer.",
+    "Join Wash Rewards, earn 1 Wash Point per dollar on every retail wash package, and redeem points for rewards in your Wizard Dashboard.",
 };
 
 const rewards = [
   {
-    icon: Droplets,
-    tag: "Reward 1",
-    title: "Every 6th Top 3 Wash Is Free",
-    body: "Every 6th Top 3 wash package purchase is FREE! Wash with us five times and your next one is a $30 King Graphene wash on the house. No membership needed — just rinse, repeat, and earn again.",
+    icon: TicketPercent,
+    tag: "Signup Reward",
+    title: "Your Magical Welcome Gift",
+    body: (
+      <>
+        Sign up for <strong>Wash Rewards</strong> right at the pay station or via
+        our online Reward Enrollment Form and <em>POOF!</em> — a{" "}
+        <strong>$10 OFF King Graphene Wash</strong> coupon appears like wizardry.
+        Kick off your journey with shimmering shine, graphene protection, and a
+        little spell of savings.
+      </>
+    ),
+    accent: "#FFB800",
+  },
+  {
+    icon: Coins,
+    tag: "Reward Points",
+    title: "Earn as You Shine",
+    body: (
+      <>
+        Every retail wash package earns <strong>1 point per dollar</strong>.
+        Stack ’em up and spend ’em in our <strong>Reward Shop</strong> for
+        discounts, free washes, and enchanted car-care goodies. No membership
+        required — just rinse, repeat, and let the magic multiply.
+      </>
+    ),
     accent: "#41a1d3",
   },
   {
-    icon: Gift,
-    tag: "Reward 2",
-    title: "$100 Spent = Free Air Freshener",
-    body: "Spend $100 on Top 3 wash packages and snag a premium air freshener, hand-picked from our treasure chest.",
-    accent: "#FFB800",
+    icon: Gauge,
+    tag: "Tracking & Access",
+    title: "Your Wizard Dashboard",
+    body: (
+      <>
+        Log in through the <strong>Manage My Account</strong> portal anytime to
+        check your points, browse rewards, and keep your Wash Wizard journey
+        glowing.
+      </>
+    ),
+    cta: "Open Manage My Account",
+    href: MANAGE_ACCOUNT_URL,
+    accent: "#7C3AED",
   },
 ];
 
@@ -39,9 +70,9 @@ export default function RewardsPage() {
             <span className="text-accent">every wash</span>
           </h1>
           <p className="text-lg lg:text-xl text-white/85 max-w-2xl mx-auto text-pretty">
-            Not ready for a monthly Unlimited plan? No problem. Wash Rewards is
-            our free loyalty program for retail washers — earn free washes and
-            free air fresheners just for stopping in.
+            Join free, earn <strong>1 Wash Point per dollar</strong> on every
+            retail wash package, and turn your shine into discounts, free washes,
+            and enchanted car-care goodies.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Button asChild size="lg">
@@ -57,7 +88,7 @@ export default function RewardsPage() {
       {/* Reward tiers */}
       <section className="bg-background py-16 lg:py-24">
         <div className="mx-auto max-w-5xl px-4 lg:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
             {rewards.map((r) => {
               const Icon = r.icon;
               return (
@@ -84,14 +115,18 @@ export default function RewardsPage() {
                   <p className="text-base text-foreground leading-relaxed">
                     {r.body}
                   </p>
+                  {r.href && r.cta ? (
+                    <Button asChild variant="outlineDark" className="mt-6 self-start">
+                      <a href={r.href} target="_blank" rel="noopener noreferrer">
+                        {r.cta}
+                        <ArrowRight className="size-4" />
+                      </a>
+                    </Button>
+                  ) : null}
                 </div>
               );
             })}
           </div>
-          <p className="mt-8 lg:mt-10 max-w-3xl mx-auto text-center text-sm text-muted-foreground">
-            Magic Wash packages aren&apos;t eligible for rewards — they&apos;re
-            magical, but not that magical.
-          </p>
         </div>
       </section>
 
@@ -103,8 +138,8 @@ export default function RewardsPage() {
               Enroll for <span className="text-accent">free</span>
             </h2>
             <p className="text-lg lg:text-xl text-white/85 max-w-xl mx-auto">
-              One-time signup. We&apos;ll link your rewards to your phone number
-              so every wash and every dollar counts automatically.
+              Complete the online Reward Enrollment Form below, or sign up at a
+              Wash Wizard pay station, to begin your rewards journey.
             </p>
           </div>
 
