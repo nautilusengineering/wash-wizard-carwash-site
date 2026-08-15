@@ -50,8 +50,6 @@ const tiers: Tier[] = [
       "Buffing and Extra Drying",
       "Our Best Light Show!",
       "Light Hand Prep Process",
-      "Free Monthly Air Freshener",
-      "9th Month Free",
     ],
     isBest: true,
     family: {
@@ -74,7 +72,6 @@ const tiers: Tier[] = [
       "Magic Potion Foam",
       "Ceramic Shine Coating",
       "Light Hand Prep Process",
-      "Free Monthly Air Freshener",
     ],
     family: {
       veh2: "$67.99",
