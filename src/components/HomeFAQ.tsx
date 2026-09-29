@@ -33,7 +33,7 @@ const faqs: FAQ[] = [
   },
   {
     q: "Are you open on holidays?",
-    a: "We're open 7 days a week (Summer · 8 AM – 8 PM, Winter · 8 AM – 7 PM). Closed Thanksgiving & Christmas. Closing early at 6 PM on 4th of July, Christmas Eve, and New Year's Eve.",
+    a: "We're open 7 days a week (October–February · 8 AM – 7 PM, March–September · 8 AM – 8 PM). Closed Thanksgiving & Christmas. Closing early at 6 PM on 4th of July, Christmas Eve, and New Year's Eve.",
   },
 ];
 
