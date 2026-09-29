@@ -165,11 +165,11 @@ export default function Locations() {
             <span className="font-heading font-semibold uppercase tracking-widest text-primary flex items-center gap-2">
               <Clock className="size-5 sm:size-4 shrink-0 text-accent" /> Open 7 Days
             </span>
-            <span className="text-muted-foreground">
-              Summer · 8 AM – 8 PM
+            <span className="text-muted-foreground w-full sm:w-auto">
+              October–February <span className="whitespace-nowrap">· 8 AM – 7 PM</span>
             </span>
-            <span className="text-muted-foreground">
-              Winter · 8 AM – 7 PM
+            <span className="text-muted-foreground w-full sm:w-auto">
+              March–September <span className="whitespace-nowrap">· 8 AM – 8 PM</span>
             </span>
             <a
               href={PHONE_HREF}
