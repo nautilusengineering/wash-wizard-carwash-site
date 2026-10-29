@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ClipboardList, MessageSquareText, Car } from "lucide-react";
-import FreeWashNautilusForm from "./nautilus-form";
+import { MapPin, CreditCard, Car } from "lucide-react";
+import FreeWashNautilusCheckout from "./nautilus-checkout";
 
 // Campaign landing page for paid social / QR placements. Intentionally not in
 // the header, footer, or sitemap, and kept out of search results.
@@ -18,14 +18,14 @@ const PURPLE_DARK =
 
 const steps = [
   {
-    icon: ClipboardList,
-    title: "Sign up with your plate",
-    body: "Tell us who you are and enter your license plate number.",
+    icon: MapPin,
+    title: "Pick your location",
+    body: "Choose the Wash Wizard you\u2019ll visit and select the FREE King Graphene wash.",
   },
   {
-    icon: MessageSquareText,
-    title: "We check and text you",
-    body: "Once we check your license plate in our system, we\u2019ll text your confirmation.",
+    icon: CreditCard,
+    title: "Check out for $0",
+    body: "Enter your name, phone, and license plate. Your total is $0.00 and we\u2019ll text your confirmation.",
   },
   {
     icon: Car,
@@ -37,7 +37,7 @@ const steps = [
 export default function FreeWashPage() {
   return (
     <>
-      {/* Dark hero + form */}
+      {/* Dark hero + checkout */}
       <section
         className="relative overflow-hidden text-white pt-24 lg:pt-28 pb-14 lg:pb-20"
         style={{ background: PURPLE_DARK }}
@@ -64,10 +64,10 @@ export default function FreeWashPage() {
           </p>
         </div>
 
-        {/* Form card */}
+        {/* Checkout card */}
         <div className="relative mx-auto max-w-3xl px-4 lg:px-6 mt-10 lg:mt-12">
           <div className="bg-white rounded-2xl p-3 sm:p-5 shadow-xl overflow-hidden text-foreground">
-            <FreeWashNautilusForm />
+            <FreeWashNautilusCheckout />
           </div>
         </div>
       </section>
