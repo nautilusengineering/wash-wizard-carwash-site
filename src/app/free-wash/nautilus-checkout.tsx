@@ -2,10 +2,11 @@
 
 import { useEffect, useRef } from "react";
 
-// Nautilus form: "Website – $1 King Graphene Offer" (Wash Wizard tenant).
-const FREE_WASH_FORM_ID = "85f4a5b5-b31d-418b-b761-e1efbcd04d2b";
+// Nautilus checkout: "Website – FREE King Graphene" (Wash Wizard tenant).
+// Sells the $0 King Graphene wash book (Sonny's SKU 1778873494) per location.
+const FREE_WASH_CHECKOUT_ID = "41d5aa73-82eb-4222-851d-3e2ac24c36c2";
 
-export default function FreeWashNautilusForm() {
+export default function FreeWashNautilusCheckout() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -28,9 +29,9 @@ export default function FreeWashNautilusForm() {
   return (
     <div
       ref={containerRef}
-      data-nautilus-embed="form"
-      data-src={`/c/form/${FREE_WASH_FORM_ID}`}
-      data-height="760px"
+      data-nautilus-embed="checkout"
+      data-src={`/c/checkout/${FREE_WASH_CHECKOUT_ID}`}
+      data-height="1100px"
     />
   );
 }
