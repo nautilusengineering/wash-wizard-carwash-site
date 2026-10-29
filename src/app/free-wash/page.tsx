@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MapPin, CreditCard, Car } from "lucide-react";
-import FreeWashNautilusCheckout from "./nautilus-checkout";
+import { ClipboardList, MessageSquareText, Car } from "lucide-react";
+import FreeWashNautilusForm from "./nautilus-form";
 
 // Campaign landing page for paid social / QR placements. Intentionally not in
 // the header, footer, or sitemap, and kept out of search results.
@@ -18,18 +18,18 @@ const PURPLE_DARK =
 
 const steps = [
   {
-    icon: MapPin,
-    title: "Pick your location",
-    body: "Choose the Wash Wizard you\u2019ll visit and select the FREE King Graphene wash.",
+    icon: ClipboardList,
+    title: "Sign up with your plate",
+    body: "Enter your name, phone, and license plate number.",
   },
   {
-    icon: CreditCard,
-    title: "Check out for $0",
-    body: "Enter your name, phone, and license plate. Your total is $0.00 and we\u2019ll text your confirmation.",
+    icon: MessageSquareText,
+    title: "Get your link by text",
+    body: "We\u2019ll text you a personal link to claim your FREE King Graphene wash.",
   },
   {
     icon: Car,
-    title: "Just roll up",
+    title: "Check out for $0, then roll up",
     body: "Your King Graphene wash is linked to your plate. Our license plate cameras recognize your vehicle at the payment kiosk.",
   },
 ];
@@ -37,7 +37,7 @@ const steps = [
 export default function FreeWashPage() {
   return (
     <>
-      {/* Dark hero + checkout */}
+      {/* Dark hero + form */}
       <section
         className="relative overflow-hidden text-white pt-24 lg:pt-28 pb-14 lg:pb-20"
         style={{ background: PURPLE_DARK }}
@@ -64,10 +64,10 @@ export default function FreeWashPage() {
           </p>
         </div>
 
-        {/* Checkout card */}
+        {/* Form card */}
         <div className="relative mx-auto max-w-3xl px-4 lg:px-6 mt-10 lg:mt-12">
           <div className="bg-white rounded-2xl p-3 sm:p-5 shadow-xl overflow-hidden text-foreground">
-            <FreeWashNautilusCheckout />
+            <FreeWashNautilusForm />
           </div>
         </div>
       </section>
@@ -84,8 +84,8 @@ export default function FreeWashPage() {
             </h2>
             <p className="text-base lg:text-lg text-foreground/80 max-w-2xl mx-auto text-pretty">
               Once we check your license plate in our system, we&rsquo;ll text
-              your confirmation and conjure up your King Graphene wash and link
-              it directly to your vehicle license plate number. No codes, no
+              you a personal link to claim your King Graphene wash, and it&rsquo;s
+              linked directly to your vehicle license plate number. No codes, no
               hassle, just pure magic and graphene shine.
             </p>
           </div>
