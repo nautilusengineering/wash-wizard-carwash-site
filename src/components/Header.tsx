@@ -38,6 +38,7 @@ const navItems: NavItem[] = [
     label: "Resources",
     children: [
       { label: "FAQ", href: "/faq" },
+      { label: "Announcements", href: "/announcements" },
       { label: "Contact Us", href: "/contact-us" },
       { label: "Report an Issue", href: "/report-issue" },
       { label: "Member Welcome", href: "/welcome" },
